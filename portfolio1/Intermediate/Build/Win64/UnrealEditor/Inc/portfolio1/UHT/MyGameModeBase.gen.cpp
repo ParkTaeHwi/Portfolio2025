@@ -76,7 +76,6 @@ template<> PORTFOLIO1_API UClass* StaticClass<AMyGameModeBase>()
 {
 	return AMyGameModeBase::StaticClass();
 }
-AMyGameModeBase::AMyGameModeBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 DEFINE_VTABLE_PTR_HELPER_CTOR(AMyGameModeBase);
 AMyGameModeBase::~AMyGameModeBase() {}
 // End Class AMyGameModeBase

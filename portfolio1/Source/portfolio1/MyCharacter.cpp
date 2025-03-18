@@ -3,6 +3,10 @@
 
 #include "MyCharacter.h"
 
+#include "EnhancedInputComponent.h"	    // Enhanced Input System에서 제공하는 입력 컴포넌트를 사용하기 위한 헤더
+#include "EnhancedInputSubsystems.h"	// 입력 시스템을 관리하는 클래스들이 포함된 헤더
+#include "InputActionValue.h"           // Enhanced Input System에서 입력 값을 처리하기 위한 구조체
+
 // Sets default values
 AMyCharacter::AMyCharacter()
 {
@@ -30,5 +34,21 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void AMyCharacter::Move(const FInputActionValue& value)
+{
+}
+
+void AMyCharacter::Look(const FInputActionValue& value)
+{
+}
+
+void AMyCharacter::JumpA(const FInputActionValue& value)
+{
+}
+
+void AMyCharacter::Attack(const FInputActionValue& value)
+{
 }
 

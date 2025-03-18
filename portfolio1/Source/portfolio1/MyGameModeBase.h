@@ -14,6 +14,7 @@ class PORTFOLIO1_API AMyGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 
-	//static ConstructorHelpers::FClassFinder<AMyCharacter> 
+public:
+	AMyGameModeBase();	// 객체가 생성될 때 실행될 생성자 선언
 	
 };
