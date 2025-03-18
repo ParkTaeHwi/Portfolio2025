@@ -11,6 +11,7 @@
     <None Include="..\..\Source\portfolio1Editor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -32,6 +33,18 @@
     <Filter Include="Source\portfolio1">
       <UniqueIdentifier>{0597AC32-6FDE-3607-BC14-C796078DA832}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\portfolio1\MyCharacter.cpp">
+      <Filter>Source\portfolio1</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio1\MyCharacter.h">
+      <Filter>Source\portfolio1</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio1\MyGameModeBase.cpp">
+      <Filter>Source\portfolio1</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio1\MyGameModeBase.h">
+      <Filter>Source\portfolio1</Filter>
+    </ClInclude>
     <None Include="..\..\Source\portfolio1\portfolio1.Build.cs">
       <Filter>Source\portfolio1</Filter>
     </None>
