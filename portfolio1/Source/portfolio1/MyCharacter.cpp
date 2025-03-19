@@ -19,6 +19,8 @@
 #include "MyStatComponent.h"
 #include "Components/WidgetComponent.h"
 
+#include "MyHpBar.h"
+
 // Sets default values
 AMyCharacter::AMyCharacter()
 {
@@ -37,6 +39,17 @@ AMyCharacter::AMyCharacter()
 	_springArm->SetRelativeRotation(FRotator(-35.0f, 0.0f, 0.0f));
 
 	_statComponent = CreateDefaultSubobject<UMyStatComponent>(TEXT("Stat"));
+
+	_hpBarWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("HpBar"));
+	_hpBarWidget->SetupAttachment(GetMesh());
+	//_hpBarWidget->SetWidgetSpace(EWidgetSpace::Screen);
+	_hpBarWidget->SetWidgetSpace(EWidgetSpace::World);
+
+	static ConstructorHelpers::FClassFinder<UMyHpBar>hpBarClass(TEXT("/Script/UMGEditor.WidgetBlueprint'/Game/BluePrint/BP_MyHpBar.BP_MyHpBar'_C"));
+	if (hpBarClass.Succeeded())
+	{
+		_hpBarWidget->SetWidgetClass(hpBarClass.Class);
+	}
 }
 
 // Called when the game starts or when spawned
@@ -53,6 +66,12 @@ void AMyCharacter::BeginPlay()
 	_animInstance->_attackStart3.AddDynamic(this, &AMyCharacter::TestDelegate3);
 	_animInstance->OnMontageEnded.AddDynamic(this, &AMyCharacter::AttackEnd);
 	_animInstance->_hitEvent.AddUObject(this, &AMyCharacter::Attack_Hit);
+
+	auto hpBar = Cast<UMyHpBar>(_hpBarWidget->GetWidget());
+	if (hpBar)
+	{
+		_statComponent->_hpChanged.AddUObject(hpBar, &UMyHpBar::SetHpBarValue);
+	}
 }
 
 // Called every frame
@@ -63,12 +82,11 @@ void AMyCharacter::Tick(float DeltaTime)
 	auto playerCameraManager = GetWorld()->GetFirstPlayerController()->PlayerCameraManager;
 	if (playerCameraManager)
 	{
-		//FVector hpBarLocation = _hpBarWidget->GetComponentLocation();
+		FVector hpBarLocation = _hpBarWidget->GetComponentLocation();
 		FVector cameraLocation = playerCameraManager->GetCameraLocation();
-		//FRotator rot = UKismetMathLibrary::FindLookAtRotation(hpBarLocation, cameraLocation);
-		//_hpBarWidget->SetWorldRotation(rot);
+		FRotator rot = UKismetMathLibrary::FindLookAtRotation(hpBarLocation, cameraLocation);
+		_hpBarWidget->SetWorldRotation(rot);
 	}
-
 }
 
 // Called to bind functionality to input
@@ -94,9 +112,6 @@ void AMyCharacter::Move(const FInputActionValue& value)
 	{
 		if (moveVector.Length() > 0.01f)
 		{
-			//UE_LOG(LogTemp, Error, TEXT("Y : %f"), moveVector.Y);
-			//UE_LOG(LogTemp, Error, TEXT("X : %f"), moveVector.X);
-
 			FVector forWard = GetActorForwardVector();
 			FVector right = GetActorRightVector();
 
@@ -143,9 +158,12 @@ void AMyCharacter::Attack(const FInputActionValue& value)
 	if (isPress)
 	{
 		_isAttack = true;
-
 		_curAttackSection = (_curAttackSection + 1) % 3 + 1;
-		_animInstance->PlayAnimMontage();
+
+		if (!_animInstance->IsAnyMontagePlaying())
+		{
+			_animInstance->PlayAnimMontage();
+		}
 		_animInstance->JumpToSection(_curAttackSection);
 	}
 }
@@ -221,8 +239,6 @@ void AMyCharacter::Attack_Hit()
 
 	//충돌체그리기
 	DrawDebugCapsule(GetWorld(), center, attackRange * 0.5f, attackRadius, quat, drawColor, false, 1.0f);
-
-
 }
 
 void AMyCharacter::AddHp(float amount)
@@ -233,10 +249,6 @@ void AMyCharacter::AddHp(float amount)
 float AMyCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
 	_statComponent->AddCurHp(-Damage);
-
-	//FString attackName = DamageCauser->GetName();
-	//FString victimName = GetName();
-	//UE_LOG(LogTemp, Warning, TEXT("%s has taken %.2f from %s"),*victimName,  Damage, *attackName);
 
 	return Damage;
 }

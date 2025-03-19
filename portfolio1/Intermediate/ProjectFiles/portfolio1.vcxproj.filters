@@ -57,6 +57,12 @@
     <ClInclude Include="..\..\Source\portfolio1\MyGameModeBase.h">
       <Filter>Source\portfolio1</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio1\MyHpBar.cpp">
+      <Filter>Source\portfolio1</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio1\MyHpBar.h">
+      <Filter>Source\portfolio1</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\portfolio1\MyPlayerController.cpp">
       <Filter>Source\portfolio1</Filter>
     </ClCompile>
