@@ -2,36 +2,41 @@
 
 
 #include "MyCharacter.h"
-#include "MyStatComponent.h"
-#include "MyAnimInstance.h"
 
-#include "EnhancedInputComponent.h"	            // Enhanced Input System에서 제공하는 입력 컴포넌트를 사용하기 위한 헤더
-#include "EnhancedInputSubsystems.h"	        // 입력 시스템을 관리하는 클래스들이 포함된 헤더
-#include "InputActionValue.h"                   // Enhanced Input System에서 입력 값을 처리하기 위한 구조체
+#include "Kismet/KismetMathLibrary.h"
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
+#include "InputActionValue.h"
 
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 
+#include "MyAnimInstance.h"
+
+#include "Engine/DamageEvents.h"
+
+#include "MyStatComponent.h"
+#include "Components/WidgetComponent.h"
+
 // Sets default values
 AMyCharacter::AMyCharacter()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -88.0f), FRotator(0.0f, -90.0f, 0.0f));
 
-	// 컴포넌트 생성
 	_springArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
 	_camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 
-	// 컴포넌트 계층구조 설정
 	_springArm->SetupAttachment(GetCapsuleComponent());
 	_camera->SetupAttachment(_springArm);
 
-	_springArm->TargetArmLength = 500.0f;							// 카메라 거리
-	_springArm->SetRelativeRotation(FRotator(-35.0f, 0.0f, 0.0f));  // 카메라 각도
+	_springArm->TargetArmLength = 500.0f;
+	_springArm->SetRelativeRotation(FRotator(-35.0f, 0.0f, 0.0f));
 
+	_statComponent = CreateDefaultSubobject<UMyStatComponent>(TEXT("Stat"));
 }
 
 // Called when the game starts or when spawned
@@ -40,13 +45,14 @@ void AMyCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	_animInstance = Cast<UMyAnimInstance>(GetMesh()->GetAnimInstance());
+	if (_animInstance == nullptr)
+		UE_LOG(LogTemp, Error, TEXT("AnimInstance did not Set"));
 
 	_animInstance->_attackStart.BindUObject(this, &AMyCharacter::TestDelegate1);
 	_animInstance->_attackStart2.BindUObject(this, &AMyCharacter::TestDelegate2);
 	_animInstance->_attackStart3.AddDynamic(this, &AMyCharacter::TestDelegate3);
 	_animInstance->OnMontageEnded.AddDynamic(this, &AMyCharacter::AttackEnd);
 	_animInstance->_hitEvent.AddUObject(this, &AMyCharacter::Attack_Hit);
-	
 }
 
 // Called every frame
@@ -55,9 +61,17 @@ void AMyCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	auto playerCameraManager = GetWorld()->GetFirstPlayerController()->PlayerCameraManager;
+	if (playerCameraManager)
+	{
+		//FVector hpBarLocation = _hpBarWidget->GetComponentLocation();
+		FVector cameraLocation = playerCameraManager->GetCameraLocation();
+		//FRotator rot = UKismetMathLibrary::FindLookAtRotation(hpBarLocation, cameraLocation);
+		//_hpBarWidget->SetWorldRotation(rot);
+	}
+
 }
 
-// Called to "BIND" functionality to input
+// Called to bind functionality to input
 void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
@@ -80,6 +94,9 @@ void AMyCharacter::Move(const FInputActionValue& value)
 	{
 		if (moveVector.Length() > 0.01f)
 		{
+			//UE_LOG(LogTemp, Error, TEXT("Y : %f"), moveVector.Y);
+			//UE_LOG(LogTemp, Error, TEXT("X : %f"), moveVector.X);
+
 			FVector forWard = GetActorForwardVector();
 			FVector right = GetActorRightVector();
 
@@ -133,6 +150,23 @@ void AMyCharacter::Attack(const FInputActionValue& value)
 	}
 }
 
+void AMyCharacter::TestDelegate1()
+{
+	UE_LOG(LogTemp, Log, TEXT("Attack Start Delegate Test1"));
+}
+
+int32 AMyCharacter::TestDelegate2(int32 a, int32 b)
+{
+	UE_LOG(LogTemp, Log, TEXT("Attack Start Delegate Test, %d %d"), a, b);
+
+	return -1;
+}
+
+void AMyCharacter::TestDelegate3()
+{
+	UE_LOG(LogTemp, Log, TEXT("Attack Start Delegate Test3"));
+}
+
 void AMyCharacter::AttackEnd(UAnimMontage* Montage, bool bInterrupted)
 {
 	_isAttack = false;
@@ -140,6 +174,10 @@ void AMyCharacter::AttackEnd(UAnimMontage* Montage, bool bInterrupted)
 
 void AMyCharacter::Attack_Hit()
 {
+	// 이 함수를 호출한 객체의 이름
+	// auto name = GetName();
+	// UE_LOG(LogTemp, Error, TEXT("Attacker : %s"),*name);
+
 	FHitResult hitResult;
 	FCollisionQueryParams params(NAME_None, false, this);
 
@@ -170,7 +208,7 @@ void AMyCharacter::Attack_Hit()
 
 	FColor drawColor = FColor::Green;
 
-	/*if (bResult && hitResult.GetActor()->IsValidLowLevel())
+	if (bResult && hitResult.GetActor()->IsValidLowLevel())
 	{
 		drawColor = FColor::Red;
 		AMyCharacter* victim = Cast<AMyCharacter>(hitResult.GetActor());
@@ -179,26 +217,29 @@ void AMyCharacter::Attack_Hit()
 			FDamageEvent damageEvent = FDamageEvent();
 			victim->TakeDamage(_statComponent->GetAtk(), damageEvent, GetController(), this);
 		}
-	}*/
+	}
 
 	//충돌체그리기
 	DrawDebugCapsule(GetWorld(), center, attackRange * 0.5f, attackRadius, quat, drawColor, false, 1.0f);
+
+
 }
 
-void AMyCharacter::TestDelegate1()
+void AMyCharacter::AddHp(float amount)
 {
-	UE_LOG(LogTemp, Log, TEXT("Attack Start Delegate Test1"));
+	_statComponent->AddCurHp(amount);
 }
 
-int32 AMyCharacter::TestDelegate2(int32 a, int32 b)
+float AMyCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
-	UE_LOG(LogTemp, Log, TEXT("Attack Start Delegate Test, %d %d"), a, b);
+	_statComponent->AddCurHp(-Damage);
 
-	return -1;
+	//FString attackName = DamageCauser->GetName();
+	//FString victimName = GetName();
+	//UE_LOG(LogTemp, Warning, TEXT("%s has taken %.2f from %s"),*victimName,  Damage, *attackName);
+
+	return Damage;
 }
 
-void AMyCharacter::TestDelegate3()
-{
-	UE_LOG(LogTemp, Log, TEXT("Attack Start Delegate Test3"));
-}
+
 

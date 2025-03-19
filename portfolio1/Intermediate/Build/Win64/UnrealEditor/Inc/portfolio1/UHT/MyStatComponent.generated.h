@@ -22,7 +22,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 template<> PORTFOLIO1_API UScriptStruct* StaticStruct<struct FMyStatData>();
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyStatComponent_h_26_INCLASS_NO_PURE_DECLS \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyStatComponent_h_27_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyStatComponent(); \
 	friend struct Z_Construct_UClass_UMyStatComponent_Statics; \
@@ -31,7 +31,7 @@ public: \
 	DECLARE_SERIALIZER(UMyStatComponent)
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyStatComponent_h_26_ENHANCED_CONSTRUCTORS \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyStatComponent_h_27_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UMyStatComponent(UMyStatComponent&&); \
@@ -43,12 +43,12 @@ public: \
 	NO_API virtual ~UMyStatComponent();
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyStatComponent_h_23_PROLOG
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyStatComponent_h_26_GENERATED_BODY \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyStatComponent_h_24_PROLOG
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyStatComponent_h_27_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyStatComponent_h_26_INCLASS_NO_PURE_DECLS \
-	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyStatComponent_h_26_ENHANCED_CONSTRUCTORS \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyStatComponent_h_27_INCLASS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyStatComponent_h_27_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
