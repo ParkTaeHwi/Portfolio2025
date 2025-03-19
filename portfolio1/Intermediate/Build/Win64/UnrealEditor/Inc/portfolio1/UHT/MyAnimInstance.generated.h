@@ -19,6 +19,7 @@ PORTFOLIO1_API void FAnimDelegateTest3_DelegateWrapper(const FMulticastScriptDel
 
 
 #define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execAnimNotify_Attack_Hit); \
 	DECLARE_FUNCTION(execPlayAnimMontage);
 
 

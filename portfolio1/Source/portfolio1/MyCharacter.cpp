@@ -38,6 +38,14 @@ AMyCharacter::AMyCharacter()
 void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	_animInstance = Cast<UMyAnimInstance>(GetMesh()->GetAnimInstance());
+
+	_animInstance->_attackStart.BindUObject(this, &AMyCharacter::TestDelegate1);
+	_animInstance->_attackStart2.BindUObject(this, &AMyCharacter::TestDelegate2);
+	_animInstance->_attackStart3.AddDynamic(this, &AMyCharacter::TestDelegate3);
+	_animInstance->OnMontageEnded.AddDynamic(this, &AMyCharacter::AttackEnd);
+	_animInstance->_hitEvent.AddUObject(this, &AMyCharacter::Attack_Hit);
 	
 }
 
@@ -46,13 +54,22 @@ void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	auto playerCameraManager = GetWorld()->GetFirstPlayerController()->PlayerCameraManager;
 }
 
-// Called to bind functionality to input
+// Called to "BIND" functionality to input
 void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	UEnhancedInputComponent* enhancedInputCompnent = Cast<UEnhancedInputComponent>(PlayerInputComponent);
+	if (enhancedInputCompnent)
+	{
+		enhancedInputCompnent->BindAction(_moveAction, ETriggerEvent::Triggered, this, &AMyCharacter::Move);
+		enhancedInputCompnent->BindAction(_lookAction, ETriggerEvent::Triggered, this, &AMyCharacter::Look);
+		enhancedInputCompnent->BindAction(_jumpAction, ETriggerEvent::Triggered, this, &AMyCharacter::JumpA);
+		enhancedInputCompnent->BindAction(_attackAction, ETriggerEvent::Triggered, this, &AMyCharacter::Attack);
+	}
 }
 
 void AMyCharacter::Move(const FInputActionValue& value)
@@ -114,5 +131,74 @@ void AMyCharacter::Attack(const FInputActionValue& value)
 		_animInstance->PlayAnimMontage();
 		_animInstance->JumpToSection(_curAttackSection);
 	}
+}
+
+void AMyCharacter::AttackEnd(UAnimMontage* Montage, bool bInterrupted)
+{
+	_isAttack = false;
+}
+
+void AMyCharacter::Attack_Hit()
+{
+	FHitResult hitResult;
+	FCollisionQueryParams params(NAME_None, false, this);
+
+	float attackRange = 500.0f;
+	float attackRadius = 100.0f;
+
+	// 캡슐
+	// 1. 회전 - 쿼터니언을 앞방향으로
+	// 2. 캡슐의 radius, halfheight
+	// 3. 충돌처리와 DebugDraw
+	FVector forward = GetActorForwardVector();
+	FQuat quat = FQuat::FindBetweenVectors(FVector(0, 0, 1), forward);
+
+	FVector center = GetActorLocation() + forward * attackRange * 0.5f;
+	FVector start = GetActorLocation() + forward * attackRange * 0.5f;	// 충돌체의 시작중심
+	FVector end = GetActorLocation() + forward * attackRange * 0.5f;	// 충돌체의 끝중심
+
+	bool bResult = GetWorld()->SweepSingleByChannel
+	(
+		OUT hitResult,
+		start,
+		end,
+		quat,	// 쿼터니언
+		ECC_GameTraceChannel2,
+		FCollisionShape::MakeCapsule(attackRadius, attackRange * 0.5f),
+		params
+	);
+
+	FColor drawColor = FColor::Green;
+
+	/*if (bResult && hitResult.GetActor()->IsValidLowLevel())
+	{
+		drawColor = FColor::Red;
+		AMyCharacter* victim = Cast<AMyCharacter>(hitResult.GetActor());
+		if (victim)
+		{
+			FDamageEvent damageEvent = FDamageEvent();
+			victim->TakeDamage(_statComponent->GetAtk(), damageEvent, GetController(), this);
+		}
+	}*/
+
+	//충돌체그리기
+	DrawDebugCapsule(GetWorld(), center, attackRange * 0.5f, attackRadius, quat, drawColor, false, 1.0f);
+}
+
+void AMyCharacter::TestDelegate1()
+{
+	UE_LOG(LogTemp, Log, TEXT("Attack Start Delegate Test1"));
+}
+
+int32 AMyCharacter::TestDelegate2(int32 a, int32 b)
+{
+	UE_LOG(LogTemp, Log, TEXT("Attack Start Delegate Test, %d %d"), a, b);
+
+	return -1;
+}
+
+void AMyCharacter::TestDelegate3()
+{
+	UE_LOG(LogTemp, Log, TEXT("Attack Start Delegate Test3"));
 }
 

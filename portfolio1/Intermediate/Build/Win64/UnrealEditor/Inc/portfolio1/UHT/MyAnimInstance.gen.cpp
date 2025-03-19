@@ -45,6 +45,35 @@ void FAnimDelegateTest3_DelegateWrapper(const FMulticastScriptDelegate& AnimDele
 }
 // End Delegate FAnimDelegateTest3
 
+// Begin Class UMyAnimInstance Function AnimNotify_Attack_Hit
+struct Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_Hit_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyAnimInstance.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_Hit_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_Attack_Hit", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_Hit_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_Hit_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_Hit()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_Hit_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UMyAnimInstance::execAnimNotify_Attack_Hit)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->AnimNotify_Attack_Hit();
+	P_NATIVE_END;
+}
+// End Class UMyAnimInstance Function AnimNotify_Attack_Hit
+
 // Begin Class UMyAnimInstance Function PlayAnimMontage
 struct Z_Construct_UFunction_UMyAnimInstance_PlayAnimMontage_Statics
 {
@@ -85,6 +114,7 @@ void UMyAnimInstance::StaticRegisterNativesUMyAnimInstance()
 {
 	UClass* Class = UMyAnimInstance::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "AnimNotify_Attack_Hit", &UMyAnimInstance::execAnimNotify_Attack_Hit },
 		{ "PlayAnimMontage", &UMyAnimInstance::execPlayAnimMontage },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -143,6 +173,7 @@ struct Z_Construct_UClass_UMyAnimInstance_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_Hit, "AnimNotify_Attack_Hit" }, // 1629827047
 		{ &Z_Construct_UFunction_UMyAnimInstance_PlayAnimMontage, "PlayAnimMontage" }, // 662606426
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -210,10 +241,10 @@ UMyAnimInstance::~UMyAnimInstance() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMyAnimInstance, UMyAnimInstance::StaticClass, TEXT("UMyAnimInstance"), &Z_Registration_Info_UClass_UMyAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyAnimInstance), 836716630U) },
+		{ Z_Construct_UClass_UMyAnimInstance, UMyAnimInstance::StaticClass, TEXT("UMyAnimInstance"), &Z_Registration_Info_UClass_UMyAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyAnimInstance), 2112743930U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_2619397782(TEXT("/Script/portfolio1"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_2593596974(TEXT("/Script/portfolio1"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

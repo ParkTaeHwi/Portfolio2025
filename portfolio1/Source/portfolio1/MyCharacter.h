@@ -23,7 +23,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
+	// Called to "BIND" functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	// FInputActionValue -> 다양한 타입의 입력값을 하나로 처리가능
@@ -36,8 +36,20 @@ public:
 	UFUNCTION()
 	void Attack(const struct FInputActionValue& value);
 
+	UFUNCTION()
+	void AttackEnd(class UAnimMontage* Montage, bool bInterrupted);
+
+	void Attack_Hit();
+
 	float My_Vertical() { return _vertical; }
 	float My_Horizontal() { return _horizontal; }
+
+	UFUNCTION()
+	void TestDelegate1();
+	UFUNCTION()
+	int32 TestDelegate2(int32 a, int32 b);
+	UFUNCTION()
+	void TestDelegate3();
 
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
@@ -51,6 +63,18 @@ private:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
 	bool _isAttack;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input", meta = (AllowPrivateAccess = "true"))
+	class UInputAction* _moveAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input", meta = (AllowPrivateAccess = "true"))
+	class UInputAction* _lookAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input", meta = (AllowPrivateAccess = "true"))
+	class UInputAction* _jumpAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input", meta = (AllowPrivateAccess = "true"))
+	class UInputAction* _attackAction;
 
 	UPROPERTY()
 	class UMyAnimInstance* _animInstance;
