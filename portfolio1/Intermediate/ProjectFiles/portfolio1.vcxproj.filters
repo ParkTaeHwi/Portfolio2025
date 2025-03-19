@@ -33,6 +33,12 @@
     <Filter Include="Source\portfolio1">
       <UniqueIdentifier>{0597AC32-6FDE-3607-BC14-C796078DA832}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\portfolio1\MyAnimInstance.cpp">
+      <Filter>Source\portfolio1</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio1\MyAnimInstance.h">
+      <Filter>Source\portfolio1</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\portfolio1\MyCharacter.cpp">
       <Filter>Source\portfolio1</Filter>
     </ClCompile>
@@ -45,6 +51,18 @@
     <ClInclude Include="..\..\Source\portfolio1\MyGameModeBase.h">
       <Filter>Source\portfolio1</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio1\MyPlayerController.cpp">
+      <Filter>Source\portfolio1</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio1\MyPlayerController.h">
+      <Filter>Source\portfolio1</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio1\MyStatComponent.cpp">
+      <Filter>Source\portfolio1</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio1\MyStatComponent.h">
+      <Filter>Source\portfolio1</Filter>
+    </ClInclude>
     <None Include="..\..\Source\portfolio1\portfolio1.Build.cs">
       <Filter>Source\portfolio1</Filter>
     </None>
@@ -52,18 +70,6 @@
       <Filter>Source\portfolio1</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\portfolio1\portfolio1.h">
-      <Filter>Source\portfolio1</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\portfolio1\portfolio1Character.cpp">
-      <Filter>Source\portfolio1</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\portfolio1\portfolio1Character.h">
-      <Filter>Source\portfolio1</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\portfolio1\portfolio1GameMode.cpp">
-      <Filter>Source\portfolio1</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\portfolio1\portfolio1GameMode.h">
       <Filter>Source\portfolio1</Filter>
     </ClInclude>
   </ItemGroup>

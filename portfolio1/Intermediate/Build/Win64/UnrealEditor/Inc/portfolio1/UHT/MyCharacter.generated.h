@@ -9,10 +9,18 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FInputActionValue;
 #ifdef PORTFOLIO1_MyCharacter_generated_h
 #error "MyCharacter.generated.h already included, missing '#pragma once' in MyCharacter.h"
 #endif
 #define PORTFOLIO1_MyCharacter_generated_h
+
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyCharacter_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execAttack); \
+	DECLARE_FUNCTION(execJumpA); \
+	DECLARE_FUNCTION(execLook); \
+	DECLARE_FUNCTION(execMove);
+
 
 #define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyCharacter_h_12_INCLASS_NO_PURE_DECLS \
 private: \
@@ -39,6 +47,7 @@ public: \
 #define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyCharacter_h_12_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyCharacter_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyCharacter_h_12_INCLASS_NO_PURE_DECLS \
 	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyCharacter_h_12_ENHANCED_CONSTRUCTORS \
 private: \

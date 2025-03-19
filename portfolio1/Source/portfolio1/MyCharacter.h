@@ -36,5 +36,27 @@ public:
 	UFUNCTION()
 	void Attack(const struct FInputActionValue& value);
 
+	float My_Vertical() { return _vertical; }
+	float My_Horizontal() { return _horizontal; }
+
 private:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
+	class UCameraComponent* _camera;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
+	class USpringArmComponent* _springArm;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stat", meta = (AllowPrivateAccess = "true"))
+	class UMyStatComponent* _statComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
+	bool _isAttack;
+
+	UPROPERTY()
+	class UMyAnimInstance* _animInstance;
+
+	int32 _curAttackSection = 1;	// 콤보 공격 시스템 1 -> 2 -> 3
+
+	float _vertical = 0.0f;
+	float _horizontal = 0.0f;
 };
