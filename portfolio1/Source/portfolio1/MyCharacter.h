@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "MyCharacter.generated.h"
+#include "MyCharacter.generated.h"	// 무조건 맨 마지막 헤더여야 함
 
 UCLASS()
 class PORTFOLIO1_API AMyCharacter : public ACharacter
