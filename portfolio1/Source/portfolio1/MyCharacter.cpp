@@ -199,9 +199,9 @@ void AMyCharacter::Attack_Hit()
 	FHitResult hitResult;
 	FCollisionQueryParams params(NAME_None, false, this);
 
-	float attackRange = 500.0f;
-	float attackRadius = 100.0f;
-
+	float attackRange = 1000.0f;	// Ä¸½¶ ±æÀÌ
+	float attackRadius = 25.0f;	    // Ä¸½¶ ±½±â
+	float heightOffset = 50.0f;		// Ä¸½¶ ³ôÀÌ
 	// Ä¸½¶
 	// 1. È¸Àü - ÄõÅÍ´Ï¾ðÀ» ¾Õ¹æÇâÀ¸·Î
 	// 2. Ä¸½¶ÀÇ radius, halfheight
@@ -209,9 +209,10 @@ void AMyCharacter::Attack_Hit()
 	FVector forward = GetActorForwardVector();
 	FQuat quat = FQuat::FindBetweenVectors(FVector(0, 0, 1), forward);
 
-	FVector center = GetActorLocation() + forward * attackRange * 0.5f;
-	FVector start = GetActorLocation() + forward * attackRange * 0.5f;	// Ãæµ¹Ã¼ÀÇ ½ÃÀÛÁß½É
-	FVector end = GetActorLocation() + forward * attackRange * 0.5f;	// Ãæµ¹Ã¼ÀÇ ³¡Áß½É
+	
+	FVector center = GetActorLocation() + forward * attackRange * 0.5f + FVector(0, 0, heightOffset);
+	FVector start = GetActorLocation() + forward * attackRange * 0.5f + FVector(0, 0, heightOffset);	// Ãæµ¹Ã¼ÀÇ ½ÃÀÛÁß½É
+	FVector end = GetActorLocation() + forward * attackRange * 0.5f + FVector(0, 0, heightOffset);	    // Ãæµ¹Ã¼ÀÇ ³¡Áß½É
 
 	bool bResult = GetWorld()->SweepSingleByChannel
 	(
