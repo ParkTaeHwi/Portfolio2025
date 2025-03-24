@@ -12,8 +12,9 @@
 
 DECLARE_DELEGATE(AnimDelegateTest);	//void(void)
 DECLARE_DELEGATE_RetVal_TwoParams(int32, AnimDelegateTest2, int32, int32);	//int(int)
-DECLARE_MULTICAST_DELEGATE(AttackHitEvent);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FAnimDelegateTest3);
+DECLARE_MULTICAST_DELEGATE(AttackHitEvent);
+DECLARE_MULTICAST_DELEGATE(DeadEvent);
 
 UCLASS()
 class PORTFOLIO1_API UMyAnimInstance : public UAnimInstance
@@ -31,9 +32,13 @@ public:
 	UFUNCTION()
 	void AnimNotify_Attack_Hit();
 
+	UFUNCTION()
+	void AnimNotify_Attack_Dead();
+
 	AnimDelegateTest _attackStart;
 	AnimDelegateTest2 _attackStart2;
 	AttackHitEvent	_hitEvent;
+	DeadEvent _deadEvent;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pawn", meta = (AllowPrivateAccess = "true"))
 	FAnimDelegateTest3 _attackStart3;
 
@@ -54,4 +59,7 @@ private:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "AniMontage", meta = (AllowPrivateAccess = "true"))
 	class UAnimMontage* _animMontage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "AniMontage", meta = (AllowPrivateAccess = "true"))
+	bool _isDead;
 };

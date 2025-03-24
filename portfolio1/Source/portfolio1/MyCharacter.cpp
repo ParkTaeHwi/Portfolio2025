@@ -254,5 +254,10 @@ float AMyCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AC
 	return Damage;
 }
 
+bool AMyCharacter::IsDead()
+{
+	return _statComponent->IsDead();
+}
+
 
 

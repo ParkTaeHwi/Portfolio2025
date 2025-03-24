@@ -14,16 +14,17 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PORTFOLIO1_MyAnimInstance_generated_h
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_16_DELEGATE \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_15_DELEGATE \
 PORTFOLIO1_API void FAnimDelegateTest3_DelegateWrapper(const FMulticastScriptDelegate& AnimDelegateTest3);
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execAnimNotify_Attack_Dead); \
 	DECLARE_FUNCTION(execAnimNotify_Attack_Hit); \
 	DECLARE_FUNCTION(execPlayAnimMontage);
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_21_INCLASS_NO_PURE_DECLS \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_22_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyAnimInstance(); \
 	friend struct Z_Construct_UClass_UMyAnimInstance_Statics; \
@@ -32,7 +33,7 @@ public: \
 	DECLARE_SERIALIZER(UMyAnimInstance)
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_21_ENHANCED_CONSTRUCTORS \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UMyAnimInstance(UMyAnimInstance&&); \
@@ -44,13 +45,13 @@ public: \
 	NO_API virtual ~UMyAnimInstance();
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_18_PROLOG
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_21_GENERATED_BODY \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_19_PROLOG
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_22_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_21_INCLASS_NO_PURE_DECLS \
-	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_21_ENHANCED_CONSTRUCTORS \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_22_INCLASS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAnimInstance_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
