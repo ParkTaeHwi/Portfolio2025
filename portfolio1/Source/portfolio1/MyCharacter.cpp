@@ -20,6 +20,7 @@
 #include "Components/WidgetComponent.h"
 
 #include "MyHpBar.h"
+#include "MyPlayerController.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -66,6 +67,7 @@ void AMyCharacter::BeginPlay()
 	_animInstance->_attackStart3.AddDynamic(this, &AMyCharacter::TestDelegate3);
 	_animInstance->OnMontageEnded.AddDynamic(this, &AMyCharacter::AttackEnd);
 	_animInstance->_hitEvent.AddUObject(this, &AMyCharacter::Attack_Hit);
+	_animInstance->_deadEvent.AddUObject(this, &AMyCharacter::DeadEvent);
 
 	auto hpBar = Cast<UMyHpBar>(_hpBarWidget->GetWidget());
 	if (hpBar)
@@ -242,6 +244,12 @@ void AMyCharacter::Attack_Hit()
 	DrawDebugCapsule(GetWorld(), center, attackRange * 0.5f, attackRadius, quat, drawColor, false, 1.0f);
 }
 
+void AMyCharacter::DeadEvent()
+{
+	SetActorHiddenInGame(true);
+	SetActorEnableCollision(false);
+}
+
 void AMyCharacter::AddHp(float amount)
 {
 	_statComponent->AddCurHp(amount);
@@ -250,6 +258,12 @@ void AMyCharacter::AddHp(float amount)
 float AMyCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
 	_statComponent->AddCurHp(-Damage);
+
+	auto attackerController = Cast<AMyPlayerController>(EventInstigator);
+	if (attackerController)
+	{
+		UE_LOG(LogTemp,Error, TEXT("MyCharacter.cpp,TakeDamage,TakeDamege by Player"));
+	}
 
 	return Damage;
 }

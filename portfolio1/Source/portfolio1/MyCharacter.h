@@ -40,6 +40,7 @@ public:
 	void AttackEnd(class UAnimMontage* Montage, bool bInterrupted);
 
 	void Attack_Hit();
+	void DeadEvent();
 
 	float My_Vertical() { return _vertical; }
 	float My_Horizontal() { return _horizontal; }
