@@ -262,7 +262,10 @@ float AMyCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AC
 	auto attackerController = Cast<AMyPlayerController>(EventInstigator);
 	if (attackerController)
 	{
-		UE_LOG(LogTemp,Error, TEXT("MyCharacter.cpp,TakeDamage,TakeDamege by Player"));
+		if (IsDead())
+		{
+			UE_LOG(LogTemp,Error, TEXT("MyCharacter.cpp,TakeDamage,TakeDamege by Player"));
+		}
 	}
 
 	return Damage;

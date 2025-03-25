@@ -45,6 +45,12 @@
     <ClInclude Include="..\..\Source\portfolio1\MyCharacter.h">
       <Filter>Source\portfolio1</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio1\MyEnemy.cpp">
+      <Filter>Source\portfolio1</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio1\MyEnemy.h">
+      <Filter>Source\portfolio1</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\portfolio1\MyGameInstance.cpp">
       <Filter>Source\portfolio1</Filter>
     </ClCompile>
@@ -67,6 +73,12 @@
       <Filter>Source\portfolio1</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\portfolio1\MyItem.h">
+      <Filter>Source\portfolio1</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio1\MyPlayer.cpp">
+      <Filter>Source\portfolio1</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio1\MyPlayer.h">
       <Filter>Source\portfolio1</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\portfolio1\MyPlayerController.cpp">
