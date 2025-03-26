@@ -14,4 +14,18 @@ class PORTFOLIO1_API AMyEnemy : public AMyCharacter
 {
 	GENERATED_BODY()
 	
+public:
+	AMyEnemy();
+
+	virtual void BeginPlay() override;
+
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	// Called to "BIND" functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+private:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "UI", meta = (AllowPrivateAccess = "true"))
+	class UWidgetComponent* _hpBarWidget;
 };

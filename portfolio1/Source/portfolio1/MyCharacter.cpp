@@ -3,23 +3,12 @@
 
 #include "MyCharacter.h"
 
-#include "Kismet/KismetMathLibrary.h"
-#include "EnhancedInputComponent.h"
-#include "EnhancedInputSubsystems.h"
-#include "InputActionValue.h"
-
-#include "Components/CapsuleComponent.h"
-#include "GameFramework/SpringArmComponent.h"
-#include "Camera/CameraComponent.h"
-
 #include "MyAnimInstance.h"
 
 #include "Engine/DamageEvents.h"
 
 #include "MyStatComponent.h"
 #include "Components/WidgetComponent.h"
-
-#include "MyHpBar.h"
 #include "MyPlayerController.h"
 
 // Sets default values
@@ -30,27 +19,7 @@ AMyCharacter::AMyCharacter()
 
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -88.0f), FRotator(0.0f, -90.0f, 0.0f));
 
-	_springArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
-	_camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-
-	_springArm->SetupAttachment(GetCapsuleComponent());
-	_camera->SetupAttachment(_springArm);
-
-	_springArm->TargetArmLength = 500.0f;
-	_springArm->SetRelativeRotation(FRotator(-35.0f, 0.0f, 0.0f));
-
 	_statComponent = CreateDefaultSubobject<UMyStatComponent>(TEXT("Stat"));
-
-	_hpBarWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("HpBar"));
-	_hpBarWidget->SetupAttachment(GetMesh());
-	//_hpBarWidget->SetWidgetSpace(EWidgetSpace::Screen);
-	_hpBarWidget->SetWidgetSpace(EWidgetSpace::World);
-
-	static ConstructorHelpers::FClassFinder<UMyHpBar>hpBarClass(TEXT("/Script/UMGEditor.WidgetBlueprint'/Game/BluePrint/BP_MyHpBar.BP_MyHpBar'_C"));
-	if (hpBarClass.Succeeded())
-	{
-		_hpBarWidget->SetWidgetClass(hpBarClass.Class);
-	}
 }
 
 // Called when the game starts or when spawned
@@ -68,106 +37,18 @@ void AMyCharacter::BeginPlay()
 	_animInstance->OnMontageEnded.AddDynamic(this, &AMyCharacter::AttackEnd);
 	_animInstance->_hitEvent.AddUObject(this, &AMyCharacter::Attack_Hit);
 	_animInstance->_deadEvent.AddUObject(this, &AMyCharacter::DeadEvent);
-
-	auto hpBar = Cast<UMyHpBar>(_hpBarWidget->GetWidget());
-	if (hpBar)
-	{
-		_statComponent->_hpChanged.AddUObject(hpBar, &UMyHpBar::SetHpBarValue);
-	}
 }
 
 // Called every frame
 void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	auto playerCameraManager = GetWorld()->GetFirstPlayerController()->PlayerCameraManager;
-	if (playerCameraManager)
-	{
-		FVector hpBarLocation = _hpBarWidget->GetComponentLocation();
-		FVector cameraLocation = playerCameraManager->GetCameraLocation();
-		FRotator rot = UKismetMathLibrary::FindLookAtRotation(hpBarLocation, cameraLocation);
-		_hpBarWidget->SetWorldRotation(rot);
-	}
 }
 
 // Called to bind functionality to input
 void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-	UEnhancedInputComponent* enhancedInputCompnent = Cast<UEnhancedInputComponent>(PlayerInputComponent);
-	if (enhancedInputCompnent)
-	{
-		enhancedInputCompnent->BindAction(_moveAction, ETriggerEvent::Triggered, this, &AMyCharacter::Move);
-		enhancedInputCompnent->BindAction(_lookAction, ETriggerEvent::Triggered, this, &AMyCharacter::Look);
-		enhancedInputCompnent->BindAction(_jumpAction, ETriggerEvent::Triggered, this, &AMyCharacter::JumpA);
-		enhancedInputCompnent->BindAction(_attackAction, ETriggerEvent::Triggered, this, &AMyCharacter::Attack);
-	}
-}
-
-void AMyCharacter::Move(const FInputActionValue& value)
-{
-	FVector2D moveVector = value.Get<FVector2D>();
-
-	if (Controller != nullptr)
-	{
-		if (moveVector.Length() > 0.01f)
-		{
-			FVector forWard = GetActorForwardVector();
-			FVector right = GetActorRightVector();
-
-			_vertical = moveVector.Y * 100.0f;
-			_horizontal = moveVector.X * 100.0f;
-
-			AddMovementInput(forWard, moveVector.Y * _statComponent->GetSpeed());
-			AddMovementInput(right, moveVector.X * _statComponent->GetSpeed());
-		}
-	}
-}
-
-void AMyCharacter::Look(const FInputActionValue& value)
-{
-	if (_isAttack) return;
-
-	FVector2D lookAxisVector = value.Get<FVector2D>();
-
-	if (Controller != nullptr)
-	{
-		AddControllerYawInput(lookAxisVector.X);
-		AddControllerPitchInput(-lookAxisVector.Y);
-	}
-}
-
-void AMyCharacter::JumpA(const FInputActionValue& value)
-{
-	if (_isAttack) return;
-
-	bool isPress = value.Get<bool>();
-
-	if (isPress)
-	{
-		ACharacter::Jump();
-	}
-}
-
-void AMyCharacter::Attack(const FInputActionValue& value)
-{
-	if (_isAttack) return;
-
-	bool isPress = value.Get<bool>();
-
-	if (isPress)
-	{
-		_isAttack = true;
-		_curAttackSection = (_curAttackSection + 1) % 3 + 1;
-
-		if (!_animInstance->IsAnyMontagePlaying())
-		{
-			_animInstance->PlayAnimMontage();
-		}
-		_animInstance->JumpToSection(_curAttackSection);
-	}
 }
 
 void AMyCharacter::TestDelegate1()

@@ -10,7 +10,6 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UAnimMontage;
-struct FInputActionValue;
 #ifdef PORTFOLIO1_MyCharacter_generated_h
 #error "MyCharacter.generated.h already included, missing '#pragma once' in MyCharacter.h"
 #endif
@@ -20,11 +19,7 @@ struct FInputActionValue;
 	DECLARE_FUNCTION(execTestDelegate3); \
 	DECLARE_FUNCTION(execTestDelegate2); \
 	DECLARE_FUNCTION(execTestDelegate1); \
-	DECLARE_FUNCTION(execAttackEnd); \
-	DECLARE_FUNCTION(execAttack); \
-	DECLARE_FUNCTION(execJumpA); \
-	DECLARE_FUNCTION(execLook); \
-	DECLARE_FUNCTION(execMove);
+	DECLARE_FUNCTION(execAttackEnd);
 
 
 #define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyCharacter_h_12_INCLASS_NO_PURE_DECLS \
