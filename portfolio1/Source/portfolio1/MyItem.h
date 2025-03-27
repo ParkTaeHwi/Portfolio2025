@@ -6,21 +6,21 @@
 #include "GameFramework/Actor.h"
 #include "MyItem.generated.h"
 
-UENUM(BluePrintType)
+UENUM()
 enum class MyItemType
 {
 	NONE,
 	POTION
 };
 
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FMyItemInfo
 {
 	GENERATED_BODY()
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 itemId = -1;
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	MyItemType type= MyItemType::NONE;
 };
 
@@ -54,6 +54,6 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Collider")
 	class UCapsuleComponent* _collider;
 
-	UPROPERTY(VisibleAnywhere, Category = "ItemInfo")
+	UPROPERTY(EditAnywhere, Category = "ItemInfo")
 	FMyItemInfo _info;
 };

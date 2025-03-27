@@ -17,11 +17,18 @@ struct FHitResult;
 #endif
 #define PORTFOLIO1_MyItem_generated_h
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_19_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FMyItemInfo_Statics; \
+	PORTFOLIO1_API static class UScriptStruct* StaticStruct();
+
+
+template<> PORTFOLIO1_API UScriptStruct* StaticStruct<struct FMyItemInfo>();
+
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execOnOverlap);
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_12_INCLASS_NO_PURE_DECLS \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyItem(); \
 	friend struct Z_Construct_UClass_AMyItem_Statics; \
@@ -30,7 +37,7 @@ public: \
 	DECLARE_SERIALIZER(AMyItem)
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_12_ENHANCED_CONSTRUCTORS \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AMyItem(AMyItem&&); \
@@ -42,13 +49,13 @@ public: \
 	NO_API virtual ~AMyItem();
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_9_PROLOG
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_12_GENERATED_BODY \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_27_PROLOG
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_12_INCLASS_NO_PURE_DECLS \
-	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_12_ENHANCED_CONSTRUCTORS \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_INCLASS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -58,5 +65,13 @@ template<> PORTFOLIO1_API UClass* StaticClass<class AMyItem>();
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h
 
+
+#define FOREACH_ENUM_MYITEMTYPE(op) \
+	op(MyItemType::NONE) \
+	op(MyItemType::POTION) 
+
+enum class MyItemType;
+template<> struct TIsUEnumClass<MyItemType> { enum { Value = true }; };
+template<> PORTFOLIO1_API UEnum* StaticEnum<MyItemType>();
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

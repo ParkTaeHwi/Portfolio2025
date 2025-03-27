@@ -19,8 +19,133 @@ ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 PORTFOLIO1_API UClass* Z_Construct_UClass_AMyItem();
 PORTFOLIO1_API UClass* Z_Construct_UClass_AMyItem_NoRegister();
+PORTFOLIO1_API UEnum* Z_Construct_UEnum_portfolio1_MyItemType();
+PORTFOLIO1_API UScriptStruct* Z_Construct_UScriptStruct_FMyItemInfo();
 UPackage* Z_Construct_UPackage__Script_portfolio1();
 // End Cross Module References
+
+// Begin Enum MyItemType
+static FEnumRegistrationInfo Z_Registration_Info_UEnum_MyItemType;
+static UEnum* MyItemType_StaticEnum()
+{
+	if (!Z_Registration_Info_UEnum_MyItemType.OuterSingleton)
+	{
+		Z_Registration_Info_UEnum_MyItemType.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_portfolio1_MyItemType, (UObject*)Z_Construct_UPackage__Script_portfolio1(), TEXT("MyItemType"));
+	}
+	return Z_Registration_Info_UEnum_MyItemType.OuterSingleton;
+}
+template<> PORTFOLIO1_API UEnum* StaticEnum<MyItemType>()
+{
+	return MyItemType_StaticEnum();
+}
+struct Z_Construct_UEnum_portfolio1_MyItemType_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyItem.h" },
+		{ "NONE.Name", "MyItemType::NONE" },
+		{ "POTION.Name", "MyItemType::POTION" },
+	};
+#endif // WITH_METADATA
+	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
+		{ "MyItemType::NONE", (int64)MyItemType::NONE },
+		{ "MyItemType::POTION", (int64)MyItemType::POTION },
+	};
+	static const UECodeGen_Private::FEnumParams EnumParams;
+};
+const UECodeGen_Private::FEnumParams Z_Construct_UEnum_portfolio1_MyItemType_Statics::EnumParams = {
+	(UObject*(*)())Z_Construct_UPackage__Script_portfolio1,
+	nullptr,
+	"MyItemType",
+	"MyItemType",
+	Z_Construct_UEnum_portfolio1_MyItemType_Statics::Enumerators,
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	UE_ARRAY_COUNT(Z_Construct_UEnum_portfolio1_MyItemType_Statics::Enumerators),
+	EEnumFlags::None,
+	(uint8)UEnum::ECppForm::EnumClass,
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_portfolio1_MyItemType_Statics::Enum_MetaDataParams), Z_Construct_UEnum_portfolio1_MyItemType_Statics::Enum_MetaDataParams)
+};
+UEnum* Z_Construct_UEnum_portfolio1_MyItemType()
+{
+	if (!Z_Registration_Info_UEnum_MyItemType.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_MyItemType.InnerSingleton, Z_Construct_UEnum_portfolio1_MyItemType_Statics::EnumParams);
+	}
+	return Z_Registration_Info_UEnum_MyItemType.InnerSingleton;
+}
+// End Enum MyItemType
+
+// Begin ScriptStruct FMyItemInfo
+static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_MyItemInfo;
+class UScriptStruct* FMyItemInfo::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_MyItemInfo.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_MyItemInfo.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FMyItemInfo, (UObject*)Z_Construct_UPackage__Script_portfolio1(), TEXT("MyItemInfo"));
+	}
+	return Z_Registration_Info_UScriptStruct_MyItemInfo.OuterSingleton;
+}
+template<> PORTFOLIO1_API UScriptStruct* StaticStruct<FMyItemInfo>()
+{
+	return FMyItemInfo::StaticStruct();
+}
+struct Z_Construct_UScriptStruct_FMyItemInfo_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "MyItem.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_itemId_MetaData[] = {
+		{ "Category", "MyItemInfo" },
+		{ "ModuleRelativePath", "MyItem.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_type_MetaData[] = {
+		{ "Category", "MyItemInfo" },
+		{ "ModuleRelativePath", "MyItem.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FIntPropertyParams NewProp_itemId;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_type_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_type;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static void* NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FMyItemInfo>();
+	}
+	static const UECodeGen_Private::FStructParams StructParams;
+};
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewProp_itemId = { "itemId", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FMyItemInfo, itemId), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_itemId_MetaData), NewProp_itemId_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewProp_type_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewProp_type = { "type", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FMyItemInfo, type), Z_Construct_UEnum_portfolio1_MyItemType, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_type_MetaData), NewProp_type_MetaData) }; // 1163361762
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FMyItemInfo_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewProp_itemId,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewProp_type_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewProp_type,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMyItemInfo_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FMyItemInfo_Statics::StructParams = {
+	(UObject* (*)())Z_Construct_UPackage__Script_portfolio1,
+	nullptr,
+	&NewStructOps,
+	"MyItemInfo",
+	Z_Construct_UScriptStruct_FMyItemInfo_Statics::PropPointers,
+	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMyItemInfo_Statics::PropPointers),
+	sizeof(FMyItemInfo),
+	alignof(FMyItemInfo),
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	EStructFlags(0x00000001),
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMyItemInfo_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FMyItemInfo_Statics::Struct_MetaDataParams)
+};
+UScriptStruct* Z_Construct_UScriptStruct_FMyItemInfo()
+{
+	if (!Z_Registration_Info_UScriptStruct_MyItemInfo.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_MyItemInfo.InnerSingleton, Z_Construct_UScriptStruct_FMyItemInfo_Statics::StructParams);
+	}
+	return Z_Registration_Info_UScriptStruct_MyItemInfo.InnerSingleton;
+}
+// End ScriptStruct FMyItemInfo
 
 // Begin Class AMyItem Function OnOverlap
 struct Z_Construct_UFunction_AMyItem_OnOverlap_Statics
@@ -134,9 +259,14 @@ struct Z_Construct_UClass_AMyItem_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "MyItem.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp__info_MetaData[] = {
+		{ "Category", "ItemInfo" },
+		{ "ModuleRelativePath", "MyItem.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp__mesh;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp__collider;
+	static const UECodeGen_Private::FStructPropertyParams NewProp__info;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -150,9 +280,11 @@ struct Z_Construct_UClass_AMyItem_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyItem_Statics::NewProp__mesh = { "_mesh", nullptr, (EPropertyFlags)0x0040000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyItem, _mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__mesh_MetaData), NewProp__mesh_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyItem_Statics::NewProp__collider = { "_collider", nullptr, (EPropertyFlags)0x0040000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyItem, _collider), Z_Construct_UClass_UCapsuleComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__collider_MetaData), NewProp__collider_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMyItem_Statics::NewProp__info = { "_info", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyItem, _info), Z_Construct_UScriptStruct_FMyItemInfo, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__info_MetaData), NewProp__info_MetaData) }; // 4188129642
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyItem_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyItem_Statics::NewProp__mesh,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyItem_Statics::NewProp__collider,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyItem_Statics::NewProp__info,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyItem_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AMyItem_Statics::DependentSingletons[])() = {
@@ -194,13 +326,19 @@ AMyItem::~AMyItem() {}
 // Begin Registration
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_Statics
 {
+	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
+		{ MyItemType_StaticEnum, TEXT("MyItemType"), &Z_Registration_Info_UEnum_MyItemType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1163361762U) },
+	};
+	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
+		{ FMyItemInfo::StaticStruct, Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewStructOps, TEXT("MyItemInfo"), &Z_Registration_Info_UScriptStruct_MyItemInfo, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FMyItemInfo), 4188129642U) },
+	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyItem, AMyItem::StaticClass, TEXT("AMyItem"), &Z_Registration_Info_UClass_AMyItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyItem), 1128352700U) },
+		{ Z_Construct_UClass_AMyItem, AMyItem::StaticClass, TEXT("AMyItem"), &Z_Registration_Info_UClass_AMyItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyItem), 426991820U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_3870571556(TEXT("/Script/portfolio1"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_1012834951(TEXT("/Script/portfolio1"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_Statics::ClassInfo),
-	nullptr, 0,
-	nullptr, 0);
+	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_Statics::ScriptStructInfo),
+	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_Statics::EnumInfo));
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

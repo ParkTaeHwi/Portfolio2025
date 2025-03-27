@@ -17,6 +17,7 @@
 
 #include "Blueprint/UserWidget.h"
 #include "MyInvenUI.h"
+#include "MyInvenComponent.h"
 
 AMyPlayer::AMyPlayer()
 {

@@ -35,14 +35,23 @@ void UMyInvenComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAct
 
 void UMyInvenComponent::AddItem(int32 itemID, MyItemType type)
 {
-	FMyItemInfo info;
-	info.itemId = itemID;
-	info.type = type;
+	FMyItemInfo addItemInfo;
+	addItemInfo.itemId = itemID;
+	addItemInfo.type = type;
 
-	if (_items.Num() >= 9)
+	FMyItemInfo temp;
+	auto target = _items.FindByPredicate([temp](const FMyItemInfo& info)->bool
+	{
+		if (info.itemId == temp.itemId && info.type == temp.type)
+			return true;
+		return false;
+	});
+
+	if (target == nullptr)
 		return;
 
-	_items.Add(info);
+	*target = addItemInfo;
+	UE_LOG(LogTemp, Error, TEXT("Item ID : %d"), addItemInfo.itemId);
 }
 
 FMyItemInfo UMyInvenComponent::DropItem()
