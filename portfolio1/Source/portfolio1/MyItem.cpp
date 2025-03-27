@@ -52,6 +52,9 @@ void AMyItem::OnOverlap(
     const FHitResult& SweepResult)             // 충돌에 대한 상세 정보
 {
     auto character = Cast<AMyPlayer>(OtherActor);  // 충돌한 액터가 AMyCharacter인지 확인
+    if (character == nullptr)
+        return;
+
     auto player = Cast<AMyPlayerController>(character->GetController());  // 캐릭터의 컨트롤러가 AMyPlayerController인지 확인
 
     if (character != nullptr && player != nullptr)  // 캐릭터와 컨트롤러가 유효하면

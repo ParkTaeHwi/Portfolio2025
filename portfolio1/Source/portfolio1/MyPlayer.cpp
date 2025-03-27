@@ -15,6 +15,9 @@
 #include "MyStatComponent.h"
 #include "MyItem.h"
 
+#include "Blueprint/UserWidget.h"
+#include "MyInvenUI.h"
+
 AMyPlayer::AMyPlayer()
 {
 	PrimaryActorTick.bCanEverTick = true;
@@ -27,11 +30,21 @@ AMyPlayer::AMyPlayer()
 
 	_springArm->TargetArmLength = 500.0f;
 	_springArm->SetRelativeRotation(FRotator(-35.0f, 0.0f, 0.0f));
+
+	// Inventory
+	static ConstructorHelpers::FClassFinder<UMyInvenUI> invenClass(TEXT("/Script/UMGEditor.WidgetBlueprint'/Game/BluePrint/BP_MyInven.BP_MyInven'_C"));
+	if (invenClass.Succeeded())
+	{
+		_invenWidget = CreateWidget<UUserWidget>(GetWorld(), invenClass.Class);
+	}
 }
 
 void AMyPlayer::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if (_invenWidget)
+		_invenWidget->AddToViewport();
 }
 
 void AMyPlayer::Tick(float DeltaTime)
