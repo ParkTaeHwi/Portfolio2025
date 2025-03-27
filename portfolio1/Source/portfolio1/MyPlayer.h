@@ -57,8 +57,8 @@ private:
 	class USpringArmComponent* _springArm;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Item", meta = (AllowPrivateAccess = "true"))
-	TArray<class AMyItem*> _items;
+	class UUserWidget* _invenWidget;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Item", meta = (AllowPrivateAccess = "true"))
-	class UUserWidget* _invenWidget;
+	class UMyInvenComponent* _invenComponent;
 };

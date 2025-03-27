@@ -37,6 +37,8 @@ AMyPlayer::AMyPlayer()
 	{
 		_invenWidget = CreateWidget<UUserWidget>(GetWorld(), invenClass.Class);
 	}
+
+	_invenComponent = CreateDefaultSubobject<UMyInvenComponent>(TEXT("InvenComponent"));
 }
 
 void AMyPlayer::BeginPlay()
@@ -132,6 +134,9 @@ void AMyPlayer::Attack(const FInputActionValue& value)
 
 void AMyPlayer::AddItem(AMyItem* item)
 {
-	_items.Add(item);
-	UE_LOG(LogTemp, Log, TEXT("items count: %d"), _items.Num());
+	if (item && _invenComponent)
+	{
+		auto info = item->GetInfo();
+		_invenComponent->AddItem(info.itemId, info.type);
+	}
 }
