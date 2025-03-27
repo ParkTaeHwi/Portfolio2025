@@ -17,6 +17,8 @@ class PORTFOLIO1_API AMyPlayer : public AMyCharacter
 public:
 	AMyPlayer();
 
+	virtual void PostInitializeComponents() override;
+
 	virtual void BeginPlay() override;
 
 	// Called every frame

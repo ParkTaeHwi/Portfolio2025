@@ -51,7 +51,8 @@ void UMyInvenComponent::AddItem(int32 itemID, MyItemType type)
 		return;
 
 	*target = addItemInfo;
-	UE_LOG(LogTemp, Error, TEXT("Item ID : %d"), addItemInfo.itemId);
+	int32 targetIndex = (target - &_items[0]) / sizeof(int32);
+	itemAddEvent.Broadcast(targetIndex, *target);
 }
 
 FMyItemInfo UMyInvenComponent::DropItem()
