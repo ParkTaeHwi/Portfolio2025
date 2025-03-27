@@ -32,7 +32,7 @@ AMyPlayer::AMyPlayer()
 	_springArm->SetRelativeRotation(FRotator(-35.0f, 0.0f, 0.0f));
 
 	// Inventory
-	static ConstructorHelpers::FClassFinder<UMyInvenUI> invenClass(TEXT("/Script/UMGEditor.WidgetBlueprint'/Game/BluePrint/BP_MyInven.BP_MyInven'_C"));
+	static ConstructorHelpers::FClassFinder<UMyInvenUI> invenClass(TEXT("/Game/BluePrint/BP_MyInven.BP_MyInven_C"));
 	if (invenClass.Succeeded())
 	{
 		_invenWidget = CreateWidget<UUserWidget>(GetWorld(), invenClass.Class);
