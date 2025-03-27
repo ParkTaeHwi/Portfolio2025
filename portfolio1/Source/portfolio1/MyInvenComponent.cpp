@@ -51,7 +51,12 @@ void UMyInvenComponent::AddItem(int32 itemID, MyItemType type)
 		return;
 
 	*target = addItemInfo;
-	int32 targetIndex = (target - &_items[0]) / sizeof(int32);
+	int32 targetIndex = 0;
+
+	int64 temp1 = (int64)target;
+	int64 temp2 = (int64)(&_items[0]);
+	targetIndex = (temp1 - temp2) / sizeof(int64);
+
 	itemAddEvent.Broadcast(targetIndex, *target);
 }
 
