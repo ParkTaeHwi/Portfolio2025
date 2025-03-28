@@ -16,15 +16,21 @@ class PORTFOLIO1_API UMyInvenUI : public UUserWidget
 	GENERATED_BODY()
 	
 public:
-	virtual void NativeConstruct() override;
+	virtual bool Initialize() override;
 
 	void SetItem_Index(int32 index, FMyItemInfo info);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite,meta=(BindWidget))
 	class UUniformGridPanel* Grid;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	class UButton* Drop;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<class UImage*> _slotImages;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<class UButton*> _slotButtons;
 
 	UPROPERTY()
 	UTexture2D* _defaultTexture;

@@ -6,9 +6,9 @@
 #include "Components/Image.h"
 #include "Components/Button.h"
 
-void UMyInvenUI::NativeConstruct()
+bool UMyInvenUI::Initialize()
 {
-	Super::NativeConstruct();
+	Super::Initialize();
 
 	auto array = Grid->GetAllChildren();
 
@@ -23,9 +23,13 @@ void UMyInvenUI::NativeConstruct()
 	}
 
 	UE_LOG(LogTemp, Error, TEXT("Image Size: %d"), _slotImages.Num());
+	if (_slotImages.Num() == 0)
+		return false;
 
 	_potionTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Script/Engine.Texture2D'/Game/Graphics/UI/items/Tex_seeds_06.Tex_seeds_06'"));
 	_defaultTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Script/Engine.Texture2D'/Game/Graphics/UI/items/Tex_Default.Tex_Default'"));
+	
+	return true;
 }
 
 void UMyInvenUI::SetItem_Index(int32 index, FMyItemInfo info)

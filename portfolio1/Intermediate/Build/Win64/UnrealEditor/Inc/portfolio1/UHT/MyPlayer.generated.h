@@ -16,6 +16,7 @@ struct FInputActionValue;
 #define PORTFOLIO1_MyPlayer_generated_h
 
 #define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyPlayer_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execDrop); \
 	DECLARE_FUNCTION(execInvenOpen); \
 	DECLARE_FUNCTION(execAttack); \
 	DECLARE_FUNCTION(execJumpA); \

@@ -68,6 +68,35 @@ DEFINE_FUNCTION(AMyPlayer::execAttack)
 }
 // End Class AMyPlayer Function Attack
 
+// Begin Class AMyPlayer Function Drop
+struct Z_Construct_UFunction_AMyPlayer_Drop_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyPlayer.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyPlayer_Drop_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyPlayer, nullptr, "Drop", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPlayer_Drop_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyPlayer_Drop_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AMyPlayer_Drop()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyPlayer_Drop_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AMyPlayer::execDrop)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Drop();
+	P_NATIVE_END;
+}
+// End Class AMyPlayer Function Drop
+
 // Begin Class AMyPlayer Function InvenOpen
 struct Z_Construct_UFunction_AMyPlayer_InvenOpen_Statics
 {
@@ -260,6 +289,7 @@ void AMyPlayer::StaticRegisterNativesAMyPlayer()
 	UClass* Class = AMyPlayer::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "Attack", &AMyPlayer::execAttack },
+		{ "Drop", &AMyPlayer::execDrop },
 		{ "InvenOpen", &AMyPlayer::execInvenOpen },
 		{ "JumpA", &AMyPlayer::execJumpA },
 		{ "Look", &AMyPlayer::execLook },
@@ -346,6 +376,7 @@ struct Z_Construct_UClass_AMyPlayer_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_AMyPlayer_Attack, "Attack" }, // 3856583915
+		{ &Z_Construct_UFunction_AMyPlayer_Drop, "Drop" }, // 1458026462
 		{ &Z_Construct_UFunction_AMyPlayer_InvenOpen, "InvenOpen" }, // 1780298486
 		{ &Z_Construct_UFunction_AMyPlayer_JumpA, "JumpA" }, // 2461617496
 		{ &Z_Construct_UFunction_AMyPlayer_Look, "Look" }, // 2844395973
@@ -418,10 +449,10 @@ AMyPlayer::~AMyPlayer() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyPlayer_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyPlayer, AMyPlayer::StaticClass, TEXT("AMyPlayer"), &Z_Registration_Info_UClass_AMyPlayer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayer), 4082782401U) },
+		{ Z_Construct_UClass_AMyPlayer, AMyPlayer::StaticClass, TEXT("AMyPlayer"), &Z_Registration_Info_UClass_AMyPlayer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayer), 3137420716U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyPlayer_h_3269887105(TEXT("/Script/portfolio1"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyPlayer_h_829927113(TEXT("/Script/portfolio1"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyPlayer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyPlayer_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -40,6 +40,9 @@ public:
 	void InvenOpen(const struct FInputActionValue& value);
 
 	void AddItem(class AMyItem* item);
+	
+	UFUNCTION()
+	void Drop();
 
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input", meta = (AllowPrivateAccess = "true"))

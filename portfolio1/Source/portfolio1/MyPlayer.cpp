@@ -18,6 +18,7 @@
 
 #include "Blueprint/UserWidget.h"
 #include "MyInvenUI.h"
+#include "Components/Button.h"
 #include "MyInvenComponent.h"
 
 AMyPlayer::AMyPlayer()
@@ -51,6 +52,7 @@ void AMyPlayer::PostInitializeComponents()
 	if (invenUI)
 	{
 		_invenComponent->itemAddEvent.AddUObject(invenUI, &UMyInvenUI::SetItem_Index);
+		invenUI->Drop->OnClicked.AddDynamic(this, &AMyPlayer::Drop);
 	}
 }
 
@@ -174,4 +176,9 @@ void AMyPlayer::AddItem(AMyItem* item)
 		auto info = item->GetInfo();
 		_invenComponent->AddItem(info.itemId, info.type);
 	}
+}
+
+void AMyPlayer::Drop()
+{
+	UE_LOG(LogTemp, Error, TEXT("Drop"));
 }
