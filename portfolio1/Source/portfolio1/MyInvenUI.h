@@ -27,5 +27,8 @@ public:
 	TArray<class UImage*> _slotImages;
 
 	UPROPERTY()
+	UTexture2D* _defaultTexture;
+
+	UPROPERTY()
 	UTexture2D* _potionTexture;
 };

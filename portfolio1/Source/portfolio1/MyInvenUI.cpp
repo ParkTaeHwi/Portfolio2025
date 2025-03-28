@@ -4,6 +4,7 @@
 #include "MyInvenUI.h"
 #include "Components/UniformGridPanel.h"
 #include "Components/Image.h"
+#include "Components/Button.h"
 
 void UMyInvenUI::NativeConstruct()
 {
@@ -13,7 +14,8 @@ void UMyInvenUI::NativeConstruct()
 
 	for (auto widget : array)
 	{
-		auto image = Cast<UImage>(widget);
+		auto button = Cast<UButton>(widget);
+		auto image = Cast<UImage>(button->GetChildAt(0));
 		if (image)
 		{
 			_slotImages.Add(image);

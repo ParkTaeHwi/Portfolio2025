@@ -49,6 +49,9 @@ struct Z_Construct_UClass_UMyInvenUI_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "MyInvenUI.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp__defaultTexture_MetaData[] = {
+		{ "ModuleRelativePath", "MyInvenUI.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp__potionTexture_MetaData[] = {
 		{ "ModuleRelativePath", "MyInvenUI.h" },
 	};
@@ -56,6 +59,7 @@ struct Z_Construct_UClass_UMyInvenUI_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Grid;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp__slotImages_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp__slotImages;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__defaultTexture;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp__potionTexture;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
@@ -67,11 +71,13 @@ struct Z_Construct_UClass_UMyInvenUI_Statics
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyInvenUI_Statics::NewProp_Grid = { "Grid", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyInvenUI, Grid), Z_Construct_UClass_UUniformGridPanel_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Grid_MetaData), NewProp_Grid_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyInvenUI_Statics::NewProp__slotImages_Inner = { "_slotImages", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMyInvenUI_Statics::NewProp__slotImages = { "_slotImages", nullptr, (EPropertyFlags)0x001000800000000d, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyInvenUI, _slotImages), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__slotImages_MetaData), NewProp__slotImages_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyInvenUI_Statics::NewProp__defaultTexture = { "_defaultTexture", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyInvenUI, _defaultTexture), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__defaultTexture_MetaData), NewProp__defaultTexture_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyInvenUI_Statics::NewProp__potionTexture = { "_potionTexture", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyInvenUI, _potionTexture), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__potionTexture_MetaData), NewProp__potionTexture_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMyInvenUI_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyInvenUI_Statics::NewProp_Grid,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyInvenUI_Statics::NewProp__slotImages_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyInvenUI_Statics::NewProp__slotImages,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyInvenUI_Statics::NewProp__defaultTexture,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyInvenUI_Statics::NewProp__potionTexture,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMyInvenUI_Statics::PropPointers) < 2048);
@@ -116,10 +122,10 @@ UMyInvenUI::~UMyInvenUI() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenUI_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMyInvenUI, UMyInvenUI::StaticClass, TEXT("UMyInvenUI"), &Z_Registration_Info_UClass_UMyInvenUI, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyInvenUI), 3064839549U) },
+		{ Z_Construct_UClass_UMyInvenUI, UMyInvenUI::StaticClass, TEXT("UMyInvenUI"), &Z_Registration_Info_UClass_UMyInvenUI, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyInvenUI), 2700058322U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenUI_h_84844472(TEXT("/Script/portfolio1"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenUI_h_398065834(TEXT("/Script/portfolio1"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenUI_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenUI_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -11,6 +11,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 
+#include "MyPlayerController.h"
 #include "MyAnimInstance.h"
 #include "MyStatComponent.h"
 #include "MyItem.h"
@@ -56,9 +57,6 @@ void AMyPlayer::PostInitializeComponents()
 void AMyPlayer::BeginPlay()
 {
 	Super::BeginPlay();
-
-	if (_invenWidget)
-		_invenWidget->AddToViewport();
 }
 
 void AMyPlayer::Tick(float DeltaTime)
@@ -77,6 +75,7 @@ void AMyPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		enhancedInputCompnent->BindAction(_lookAction, ETriggerEvent::Triggered, this, &AMyPlayer::Look);
 		enhancedInputCompnent->BindAction(_jumpAction, ETriggerEvent::Triggered, this, &AMyPlayer::JumpA);
 		enhancedInputCompnent->BindAction(_attackAction, ETriggerEvent::Triggered, this, &AMyPlayer::Attack);
+		enhancedInputCompnent->BindAction(_invenAction, ETriggerEvent::Started, this, &AMyPlayer::InvenOpen);
 	}
 }
 
@@ -141,6 +140,30 @@ void AMyPlayer::Attack(const FInputActionValue& value)
 			_animInstance->PlayAnimMontage();
 		}
 		_animInstance->JumpToSection(_curAttackSection);
+	}
+}
+
+void AMyPlayer::InvenOpen(const FInputActionValue& value)
+{
+	bool isPress = value.Get<bool>();
+
+	if (isPress)
+	{
+		auto controller = Cast<AMyPlayerController>(GetController());
+		if (_isInvenOpen)
+		{
+			if (controller)
+				controller->HideUI();
+			_invenWidget->RemoveFromViewport();
+		}
+		else
+		{
+			if (controller)
+				controller->ShowUI();
+			_invenWidget->AddToViewport();
+		}
+
+		_isInvenOpen = !_isInvenOpen;
 	}
 }
 
