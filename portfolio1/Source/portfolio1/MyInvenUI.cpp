@@ -5,6 +5,8 @@
 #include "Components/UniformGridPanel.h"
 #include "Components/Image.h"
 #include "Components/Button.h"
+#include "MyInvenComponent.h"
+#include "MyButton.h"
 
 bool UMyInvenUI::Initialize()
 {
@@ -12,10 +14,20 @@ bool UMyInvenUI::Initialize()
 
 	auto array = Grid->GetAllChildren();
 
+	int index = 0;
 	for (auto widget : array)
 	{
-		auto button = Cast<UButton>(widget);
-		button->OnClicked.AddDynamic(this, &UMyInvenUI::FButtonSelect);
+		auto button = Cast<UMyButton>(widget);
+		// 다이나믹 멀티캐스트 델레게이트는 람다식을 쓸 수가 없다.
+		// => UFUNCTION() 키워드를 붙힐 수 없기 때문.
+		if (button)
+		{
+			button->OnClicked.AddDynamic(button, &UMyButton::SetCurIndex);
+			//button->OnClicked.AddDynamic(this, &UMyInvenUI::SetTextBox);
+			button->widget = this;
+			button->_curIndex = index;
+			index++;
+		}
 
 		auto image = Cast<UImage>(button->GetChildAt(0));
 		if (image)
@@ -24,7 +36,7 @@ bool UMyInvenUI::Initialize()
 		}
 	}
 
-	UE_LOG(LogTemp, Error, TEXT("Image Size: %d"), _slotImages.Num());
+	UE_LOG(LogTemp, Error, TEXT("Image Size : %d"), _slotImages.Num());
 	if (_slotImages.Num() == 0)
 		return false;
 
@@ -36,11 +48,10 @@ bool UMyInvenUI::Initialize()
 
 void UMyInvenUI::SetItem_Index(int32 index, FMyItemInfo info)
 {
-	if(info.itemId == 1 && info.type == MyItemType::POTION)
+	if (info.itemId == -1 && info.type == MyItemType::NONE)
+		_slotImages[index]->SetBrushFromTexture(_defaultTexture);
+
+	if (info.itemId == 1 && info.type == MyItemType::POTION)
 		_slotImages[index]->SetBrushFromTexture(_potionTexture);
 }
 
-void UMyInvenUI::FButtonSelect()
-{
-
-}

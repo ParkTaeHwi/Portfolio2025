@@ -14,4 +14,12 @@ class PORTFOLIO1_API UMyButton : public UButton
 {
 	GENERATED_BODY()
 	
+public:
+	UFUNCTION()
+	void SetCurIndex();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class UMyInvenUI* widget;
+
+	int32 _curIndex;
 };

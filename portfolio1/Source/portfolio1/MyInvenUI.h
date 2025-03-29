@@ -32,14 +32,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<class UButton*> _slotButtons;
 
-	UFUNCTION()
-	void FButtonSelect();
-
 	UPROPERTY()
 	UTexture2D* _defaultTexture;
 
 	UPROPERTY()
 	UTexture2D* _potionTexture;
+
+	UPROPERTY()
+	class UMyInvenComponent* _invenComponent;
 
 	int32 _curIndex = -1;
 };

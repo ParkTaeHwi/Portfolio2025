@@ -14,6 +14,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PORTFOLIO1_MyButton_generated_h
 
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyButton_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execSetCurIndex);
+
+
 #define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyButton_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyButton(); \
@@ -41,6 +45,7 @@ public: \
 #define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyButton_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyButton_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyButton_h_15_INCLASS_NO_PURE_DECLS \
 	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyButton_h_15_ENHANCED_CONSTRUCTORS \
 private: \

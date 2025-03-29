@@ -6,15 +6,14 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "portfolio1/MyInvenComponent.h"
-#include "portfolio1/MyItem.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyInvenComponent() {}
 
 // Begin Cross Module References
 ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
+PORTFOLIO1_API UClass* Z_Construct_UClass_AMyItem_NoRegister();
 PORTFOLIO1_API UClass* Z_Construct_UClass_UMyInvenComponent();
 PORTFOLIO1_API UClass* Z_Construct_UClass_UMyInvenComponent_NoRegister();
-PORTFOLIO1_API UScriptStruct* Z_Construct_UScriptStruct_FMyItemInfo();
 UPackage* Z_Construct_UPackage__Script_portfolio1();
 // End Cross Module References
 
@@ -42,7 +41,7 @@ struct Z_Construct_UClass_UMyInvenComponent_Statics
 		{ "ModuleRelativePath", "MyInvenComponent.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FStructPropertyParams NewProp__items_Inner;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp__items_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp__items;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
@@ -51,8 +50,8 @@ struct Z_Construct_UClass_UMyInvenComponent_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMyInvenComponent_Statics::NewProp__items_Inner = { "_items", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FMyItemInfo, METADATA_PARAMS(0, nullptr) }; // 4188129642
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMyInvenComponent_Statics::NewProp__items = { "_items", nullptr, (EPropertyFlags)0x0040000000020015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyInvenComponent, _items), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__items_MetaData), NewProp__items_MetaData) }; // 4188129642
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyInvenComponent_Statics::NewProp__items_Inner = { "_items", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_AMyItem_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMyInvenComponent_Statics::NewProp__items = { "_items", nullptr, (EPropertyFlags)0x0040000000020015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyInvenComponent, _items), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__items_MetaData), NewProp__items_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMyInvenComponent_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyInvenComponent_Statics::NewProp__items_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyInvenComponent_Statics::NewProp__items,
@@ -98,10 +97,10 @@ UMyInvenComponent::~UMyInvenComponent() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMyInvenComponent, UMyInvenComponent::StaticClass, TEXT("UMyInvenComponent"), &Z_Registration_Info_UClass_UMyInvenComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyInvenComponent), 1477015649U) },
+		{ Z_Construct_UClass_UMyInvenComponent, UMyInvenComponent::StaticClass, TEXT("UMyInvenComponent"), &Z_Registration_Info_UClass_UMyInvenComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyInvenComponent), 3065812371U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenComponent_h_2532281145(TEXT("/Script/portfolio1"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenComponent_h_1845924766(TEXT("/Script/portfolio1"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
