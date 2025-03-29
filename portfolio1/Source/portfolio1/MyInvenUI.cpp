@@ -15,6 +15,8 @@ bool UMyInvenUI::Initialize()
 	for (auto widget : array)
 	{
 		auto button = Cast<UButton>(widget);
+		button->OnClicked.AddDynamic(this, &UMyInvenUI::FButtonSelect);
+
 		auto image = Cast<UImage>(button->GetChildAt(0));
 		if (image)
 		{
@@ -36,4 +38,9 @@ void UMyInvenUI::SetItem_Index(int32 index, FMyItemInfo info)
 {
 	if(info.itemId == 1 && info.type == MyItemType::POTION)
 		_slotImages[index]->SetBrushFromTexture(_potionTexture);
+}
+
+void UMyInvenUI::FButtonSelect()
+{
+
 }

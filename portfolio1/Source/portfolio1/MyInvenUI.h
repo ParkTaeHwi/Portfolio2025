@@ -8,19 +8,19 @@
 #include "MyInvenUI.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
 class PORTFOLIO1_API UMyInvenUI : public UUserWidget
 {
 	GENERATED_BODY()
-	
+
 public:
 	virtual bool Initialize() override;
 
 	void SetItem_Index(int32 index, FMyItemInfo info);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite,meta=(BindWidget))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	class UUniformGridPanel* Grid;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
@@ -32,9 +32,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<class UButton*> _slotButtons;
 
+	UFUNCTION()
+	void FButtonSelect();
+
 	UPROPERTY()
 	UTexture2D* _defaultTexture;
 
 	UPROPERTY()
 	UTexture2D* _potionTexture;
+
+	int32 _curIndex = -1;
 };
