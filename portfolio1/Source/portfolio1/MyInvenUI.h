@@ -18,6 +18,9 @@ class PORTFOLIO1_API UMyInvenUI : public UUserWidget
 public:
 	virtual bool Initialize() override;
 
+	UFUNCTION()
+	void SetTextBox();
+
 	void SetItem_Index(int32 index, FMyItemInfo info);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
@@ -25,6 +28,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	class UButton* Drop;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	class UTextBlock* ItemInfo;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<class UImage*> _slotImages;
@@ -40,6 +46,6 @@ public:
 
 	UPROPERTY()
 	class UMyInvenComponent* _invenComponent;
-
+	
 	int32 _curIndex = -1;
 };

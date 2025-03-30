@@ -14,6 +14,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PORTFOLIO1_MyInvenUI_generated_h
 
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenUI_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execSetTextBox);
+
+
 #define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenUI_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyInvenUI(); \
@@ -41,6 +45,7 @@ public: \
 #define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenUI_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenUI_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenUI_h_16_INCLASS_NO_PURE_DECLS \
 	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyInvenUI_h_16_ENHANCED_CONSTRUCTORS \
 private: \
