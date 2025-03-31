@@ -24,8 +24,6 @@ public: \
 
 
 #define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyAIController_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AMyAIController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AMyAIController(AMyAIController&&); \
@@ -33,7 +31,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AMyAIController); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMyAIController); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMyAIController) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMyAIController) \
 	NO_API virtual ~AMyAIController();
 
 
