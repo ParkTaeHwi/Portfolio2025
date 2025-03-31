@@ -129,6 +129,7 @@ void AMyCharacter::DeadEvent()
 {
 	SetActorHiddenInGame(true);
 	SetActorEnableCollision(false);
+	Controller->UnPossess();
 }
 
 void AMyCharacter::AddHp(float amount)

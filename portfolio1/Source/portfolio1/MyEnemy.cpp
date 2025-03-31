@@ -9,13 +9,15 @@
 #include "MyPlayerController.h"
 #include "MyStatComponent.h"
 
+#include "Animation/AnimInstance.h"
+#include "MyAnimInstance.h"
+
 AMyEnemy::AMyEnemy()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
 	_hpBarWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("HpBar"));
 	_hpBarWidget->SetupAttachment(GetMesh());
-	//_hpBarWidget->SetWidgetSpace(EWidgetSpace::Screen);
 	_hpBarWidget->SetWidgetSpace(EWidgetSpace::World);
 
 	static ConstructorHelpers::FClassFinder<UMyHpBar>hpBarClass(TEXT("/Script/UMGEditor.WidgetBlueprint'/Game/BluePrint/BP_MyHpBar.BP_MyHpBar'_C"));
