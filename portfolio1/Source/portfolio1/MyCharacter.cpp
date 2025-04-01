@@ -129,7 +129,14 @@ void AMyCharacter::DeadEvent()
 {
 	SetActorHiddenInGame(true);
 	SetActorEnableCollision(false);
-	Controller->UnPossess();
+	//Controller->UnPossess();
+	if (Controller)
+	{
+		Controller->UnPossess();
+	}
+
+	UE_LOG(LogTemp, Warning, TEXT("Destroy() called!"));
+	this->Destroy();
 }
 
 void AMyCharacter::AddHp(float amount)
@@ -146,7 +153,8 @@ float AMyCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AC
 	{
 		if (IsDead())
 		{
-			UE_LOG(LogTemp,Error, TEXT("MyCharacter.cpp,TakeDamage,TakeDamege by Player"));
+			UE_LOG(LogTemp,Error, TEXT("MyCharacter.cpp,TakeDamage->Dead by Player"));
+			DeadEvent();
 		}
 	}
 
