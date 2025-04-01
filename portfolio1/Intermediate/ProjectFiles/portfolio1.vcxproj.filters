@@ -33,10 +33,22 @@
     <Filter Include="Source\portfolio1">
       <UniqueIdentifier>{0597AC32-6FDE-3607-BC14-C796078DA832}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\portfolio1\BT_Deco_CanAttack.cpp">
+      <Filter>Source\portfolio1</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio1\BT_Deco_CanAttack.h">
+      <Filter>Source\portfolio1</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\portfolio1\BT_Service_FindTarget.cpp">
       <Filter>Source\portfolio1</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\portfolio1\BT_Service_FindTarget.h">
+      <Filter>Source\portfolio1</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio1\BT_Task_Attack.cpp">
+      <Filter>Source\portfolio1</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio1\BT_Task_Attack.h">
       <Filter>Source\portfolio1</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\portfolio1\BT_Task_FindRandomPos.cpp">

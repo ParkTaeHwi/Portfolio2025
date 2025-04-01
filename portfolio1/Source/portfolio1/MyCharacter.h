@@ -34,6 +34,7 @@ public:
 
 	float My_Vertical() { return _vertical; }
 	float My_Horizontal() { return _horizontal; }
+	float AttackRange() { return _attackRange; }
 
 	UFUNCTION()
 	void TestDelegate1();
@@ -47,6 +48,7 @@ public:
 	virtual float TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser);
 
 	bool IsDead();
+	bool IsAttacking() { return _isAttack; }
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stat", meta = (AllowPrivateAccess = "true"))
@@ -63,4 +65,7 @@ protected:
 
 	float _vertical = 0.0f;
 	float _horizontal = 0.0f;
+
+	UPROPERTY(EditAnywhere)
+	float _attackRange = 500.0f;
 };

@@ -82,7 +82,7 @@ void AMyCharacter::Attack_Hit()
 	FHitResult hitResult;
 	FCollisionQueryParams params(NAME_None, false, this);
 
-	float attackRange = 1000.0f;	// Ä¸½¶ ±æÀÌ
+	//float attackRange = 1000.0f;	// Ä¸½¶ ±æÀÌ
 	float attackRadius = 25.0f;	    // Ä¸½¶ ±½±â
 	float heightOffset = 50.0f;		// Ä¸½¶ ³ôÀÌ
 	// Ä¸½¶
@@ -93,9 +93,9 @@ void AMyCharacter::Attack_Hit()
 	FQuat quat = FQuat::FindBetweenVectors(FVector(0, 0, 1), forward);
 
 	
-	FVector center = GetActorLocation() + forward * attackRange * 0.5f + FVector(0, 0, heightOffset);
-	FVector start = GetActorLocation() + forward * attackRange * 0.5f + FVector(0, 0, heightOffset);	// Ãæµ¹Ã¼ÀÇ ½ÃÀÛÁß½É
-	FVector end = GetActorLocation() + forward * attackRange * 0.5f + FVector(0, 0, heightOffset);	    // Ãæµ¹Ã¼ÀÇ ³¡Áß½É
+	FVector center = GetActorLocation() + forward * _attackRange * 0.5f + FVector(0, 0, heightOffset);
+	FVector start = GetActorLocation() + forward * _attackRange * 0.5f + FVector(0, 0, heightOffset);	// Ãæµ¹Ã¼ÀÇ ½ÃÀÛÁß½É
+	FVector end = GetActorLocation() + forward * _attackRange * 0.5f + FVector(0, 0, heightOffset);	    // Ãæµ¹Ã¼ÀÇ ³¡Áß½É
 
 	bool bResult = GetWorld()->SweepSingleByChannel
 	(
@@ -104,7 +104,7 @@ void AMyCharacter::Attack_Hit()
 		end,
 		quat,	// ÄõÅÍ´Ï¾ð
 		ECC_GameTraceChannel2,
-		FCollisionShape::MakeCapsule(attackRadius, attackRange * 0.5f),
+		FCollisionShape::MakeCapsule(attackRadius, _attackRange * 0.5f),
 		params
 	);
 
@@ -122,7 +122,7 @@ void AMyCharacter::Attack_Hit()
 	}
 
 	//Ãæµ¹Ã¼±×¸®±â
-	DrawDebugCapsule(GetWorld(), center, attackRange * 0.5f, attackRadius, quat, drawColor, false, 1.0f);
+	DrawDebugCapsule(GetWorld(), center, _attackRange * 0.5f, attackRadius, quat, drawColor, false, 1.0f);
 }
 
 void AMyCharacter::DeadEvent()
