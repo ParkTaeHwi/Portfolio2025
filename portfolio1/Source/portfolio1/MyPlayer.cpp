@@ -60,6 +60,8 @@ void AMyPlayer::PostInitializeComponents()
 void AMyPlayer::BeginPlay()
 {
 	Super::BeginPlay();
+
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_GameTraceChannel2, ECR_Block);
 }
 
 void AMyPlayer::Tick(float DeltaTime)
