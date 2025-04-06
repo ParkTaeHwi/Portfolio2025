@@ -92,7 +92,7 @@ AMyItem* UMyInvenComponent::DropItem(int32 index)
 
 	// 2. ItemDropEvent를 만들어서
 	// => MyPlayer의 Drop함수를 바인딩해서 간접호출
-
+	UE_LOG(LogTemp, Error, TEXT("DropItem failed: invalid index %d"), index);
 	return dropItem;
 }
 

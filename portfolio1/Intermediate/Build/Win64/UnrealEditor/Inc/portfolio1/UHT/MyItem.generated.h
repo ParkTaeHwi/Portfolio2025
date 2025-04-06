@@ -24,11 +24,11 @@ struct FHitResult;
 
 template<> PORTFOLIO1_API UScriptStruct* StaticStruct<struct FMyItemInfo>();
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_33_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execOnOverlap);
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_INCLASS_NO_PURE_DECLS \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_33_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyItem(); \
 	friend struct Z_Construct_UClass_AMyItem_Statics; \
@@ -37,7 +37,7 @@ public: \
 	DECLARE_SERIALIZER(AMyItem)
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_ENHANCED_CONSTRUCTORS \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_33_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AMyItem(AMyItem&&); \
@@ -49,13 +49,13 @@ public: \
 	NO_API virtual ~AMyItem();
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_27_PROLOG
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_GENERATED_BODY \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_PROLOG
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_33_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_INCLASS_NO_PURE_DECLS \
-	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_30_ENHANCED_CONSTRUCTORS \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_33_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_33_INCLASS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_33_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

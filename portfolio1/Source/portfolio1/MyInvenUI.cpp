@@ -49,11 +49,27 @@ bool UMyInvenUI::Initialize()
 
 void UMyInvenUI::SetItem_Index(int32 index, FMyItemInfo info)
 {
-	if (info.itemId == -1 && info.type == MyItemType::NONE)
-		_slotImages[index]->SetBrushFromTexture(_defaultTexture);
+	//if (info.itemId == -1 && info.type == MyItemType::NONE)
+	//	_slotImages[index]->SetBrushFromTexture(_defaultTexture);
+	//
+	//if (info.itemId == 1 && info.type == MyItemType::POTION)
+	//	_slotImages[index]->SetBrushFromTexture(_potionTexture);
 
-	if (info.itemId == 1 && info.type == MyItemType::POTION)
-		_slotImages[index]->SetBrushFromTexture(_potionTexture);
+	UE_LOG(LogTemp, Warning, TEXT("SetItem_Index called for index %d | ID: %d, Type: %d"),
+		index, info.itemId, static_cast<int32>(info.type));
+	if (!_slotImages.IsValidIndex(index)) return;
+
+	//  무조건 초기화로 설정하는 걸 기본으로
+	_slotImages[index]->SetBrushFromTexture(_defaultTexture);
+
+	//  아이템이 있을 때만 바꾸기
+	if (info.itemId != -1 && info.type != MyItemType::NONE)
+	{
+		if (info.itemId == 1 && info.type == MyItemType::POTION)
+		{
+			_slotImages[index]->SetBrushFromTexture(_potionTexture);
+		}
+	}
 }
 
 void UMyInvenUI::SetTextBox()

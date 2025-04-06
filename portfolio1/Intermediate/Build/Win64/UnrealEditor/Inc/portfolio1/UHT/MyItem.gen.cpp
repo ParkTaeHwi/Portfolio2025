@@ -104,10 +104,15 @@ struct Z_Construct_UScriptStruct_FMyItemInfo_Statics
 		{ "Category", "MyItemInfo" },
 		{ "ModuleRelativePath", "MyItem.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_healAmount_MetaData[] = {
+		{ "Category", "MyItemInfo" },
+		{ "ModuleRelativePath", "MyItem.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_itemId;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_type_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_type;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_healAmount;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static void* NewStructOps()
 	{
@@ -118,10 +123,12 @@ struct Z_Construct_UScriptStruct_FMyItemInfo_Statics
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewProp_itemId = { "itemId", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FMyItemInfo, itemId), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_itemId_MetaData), NewProp_itemId_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewProp_type_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewProp_type = { "type", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FMyItemInfo, type), Z_Construct_UEnum_portfolio1_MyItemType, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_type_MetaData), NewProp_type_MetaData) }; // 1163361762
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewProp_healAmount = { "healAmount", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FMyItemInfo, healAmount), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_healAmount_MetaData), NewProp_healAmount_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FMyItemInfo_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewProp_itemId,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewProp_type_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewProp_type,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewProp_healAmount,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMyItemInfo_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FMyItemInfo_Statics::StructParams = {
@@ -280,7 +287,7 @@ struct Z_Construct_UClass_AMyItem_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyItem_Statics::NewProp__mesh = { "_mesh", nullptr, (EPropertyFlags)0x0040000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyItem, _mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__mesh_MetaData), NewProp__mesh_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyItem_Statics::NewProp__collider = { "_collider", nullptr, (EPropertyFlags)0x0040000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyItem, _collider), Z_Construct_UClass_UCapsuleComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__collider_MetaData), NewProp__collider_MetaData) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMyItem_Statics::NewProp__info = { "_info", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyItem, _info), Z_Construct_UScriptStruct_FMyItemInfo, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__info_MetaData), NewProp__info_MetaData) }; // 4188129642
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMyItem_Statics::NewProp__info = { "_info", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyItem, _info), Z_Construct_UScriptStruct_FMyItemInfo, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__info_MetaData), NewProp__info_MetaData) }; // 3755688117
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyItem_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyItem_Statics::NewProp__mesh,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyItem_Statics::NewProp__collider,
@@ -330,13 +337,13 @@ struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfo
 		{ MyItemType_StaticEnum, TEXT("MyItemType"), &Z_Registration_Info_UEnum_MyItemType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1163361762U) },
 	};
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FMyItemInfo::StaticStruct, Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewStructOps, TEXT("MyItemInfo"), &Z_Registration_Info_UScriptStruct_MyItemInfo, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FMyItemInfo), 4188129642U) },
+		{ FMyItemInfo::StaticStruct, Z_Construct_UScriptStruct_FMyItemInfo_Statics::NewStructOps, TEXT("MyItemInfo"), &Z_Registration_Info_UScriptStruct_MyItemInfo, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FMyItemInfo), 3755688117U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyItem, AMyItem::StaticClass, TEXT("AMyItem"), &Z_Registration_Info_UClass_AMyItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyItem), 426991820U) },
+		{ Z_Construct_UClass_AMyItem, AMyItem::StaticClass, TEXT("AMyItem"), &Z_Registration_Info_UClass_AMyItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyItem), 2747503507U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_1012834951(TEXT("/Script/portfolio1"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_4204653426(TEXT("/Script/portfolio1"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyItem_h_Statics::EnumInfo));

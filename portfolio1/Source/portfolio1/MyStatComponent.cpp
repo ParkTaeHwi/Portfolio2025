@@ -63,5 +63,6 @@ int32 UMyStatComponent::AddCurHp(int32 amount)
 	//auto actor = GetOwner();
 	//UE_LOG(LogTemp, Warning, TEXT("Name : %s , HP : %d"), *actor->GetName(), _curHp);
 
-	return before - _curHp;
+	//return before - _curHp;
+	return _curHp;
 }

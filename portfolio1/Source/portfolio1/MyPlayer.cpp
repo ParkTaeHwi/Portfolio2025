@@ -183,6 +183,30 @@ void AMyPlayer::AddItem(AMyItem* item)
 
 void AMyPlayer::Drop()
 {
+	//UE_LOG(LogTemp, Error, TEXT("Drop"));
+	//
+	//int32 curDropIndex = -1;
+	//auto invenUI = Cast<UMyInvenUI>(_invenWidget);
+	//if (invenUI)
+	//	curDropIndex = invenUI->_curIndex;
+	//
+	//auto item = _invenComponent->DropItem(curDropIndex);
+	//if (item == nullptr)
+	//	return;
+	//
+	//invenUI->SetItem_Index(curDropIndex, FMyItemInfo());
+	//
+	//FVector playerLocation = GetActorLocation();
+	//
+	//float dropRadius = 200.0f;
+	//FVector randomOffset = FMath::VRand() * FMath::FRandRange(100.0f, dropRadius);
+	//FVector dropLocation = playerLocation + randomOffset;
+	//dropLocation.Z = 40.0f;
+	//
+	//item->SetActorLocation(dropLocation);
+	//item->SetActorHiddenInGame(false);
+	//item->SetActorEnableCollision(true);
+
 	UE_LOG(LogTemp, Error, TEXT("Drop"));
 
 	int32 curDropIndex = -1;
@@ -190,20 +214,43 @@ void AMyPlayer::Drop()
 	if (invenUI)
 		curDropIndex = invenUI->_curIndex;
 
+	if (!_invenComponent || _invenComponent->GetItemInfo_Index(curDropIndex).itemId == -1) //  빈 슬롯이면 무시
+	{
+		UE_LOG(LogTemp, Error, TEXT("Drop failed: empty slot!")); // 
+		return;
+	}
+
 	auto item = _invenComponent->DropItem(curDropIndex);
 	if (item == nullptr)
 		return;
 
-	invenUI->SetItem_Index(curDropIndex, FMyItemInfo());
+	//  포션이면 회복 처리
+	const FMyItemInfo& info = item->GetInfo();
+	if (info.type == MyItemType::POTION)
+	{
+		auto stat = GetComponentByClass<UMyStatComponent>();
+		if (stat)
+		{
+			int32 beforeHp = stat->GetCurHp();              //  회복 전
+			int32 added = 30;
+			int32 afterHp = stat->AddCurHp(added);          //  회복 실행
+			UE_LOG(LogTemp, Warning, TEXT("Used Potion! HP: %d → %d (+%d)"), beforeHp, afterHp, added); //  로그 출력
+			item->Destroy();
+			invenUI->SetItem_Index(curDropIndex, FMyItemInfo());
+		}
+	}
+	else
+	{
+		invenUI->SetItem_Index(curDropIndex, FMyItemInfo());
 
-	FVector playerLocation = GetActorLocation();
+		FVector playerLocation = GetActorLocation();
+		float dropRadius = 200.0f;
+		FVector randomOffset = FMath::VRand() * FMath::FRandRange(100.0f, dropRadius);
+		FVector dropLocation = playerLocation + randomOffset;
+		dropLocation.Z = 40.0f;
 
-	float dropRadius = 200.0f;
-	FVector randomOffset = FMath::VRand() * FMath::FRandRange(100.0f, dropRadius);
-	FVector dropLocation = playerLocation + randomOffset;
-	dropLocation.Z = 40.0f;
-
-	item->SetActorLocation(dropLocation);
-	item->SetActorHiddenInGame(false);
-	item->SetActorEnableCollision(true);
+		item->SetActorLocation(dropLocation);
+		item->SetActorHiddenInGame(false);
+		item->SetActorEnableCollision(true);
+	}
 }

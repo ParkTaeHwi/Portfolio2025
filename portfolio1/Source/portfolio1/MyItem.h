@@ -22,6 +22,9 @@ struct FMyItemInfo
 	int32 itemId = -1;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	MyItemType type= MyItemType::NONE;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 healAmount = 0; // 회복량 추가
 };
 
 UCLASS()
