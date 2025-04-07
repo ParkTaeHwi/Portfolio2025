@@ -33,7 +33,7 @@ void AMyGameModeBase::OnEnemyDie()
 		ACharacter* player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
 		if (player)
 		{
-			FVector nextPos = FVector(2803.533433f, -882.348315f, 19.013312f);
+			FVector nextPos = FVector(-727.601198f, -4706.633046f, 168.431547f);
 			player->SetActorLocation(nextPos);
 			UE_LOG(LogTemp, Warning, TEXT("Player moved to next stage!"));
 		}
