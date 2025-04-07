@@ -3,6 +3,7 @@
 
 #include "MyGameModeBase.h"
 #include "MyCharacter.h"
+#include "Kismet/GameplayStatics.h"
 
 AMyGameModeBase::AMyGameModeBase()
 {
@@ -12,5 +13,29 @@ AMyGameModeBase::AMyGameModeBase()
 	if (pawn.Succeeded())	// 블루프린트 클래스를 찾았다면
 	{
 		DefaultPawnClass = pawn.Class;	// 찾은 블루프린트 클래스를 디폴트로 설정
+	}
+}
+
+void AMyGameModeBase::AddEnemy()
+{
+	_enemyCount++;
+	UE_LOG(LogTemp, Warning, TEXT("Enemy Spawned! Count: %d"), _enemyCount);
+}
+
+void AMyGameModeBase::OnEnemyDie()
+{
+	_enemyCount--;
+
+	UE_LOG(LogTemp, Warning, TEXT("Enemy died! Remaining: %d"), _enemyCount);
+
+	if (_enemyCount <= 0)
+	{
+		ACharacter* player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
+		if (player)
+		{
+			FVector nextPos = FVector(2803.533433f, -882.348315f, 19.013312f);
+			player->SetActorLocation(nextPos);
+			UE_LOG(LogTemp, Warning, TEXT("Player moved to next stage!"));
+		}
 	}
 }

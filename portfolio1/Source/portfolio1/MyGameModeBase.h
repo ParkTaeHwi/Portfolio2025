@@ -17,4 +17,9 @@ class PORTFOLIO1_API AMyGameModeBase : public AGameModeBase
 public:
 	AMyGameModeBase();	// 객체가 생성될 때 실행될 생성자 선언
 	
+	void AddEnemy();  
+	void OnEnemyDie();
+
+private:
+	int32 _enemyCount = 0;
 };

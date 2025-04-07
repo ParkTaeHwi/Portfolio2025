@@ -8,6 +8,8 @@
 #include "MyHpBar.h"
 #include "MyPlayerController.h"
 #include "MyStatComponent.h"
+#include "MyGameModeBase.h"
+#include "Components/CapsuleComponent.h"
 
 #include "Animation/AnimInstance.h"
 #include "MyAnimInstance.h"
@@ -35,6 +37,14 @@ void AMyEnemy::BeginPlay()
 	if (hpBar)
 	{
 		_statComponent->_hpChanged.AddUObject(hpBar, &UMyHpBar::SetHpBarValue);
+	}
+
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_GameTraceChannel2, ECR_Block);
+
+	AMyGameModeBase* gm = Cast<AMyGameModeBase>(GetWorld()->GetAuthGameMode());
+	if (gm)
+	{
+		gm->AddEnemy();
 	}
 }
 
@@ -67,4 +77,30 @@ void AMyEnemy::Attack_AI()
 	_animInstance->PlayAnimMontage();
 
 	_animInstance->JumpToSection(_curAttackSection);
+}
+
+void AMyEnemy::Die()
+{
+	SetActorHiddenInGame(true);
+	SetActorEnableCollision(false);
+
+	if (Controller)
+	{
+		Controller->UnPossess();
+	}
+
+	UE_LOG(LogTemp, Warning, TEXT("Enemy::Die() - Destroy() called!"));
+
+	AMyGameModeBase* gm = Cast<AMyGameModeBase>(GetWorld()->GetAuthGameMode());
+	if (gm)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Enemy::Die() - Calling OnEnemyDie()"));
+		gm->OnEnemyDie(); // 카운트 감소 및 이동 체크
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Enemy::Die() - Failed to get GameMode!"));
+	}
+
+	Destroy();
 }
