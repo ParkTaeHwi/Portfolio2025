@@ -75,7 +75,6 @@ template<> PORTFOLIO1_API UClass* StaticClass<AMyBoss>()
 {
 	return AMyBoss::StaticClass();
 }
-AMyBoss::AMyBoss() {}
 DEFINE_VTABLE_PTR_HELPER_CTOR(AMyBoss);
 AMyBoss::~AMyBoss() {}
 // End Class AMyBoss

@@ -14,4 +14,16 @@ class PORTFOLIO1_API AMyBoss : public AMyEnemy
 {
 	GENERATED_BODY()
 	
+public:
+	AMyBoss();
+
+	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaTime) override;
+
+private:
+	FVector _targetLocation;
+	float _moveSpeed = 200.f; // 부유 속도
+	float _acceptanceRadius = 100.f; // 도착했다고 판단할 거리
+
+	void SetNewRandomTarget();
 };
