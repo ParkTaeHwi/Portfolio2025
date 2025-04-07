@@ -9,12 +9,19 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
+class UPrimitiveComponent;
+struct FHitResult;
 #ifdef PORTFOLIO1_MyBoss_generated_h
 #error "MyBoss.generated.h already included, missing '#pragma once' in MyBoss.h"
 #endif
 #define PORTFOLIO1_MyBoss_generated_h
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execOnPlayerDetected);
+
+
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyBoss(); \
 	friend struct Z_Construct_UClass_AMyBoss_Statics; \
@@ -23,7 +30,7 @@ public: \
 	DECLARE_SERIALIZER(AMyBoss)
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AMyBoss(AMyBoss&&); \
@@ -35,12 +42,13 @@ public: \
 	NO_API virtual ~AMyBoss();
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_12_PROLOG
-#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_15_GENERATED_BODY \
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_14_PROLOG
+#define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_15_INCLASS_NO_PURE_DECLS \
-	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_15_ENHANCED_CONSTRUCTORS \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_17_INCLASS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
