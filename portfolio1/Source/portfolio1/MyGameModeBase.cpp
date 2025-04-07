@@ -24,18 +24,19 @@ void AMyGameModeBase::AddEnemy()
 
 void AMyGameModeBase::OnEnemyDie()
 {
-	_enemyCount--;
+    _enemyCount--;
+    _enemyKillCount++; //  킬 카운트 증가
 
-	UE_LOG(LogTemp, Warning, TEXT("Enemy died! Remaining: %d"), _enemyCount);
+    UE_LOG(LogTemp, Warning, TEXT("Enemy died! Remaining: %d, Killed: %d"), _enemyCount, _enemyKillCount);
 
-	if (_enemyCount <= 0)
-	{
-		ACharacter* player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
-		if (player)
-		{
-			FVector nextPos = FVector(-727.601198f, -4706.633046f, 168.431547f);
-			player->SetActorLocation(nextPos);
-			UE_LOG(LogTemp, Warning, TEXT("Player moved to next stage!"));
-		}
-	}
+    if (_enemyKillCount >= _requiredKills)
+    {
+        ACharacter* player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
+        if (player)
+        {
+            FVector nextPos = FVector(2803.533433f, -882.348315f, 19.013312f);
+            player->SetActorLocation(nextPos);
+            UE_LOG(LogTemp, Warning, TEXT("Player moved to next stage!"));
+        }
+    }
 }
