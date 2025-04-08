@@ -254,3 +254,9 @@ void AMyPlayer::Drop()
 		item->SetActorEnableCollision(true);
 	}
 }
+
+void AMyPlayer::AddExp(int32 amount)
+{
+	_exp += amount;
+	UE_LOG(LogTemp, Warning, TEXT("exp +%d, curExp: %d"), amount, _exp);
+}

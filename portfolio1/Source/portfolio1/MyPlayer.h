@@ -44,6 +44,8 @@ public:
 	UFUNCTION()
 	void Drop();
 
+	void AddExp(int32 amount);
+
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input", meta = (AllowPrivateAccess = "true"))
 	class UInputAction* _moveAction;
@@ -73,4 +75,7 @@ private:
 	class UMyInvenComponent* _invenComponent;
 
 	bool _isInvenOpen = false;
+
+	UPROPERTY(EditAnywhere, Category = "Reward")
+	int32 _exp = 0;
 };

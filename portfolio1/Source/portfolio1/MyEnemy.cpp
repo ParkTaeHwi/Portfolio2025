@@ -2,6 +2,7 @@
 
 
 #include "MyEnemy.h"
+#include "MyPlayer.h"
 
 #include "Components/WidgetComponent.h"
 #include "Kismet/KismetMathLibrary.h"
@@ -83,6 +84,16 @@ void AMyEnemy::Die()
 {
 	SetActorHiddenInGame(true);
 	SetActorEnableCollision(false);
+
+	if (APlayerController* pc = GetWorld()->GetFirstPlayerController()) //플레이어 컨트롤러 직접 가져오기
+	{
+		AMyPlayer* player = Cast<AMyPlayer>(pc->GetPawn());
+		if (player && player->IsValidLowLevel())
+		{
+			player->AddExp(_expToGive); // 경험치 지급
+			UE_LOG(LogTemp, Warning, TEXT("Enemy::Die() - Player gain EXP %d!"), _expToGive); //  로그 출력
+		}
+	}
 
 	if (Controller)
 	{
