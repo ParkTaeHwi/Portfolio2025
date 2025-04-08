@@ -2,12 +2,14 @@
 
 
 #include "MyBoss.h"
+#include "MyPlayer.h"
 #include "Components/CapsuleComponent.h"
 #include "MyCharacter.h"
 #include "MyStatComponent.h"
 #include "DrawDebugHelpers.h"
 #include "TimerManager.h"
 #include "Engine/DamageEvents.h"
+#include "Engine/OverlapResult.h"
 
 AMyBoss::AMyBoss()
 {
@@ -36,12 +38,16 @@ void AMyBoss::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// 부유 이동
+	// 현재 위치와 목표 방향 계산
 	FVector currentLocation = GetActorLocation();
-	FVector direction = (_targetLocation - currentLocation).GetSafeNormal();
+	FVector direction = (_targetLocation - currentLocation);
+	direction.Z = 0.0f; // 수평 방향으로만 이동
+	direction.Normalize();
+
+	// 이동
 	FVector newLocation = currentLocation + direction * _moveSpeed * DeltaTime;
 
-	// 라인트레이스로 지면 높이 찾기
+	// 라인트레이스로 지면 높이 계산
 	FVector TraceStart = newLocation + FVector(0, 0, 500.0f);
 	FVector TraceEnd = newLocation - FVector(0, 0, 1000.0f);
 	FHitResult hitResult;
@@ -49,22 +55,76 @@ void AMyBoss::Tick(float DeltaTime)
 
 	if (GetWorld()->LineTraceSingleByChannel(hitResult, TraceStart, TraceEnd, ECC_Visibility, params))
 	{
-		// 라인트레이스 성공 시 지면보다 약간 위로 띄움
-		newLocation.Z = hitResult.Location.Z + 10.0f; // 
+		// 지면 위 10.f에 유지
+		newLocation.Z = hitResult.Location.Z + 10.0f;
 	}
 	else
 	{
-		// 실패 시 현재 높이 유지
-		newLocation.Z = currentLocation.Z; // 
+		// 실패 시 기존 높이 유지
+		newLocation.Z = currentLocation.Z;
 	}
 
+	// 이동 적용
 	SetActorLocation(newLocation);
 
-	// 목표 지점 도달 시 재설정
-	if (FVector::Dist(currentLocation, _targetLocation) < _acceptanceRadius)
+	// 목표 지점 도달 시 새로운 위치 설정
+	float horizontalDist = FVector::Dist2D(currentLocation, _targetLocation); // XY 평면 거리
+	if (horizontalDist < _acceptanceRadius)
 	{
 		SetNewRandomTarget();
 	}
+
+	DetectPlayer();
+}
+
+void AMyBoss::DetectPlayer()
+{
+	if (IsDead())
+		return;
+
+	FVector pos = GetActorLocation();
+	float sphereRadius = 300.0f;
+
+	TArray<FOverlapResult> overlapResults;
+	FCollisionQueryParams qParams(NAME_None, false, this);
+
+	bool result = GetWorld()->OverlapMultiByChannel(
+		overlapResults,
+		pos,
+		FQuat::Identity,
+		ECC_GameTraceChannel2,
+		FCollisionShape::MakeSphere(sphereRadius),
+		qParams
+	);
+
+	if (result)
+	{
+		for (auto& overlapResult : overlapResults)
+		{
+			AMyPlayer* player = Cast<AMyPlayer>(overlapResult.GetActor());
+			if (player && player->IsValidLowLevel())
+			{
+				_targetPlayer = player; //  대상 설정
+				DrawDebugSphere(GetWorld(), pos, sphereRadius, 30, FColor::Red, false, 0.3f);
+
+				FRotator rot = (player->GetActorLocation() - GetActorLocation()).Rotation();
+				SetActorRotation(FMath::RInterpTo(GetActorRotation(), rot, GetWorld()->DeltaTimeSeconds, 2.0f));
+				return;
+			}
+		}
+	}
+
+	// 플레이어 못 찾았을 경우
+	_targetPlayer = nullptr;
+	DrawDebugSphere(GetWorld(), pos, sphereRadius, 30, FColor::Green, false, 0.3f);
+}
+
+bool AMyBoss::IsDead()
+{
+	if (_statComponent == nullptr)
+		return false;
+
+	return _statComponent->IsDead();
 }
 
 void AMyBoss::SetNewRandomTarget()

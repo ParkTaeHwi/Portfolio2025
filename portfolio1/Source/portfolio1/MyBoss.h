@@ -22,6 +22,10 @@ public:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
+	void DetectPlayer();
+
+	bool IsDead();
+
 protected:
 	// 이동 관련
 	FVector _targetLocation;
