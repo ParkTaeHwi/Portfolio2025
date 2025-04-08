@@ -73,7 +73,7 @@ protected:
 	FTimerHandle SpawnTimerHandle;
 
 	UPROPERTY(EditAnywhere, Category = "Spawn")
-	int32 MaxSpawnCount = 10;
+	int32 MaxSpawnCount = 3;
 
 	int32 CurrentSpawnCount = 0;
 };
