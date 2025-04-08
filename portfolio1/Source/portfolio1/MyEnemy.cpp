@@ -124,10 +124,10 @@ void AMyEnemy::Die()
 
 	if (ItemToDrop)
 	{
-		FVector DropLocation = GetActorLocation() + FVector(0, 0, 50); // 위cl
+		FVector DropLocation = GetActorLocation() + FVector(0, 0, 5); // 위cl
 		FRotator DropRotation = FRotator::ZeroRotator;
 
 		GetWorld()->SpawnActor<AMyItem>(ItemToDrop, DropLocation, DropRotation);
-		UE_LOG(LogTemp, Warning, TEXT("Enemy dropped item!")); //  초등 영어!
+		UE_LOG(LogTemp, Warning, TEXT("Enemy dropped item!")); 
 	}
 }

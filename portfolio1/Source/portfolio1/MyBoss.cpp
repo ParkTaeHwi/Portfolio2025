@@ -153,7 +153,7 @@ void AMyBoss::SpawnEnemy()
 	}
 
 	FVector forwardVector = GetActorForwardVector();
-	FVector spawnLocation = GetActorLocation() + forwardVector * 500.0f; //  보스 앞쪽 500유닛 지점
+	FVector spawnLocation = GetActorLocation() + forwardVector * 1500.0f; //  보스 앞쪽 500유닛 지점
 	FRotator spawnRotation = GetActorRotation();
 
 	FActorSpawnParameters spawnParams;

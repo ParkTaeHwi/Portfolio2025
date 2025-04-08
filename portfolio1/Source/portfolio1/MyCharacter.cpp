@@ -84,7 +84,7 @@ void AMyCharacter::Attack_Hit()
 	FCollisionQueryParams params(NAME_None, false, this);
 
 	//float attackRange = 1000.0f;	// Ä¸½¶ ±æÀÌ
-	float attackRadius = 50.0f;	    // Ä¸½¶ ±½±â
+	float attackRadius = 100.0f;	    // Ä¸½¶ ±½±â
 	float heightOffset = 50.0f;		// Ä¸½¶ ³ôÀÌ
 	// Ä¸½¶
 	// 1. È¸Àü - ÄõÅÍ´Ï¾ğÀ» ¾Õ¹æÇâÀ¸·Î
