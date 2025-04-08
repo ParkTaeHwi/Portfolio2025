@@ -235,6 +235,8 @@ void AMyPlayer::AddExp(int32 amount)
 {
 	_exp += amount;
 
+	int32 previousLevel = _level;
+
 	// 레벨업 조건 체크
 	if (_exp >= 60)
 	{
@@ -247,6 +249,14 @@ void AMyPlayer::AddExp(int32 amount)
 	else
 	{
 		_level = 1;
+	}
+
+	//  레벨업했는지 확인해서 공격력 *2
+	if (_level > previousLevel)
+	{
+		int32 currentAtk = _statComponent->GetAtk();
+		_statComponent->SetAtk(currentAtk * 3); // 공격력 x 
+		UE_LOG(LogTemp, Warning, TEXT("Level up! ATK x2 -> New ATK: %d"), _statComponent->GetAtk());
 	}
 
 	UE_LOG(LogTemp, Warning, TEXT("exp +%d, curExp: %d, level: %d"), amount, _exp, _level);

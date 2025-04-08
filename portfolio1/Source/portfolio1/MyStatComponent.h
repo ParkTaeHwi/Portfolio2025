@@ -49,6 +49,8 @@ public:
 
 	FHpChanged _hpChanged;
 
+	void SetAtk(int32 NewAtk);
+
 private:
 	UPROPERTY(VisibleAnywhere, Category = "Stat", meta = (AllowPrivateAccess = "true"))
 	float _speed = 10.0f;
@@ -63,5 +65,5 @@ private:
 	int32 _maxHp = 100;
 
 	UPROPERTY(VisibleAnywhere, Category = "Stat", meta = (AllowPrivateAccess = "true"))
-	int32 _atk = 10;
+	int32 _atk = 20;
 };

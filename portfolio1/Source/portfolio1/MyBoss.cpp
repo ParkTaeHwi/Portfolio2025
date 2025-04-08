@@ -142,7 +142,7 @@ void AMyBoss::SpawnEnemy()
 {
 	if (CurrentSpawnCount >= MaxSpawnCount)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Max ENemy(10)"));
+		UE_LOG(LogTemp, Warning, TEXT("Max ENemy"));
 		return;
 	}
 

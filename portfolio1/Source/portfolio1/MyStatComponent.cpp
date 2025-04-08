@@ -66,3 +66,8 @@ int32 UMyStatComponent::AddCurHp(int32 amount)
 	//return before - _curHp;
 	return _curHp;
 }
+
+void UMyStatComponent::SetAtk(int32 NewAtk)
+{
+	_atk = NewAtk;
+}
