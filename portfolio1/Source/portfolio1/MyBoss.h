@@ -68,7 +68,7 @@ protected:
 	TSubclassOf<AMyEnemy> EnemyToSpawn; // 블루프린트로 설정
 
 	UPROPERTY(EditAnywhere, Category = "Spawn")
-	float SpawnInterval = 10.0f; // 30초마다
+	float SpawnInterval = 5.0f; // 초마다
 
 	FTimerHandle SpawnTimerHandle;
 

@@ -20,8 +20,16 @@ public:
 	void AddEnemy();  
 	void OnEnemyDie();
 
+	UFUNCTION()
+	void MovePlayerToNextStage();
+
+	UPROPERTY()
+	bool _bStageMoved = false;
+
 private:
 	int32 _enemyCount = 0;
 	int32 _enemyKillCount = 0;
 	const int32 _requiredKills = 1;
+
+	FTimerHandle MoveTimerHandle;
 };

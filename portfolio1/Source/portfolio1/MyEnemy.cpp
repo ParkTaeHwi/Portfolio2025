@@ -3,6 +3,7 @@
 
 #include "MyEnemy.h"
 #include "MyPlayer.h"
+#include "MyItem.h"
 
 #include "Components/WidgetComponent.h"
 #include "Kismet/KismetMathLibrary.h"
@@ -120,4 +121,13 @@ void AMyEnemy::Die()
 	}
 
 	Destroy();
+
+	if (ItemToDrop)
+	{
+		FVector DropLocation = GetActorLocation() + FVector(0, 0, 50); // 위cl
+		FRotator DropRotation = FRotator::ZeroRotator;
+
+		GetWorld()->SpawnActor<AMyItem>(ItemToDrop, DropLocation, DropRotation);
+		UE_LOG(LogTemp, Warning, TEXT("Enemy dropped item!")); //  초등 영어!
+	}
 }

@@ -25,18 +25,33 @@ void AMyGameModeBase::AddEnemy()
 void AMyGameModeBase::OnEnemyDie()
 {
     _enemyCount--;
-    _enemyKillCount++; //  킬 카운트 증가
+    _enemyKillCount++;
 
     UE_LOG(LogTemp, Warning, TEXT("Enemy died! Remaining: %d, Killed: %d"), _enemyCount, _enemyKillCount);
 
-    if (_enemyKillCount >= _requiredKills)
+    if (!_bStageMoved && _enemyKillCount >= _requiredKills)
     {
-        ACharacter* player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
-        if (player)
-        {
-            FVector nextPos = FVector(2803.533433f, -882.348315f, 19.013312f);
-            player->SetActorLocation(nextPos);
-            UE_LOG(LogTemp, Warning, TEXT("Player moved to next stage!"));
-        }
+        //  타이머로 1초 후 이동 처리
+        GetWorld()->GetTimerManager().SetTimer(
+            MoveTimerHandle, // FTimerHandle 멤버 변수
+            this,
+            &AMyGameModeBase::MovePlayerToNextStage, // 실행할 함수
+            3.0f, // 1초 후 실행
+            false // 반복 X
+        );
+
+        _bStageMoved = true;
+    }
+}
+
+void AMyGameModeBase::MovePlayerToNextStage()
+{
+    ACharacter* player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
+    if (player)
+    {
+        FVector nextPos = FVector(2803.533433f, -882.348315f, 19.013312f);
+        player->SetActorLocation(nextPos);
+
+        UE_LOG(LogTemp, Warning, TEXT("Player moved to next stage!"));
     }
 }
