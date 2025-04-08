@@ -18,7 +18,9 @@ struct FHitResult;
 #define PORTFOLIO1_MyBoss_generated_h
 
 #define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execOnPlayerDetected);
+	DECLARE_FUNCTION(execOnPlayerDetected); \
+	DECLARE_FUNCTION(execOnSpawnedEnemyDestroyed); \
+	DECLARE_FUNCTION(execSpawnEnemy);
 
 
 #define FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_17_INCLASS_NO_PURE_DECLS \

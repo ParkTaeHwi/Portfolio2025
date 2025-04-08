@@ -28,6 +28,8 @@ AMyEnemy::AMyEnemy()
 	{
 		_hpBarWidget->SetWidgetClass(hpBarClass.Class);
 	}
+
+	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
 }
 
 void AMyEnemy::BeginPlay()

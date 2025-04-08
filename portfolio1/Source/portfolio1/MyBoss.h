@@ -26,6 +26,11 @@ public:
 
 	bool IsDead();
 
+	UFUNCTION()
+	void SpawnEnemy();
+	UFUNCTION()
+	void OnSpawnedEnemyDestroyed(AActor* DestroyedActor);
+
 protected:
 	// 이동 관련
 	FVector _targetLocation;
@@ -58,4 +63,17 @@ protected:
 	// 플레이어 추적용
 	UPROPERTY()
 	class AMyCharacter* _targetPlayer;
+
+	UPROPERTY(EditAnywhere, Category = "Spawn")
+	TSubclassOf<AMyEnemy> EnemyToSpawn; // 블루프린트로 설정
+
+	UPROPERTY(EditAnywhere, Category = "Spawn")
+	float SpawnInterval = 10.0f; // 30초마다
+
+	FTimerHandle SpawnTimerHandle;
+
+	UPROPERTY(EditAnywhere, Category = "Spawn")
+	int32 MaxSpawnCount = 10;
+
+	int32 CurrentSpawnCount = 0;
 };

@@ -11,6 +11,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyBoss() {}
 
 // Begin Cross Module References
+COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UCapsuleComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
@@ -19,6 +20,7 @@ PORTFOLIO1_API UClass* Z_Construct_UClass_AMyBoss();
 PORTFOLIO1_API UClass* Z_Construct_UClass_AMyBoss_NoRegister();
 PORTFOLIO1_API UClass* Z_Construct_UClass_AMyCharacter_NoRegister();
 PORTFOLIO1_API UClass* Z_Construct_UClass_AMyEnemy();
+PORTFOLIO1_API UClass* Z_Construct_UClass_AMyEnemy_NoRegister();
 UPackage* Z_Construct_UPackage__Script_portfolio1();
 // End Cross Module References
 
@@ -103,12 +105,85 @@ DEFINE_FUNCTION(AMyBoss::execOnPlayerDetected)
 }
 // End Class AMyBoss Function OnPlayerDetected
 
+// Begin Class AMyBoss Function OnSpawnedEnemyDestroyed
+struct Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed_Statics
+{
+	struct MyBoss_eventOnSpawnedEnemyDestroyed_Parms
+	{
+		AActor* DestroyedActor;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyBoss.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_DestroyedActor;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed_Statics::NewProp_DestroyedActor = { "DestroyedActor", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyBoss_eventOnSpawnedEnemyDestroyed_Parms, DestroyedActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed_Statics::NewProp_DestroyedActor,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyBoss, nullptr, "OnSpawnedEnemyDestroyed", nullptr, nullptr, Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed_Statics::MyBoss_eventOnSpawnedEnemyDestroyed_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed_Statics::MyBoss_eventOnSpawnedEnemyDestroyed_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AMyBoss::execOnSpawnedEnemyDestroyed)
+{
+	P_GET_OBJECT(AActor,Z_Param_DestroyedActor);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->OnSpawnedEnemyDestroyed(Z_Param_DestroyedActor);
+	P_NATIVE_END;
+}
+// End Class AMyBoss Function OnSpawnedEnemyDestroyed
+
+// Begin Class AMyBoss Function SpawnEnemy
+struct Z_Construct_UFunction_AMyBoss_SpawnEnemy_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyBoss.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyBoss_SpawnEnemy_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyBoss, nullptr, "SpawnEnemy", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyBoss_SpawnEnemy_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyBoss_SpawnEnemy_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AMyBoss_SpawnEnemy()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyBoss_SpawnEnemy_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AMyBoss::execSpawnEnemy)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SpawnEnemy();
+	P_NATIVE_END;
+}
+// End Class AMyBoss Function SpawnEnemy
+
 // Begin Class AMyBoss
 void AMyBoss::StaticRegisterNativesAMyBoss()
 {
 	UClass* Class = AMyBoss::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "OnPlayerDetected", &AMyBoss::execOnPlayerDetected },
+		{ "OnSpawnedEnemyDestroyed", &AMyBoss::execOnSpawnedEnemyDestroyed },
+		{ "SpawnEnemy", &AMyBoss::execSpawnEnemy },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -148,13 +223,36 @@ struct Z_Construct_UClass_AMyBoss_Statics
 		{ "ToolTip", "\xef\xbf\xbd\xc3\xb7\xef\xbf\xbd\xef\xbf\xbd\xcc\xbe\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_EnemyToSpawn_MetaData[] = {
+		{ "Category", "Spawn" },
+		{ "ModuleRelativePath", "MyBoss.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SpawnInterval_MetaData[] = {
+		{ "Category", "Spawn" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc6\xae\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\n" },
+#endif
+		{ "ModuleRelativePath", "MyBoss.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc6\xae\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxSpawnCount_MetaData[] = {
+		{ "Category", "Spawn" },
+		{ "ModuleRelativePath", "MyBoss.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp__detectCapsule;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp__targetPlayer;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_EnemyToSpawn;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_SpawnInterval;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_MaxSpawnCount;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_AMyBoss_OnPlayerDetected, "OnPlayerDetected" }, // 2455941999
+		{ &Z_Construct_UFunction_AMyBoss_OnSpawnedEnemyDestroyed, "OnSpawnedEnemyDestroyed" }, // 1155500938
+		{ &Z_Construct_UFunction_AMyBoss_SpawnEnemy, "SpawnEnemy" }, // 550401446
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -164,9 +262,15 @@ struct Z_Construct_UClass_AMyBoss_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyBoss_Statics::NewProp__detectCapsule = { "_detectCapsule", nullptr, (EPropertyFlags)0x00200800000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyBoss, _detectCapsule), Z_Construct_UClass_UCapsuleComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__detectCapsule_MetaData), NewProp__detectCapsule_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyBoss_Statics::NewProp__targetPlayer = { "_targetPlayer", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyBoss, _targetPlayer), Z_Construct_UClass_AMyCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__targetPlayer_MetaData), NewProp__targetPlayer_MetaData) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AMyBoss_Statics::NewProp_EnemyToSpawn = { "EnemyToSpawn", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyBoss, EnemyToSpawn), Z_Construct_UClass_UClass, Z_Construct_UClass_AMyEnemy_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EnemyToSpawn_MetaData), NewProp_EnemyToSpawn_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyBoss_Statics::NewProp_SpawnInterval = { "SpawnInterval", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyBoss, SpawnInterval), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SpawnInterval_MetaData), NewProp_SpawnInterval_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AMyBoss_Statics::NewProp_MaxSpawnCount = { "MaxSpawnCount", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyBoss, MaxSpawnCount), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaxSpawnCount_MetaData), NewProp_MaxSpawnCount_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyBoss_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyBoss_Statics::NewProp__detectCapsule,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyBoss_Statics::NewProp__targetPlayer,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyBoss_Statics::NewProp_EnemyToSpawn,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyBoss_Statics::NewProp_SpawnInterval,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyBoss_Statics::NewProp_MaxSpawnCount,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyBoss_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AMyBoss_Statics::DependentSingletons[])() = {
@@ -209,10 +313,10 @@ AMyBoss::~AMyBoss() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyBoss, AMyBoss::StaticClass, TEXT("AMyBoss"), &Z_Registration_Info_UClass_AMyBoss, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyBoss), 1049619117U) },
+		{ Z_Construct_UClass_AMyBoss, AMyBoss::StaticClass, TEXT("AMyBoss"), &Z_Registration_Info_UClass_AMyBoss, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyBoss), 3623058112U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_360576415(TEXT("/Script/portfolio1"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_685219803(TEXT("/Script/portfolio1"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio1_Source_portfolio1_MyBoss_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

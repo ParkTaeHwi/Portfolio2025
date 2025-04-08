@@ -3,9 +3,12 @@
 
 #include "MyBoss.h"
 #include "MyPlayer.h"
+#include "MyEnemy.h"
 #include "Components/CapsuleComponent.h"
 #include "MyCharacter.h"
 #include "MyStatComponent.h"
+#include "BehaviorTree/BehaviorTree.h"
+#include "MyAIController.h"
 #include "DrawDebugHelpers.h"
 #include "TimerManager.h"
 #include "Engine/DamageEvents.h"
@@ -32,6 +35,14 @@ void AMyBoss::BeginPlay()
 
 	// 공격 루프 시작
 	GetWorldTimerManager().SetTimer(_attackTimerHandle, this, &AMyBoss::TryAttackPlayer, _attackInterval, true);
+
+	GetWorldTimerManager().SetTimer(
+		SpawnTimerHandle,
+		this,
+		&AMyBoss::SpawnEnemy,
+		SpawnInterval,
+		true // 반복 호출
+	);
 }
 
 void AMyBoss::Tick(float DeltaTime)
@@ -125,6 +136,54 @@ bool AMyBoss::IsDead()
 		return false;
 
 	return _statComponent->IsDead();
+}
+
+void AMyBoss::SpawnEnemy()
+{
+	if (CurrentSpawnCount >= MaxSpawnCount)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Max ENemy(10)"));
+		return;
+	}
+
+	if (EnemyToSpawn == nullptr)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Boss::SpawnEnemy - EnemyToSpawn이 설정되지 않았습니다!"));
+		return;
+	}
+
+	FVector forwardVector = GetActorForwardVector();
+	FVector spawnLocation = GetActorLocation() + forwardVector * 500.0f; //  보스 앞쪽 500유닛 지점
+	FRotator spawnRotation = GetActorRotation();
+
+	FActorSpawnParameters spawnParams;
+	spawnParams.Owner = this;
+
+	AMyEnemy* newEnemy = GetWorld()->SpawnActor<AMyEnemy>(EnemyToSpawn, spawnLocation, spawnRotation, spawnParams);
+
+	if (newEnemy)
+	{
+		++CurrentSpawnCount;
+		UE_LOG(LogTemp, Warning, TEXT("boss called enemy: %d"), CurrentSpawnCount);
+
+		// 죽었을 때 카운트 감소
+		newEnemy->OnDestroyed.AddDynamic(this, &AMyBoss::OnSpawnedEnemyDestroyed);
+
+		// AIController를 가져와서 BehaviorTree 시작
+		AAIController* ai = Cast<AAIController>(newEnemy->GetController());
+		if (ai)
+		{
+			ai->RunBehaviorTree(newEnemy->BehaviorTreeAsset); // BehaviorTreeAsset은 BP_MyEnemy에 UPROPERTY로 연결된 변수여야 함!
+		}
+	}
+}
+
+void AMyBoss::OnSpawnedEnemyDestroyed(AActor* DestroyedActor)
+{
+	--CurrentSpawnCount;
+	CurrentSpawnCount = FMath::Clamp(CurrentSpawnCount, 0, MaxSpawnCount);
+
+	UE_LOG(LogTemp, Warning, TEXT("remain enemy: %d"), CurrentSpawnCount);
 }
 
 void AMyBoss::SetNewRandomTarget()

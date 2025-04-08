@@ -28,10 +28,16 @@ public:
 	void Attack_AI();
 	void Die();
 
+	UPROPERTY(EditDefaultsOnly, Category = "AI")
+	UBehaviorTree* BehaviorTreeAsset;
+
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "UI", meta = (AllowPrivateAccess = "true"))
 	class UWidgetComponent* _hpBarWidget;
 
 	UPROPERTY(EditAnywhere, Category = "Reward")
 	int32 _expToGive = 10;
+
+	//UPROPERTY(EditDefaultsOnly, Category = "AI")
+	//UBehaviorTree* BehaviorTreeAsset;
 };
