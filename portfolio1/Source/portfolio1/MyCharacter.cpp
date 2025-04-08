@@ -147,19 +147,8 @@ void AMyCharacter::AddHp(float amount)
 
 float AMyCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
-	//_statComponent->AddCurHp(-Damage);
-	//
-	//auto attackerController = Cast<AMyPlayerController>(EventInstigator);
-	//if (attackerController)
-	//{
-	//	if (IsDead())
-	//	{
-	//		UE_LOG(LogTemp,Error, TEXT("MyCharacter.cpp,TakeDamage->Dead by Player"));
-	//		DeadEvent();
-	//	}
-	//}
-	//
-	//return Damage;
+	//if (bIsDead) return 0.0f;
+	
 	_statComponent->AddCurHp(-Damage);
 
 	auto attackerController = Cast<AMyPlayerController>(EventInstigator);
@@ -167,6 +156,8 @@ float AMyCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AC
 	{
 		if (IsDead())
 		{
+			//bIsDead = true;
+			
 			UE_LOG(LogTemp, Error, TEXT("MyCharacter.cpp,TakeDamage->Dead by Player"));
 
 			//  Enemy일 경우 Die() 호출

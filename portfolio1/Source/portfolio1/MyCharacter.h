@@ -67,5 +67,7 @@ protected:
 	float _horizontal = 0.0f;
 
 	UPROPERTY(EditAnywhere)
-	float _attackRange = 500.0f;
+	float _attackRange = 1000.0f;
+
+	//bool bIsDead = false;
 };
