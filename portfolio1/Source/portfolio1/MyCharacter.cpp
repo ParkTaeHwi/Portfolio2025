@@ -54,19 +54,19 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 void AMyCharacter::TestDelegate1()
 {
-	UE_LOG(LogTemp, Log, TEXT("Attack Start Delegate Test1"));
+	//UE_LOG(LogTemp, Log, TEXT("Attack Start Delegate Test1"));
 }
 
 int32 AMyCharacter::TestDelegate2(int32 a, int32 b)
 {
-	UE_LOG(LogTemp, Log, TEXT("Attack Start Delegate Test, %d %d"), a, b);
+	//(LogTemp, Log, TEXT("Attack Start Delegate Test, %d %d"), a, b);
 
 	return -1;
 }
 
 void AMyCharacter::TestDelegate3()
 {
-	UE_LOG(LogTemp, Log, TEXT("Attack Start Delegate Test3"));
+	//UE_LOG(LogTemp, Log, TEXT("Attack Start Delegate Test3"));
 }
 
 void AMyCharacter::AttackEnd(UAnimMontage* Montage, bool bInterrupted)
