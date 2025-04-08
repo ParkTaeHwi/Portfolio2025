@@ -82,6 +82,10 @@ void AMyEnemy::Attack_AI()
 
 void AMyEnemy::Die()
 {
+	static int32 DieCallCount = 0;
+	DieCallCount++;
+	UE_LOG(LogTemp, Warning, TEXT("Enemy::Die() Called: %d"), DieCallCount);
+	
 	SetActorHiddenInGame(true);
 	SetActorEnableCollision(false);
 

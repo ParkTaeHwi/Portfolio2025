@@ -78,4 +78,7 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Reward")
 	int32 _exp = 0;
+
+	UPROPERTY(EditAnywhere, Category = "Reward")
+	int32 _level = 1;
 };

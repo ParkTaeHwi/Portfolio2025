@@ -258,5 +258,22 @@ void AMyPlayer::Drop()
 void AMyPlayer::AddExp(int32 amount)
 {
 	_exp += amount;
-	UE_LOG(LogTemp, Warning, TEXT("exp +%d, curExp: %d"), amount, _exp);
+
+	_exp += amount;
+
+	// 레벨업 조건 체크
+	if (_exp >= 60)
+	{
+		_level = 3;
+	}
+	else if (_exp >= 20)
+	{
+		_level = 2;
+	}
+	else
+	{
+		_level = 1;
+	}
+
+	UE_LOG(LogTemp, Warning, TEXT("exp +%d, curExp: %d, level: %d"), amount, _exp, _level);
 }
