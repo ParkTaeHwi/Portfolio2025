@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "portfolio2",
+			"Path": "..\\Source\\portfolio2.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "portfolio2Editor",
+			"Path": "..\\Source\\portfolio2Editor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

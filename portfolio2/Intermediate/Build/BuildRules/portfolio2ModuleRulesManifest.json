@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\AUnreal5\\Portfolio2025\\portfolio2\\Source\\portfolio2\\portfolio2.Build.cs",
+		"C:\\AUnreal5\\Portfolio2025\\portfolio2\\Source\\portfolio2.Target.cs",
+		"C:\\AUnreal5\\Portfolio2025\\portfolio2\\Source\\portfolio2Editor.Target.cs"
+	],
+	"EngineVersion": "5.4.4"
+}
