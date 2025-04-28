@@ -3,3 +3,21 @@
 
 #include "MyGameInstance.h"
 
+#include <Kismet/GameplayStatics.h>
+
+void UMyGameInstance::Init()
+{
+    Super::Init();
+
+    Lobby =             FName(TEXT("Lobby"));
+    BattleField_1 =     FName(TEXT("BattleField_1"));
+    BattleField_2 =     FName(TEXT("BattleField_2"));
+    Store =             FName(TEXT("Store"));
+
+    SelectedBattleIndex = 0;
+}
+
+void UMyGameInstance::GoToMap(FName MapName)
+{
+    UGameplayStatics::OpenLevel(this, MapName);
+}
