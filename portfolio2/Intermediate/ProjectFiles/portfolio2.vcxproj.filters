@@ -36,6 +36,12 @@
     <ClInclude Include="..\..\Source\portfolio2\MyGameInstance.h">
       <Filter>Source\portfolio2</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\MyGameModeBase.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\MyGameModeBase.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
     <None Include="..\..\Source\portfolio2\portfolio2.Build.cs">
       <Filter>Source\portfolio2</Filter>
     </None>
