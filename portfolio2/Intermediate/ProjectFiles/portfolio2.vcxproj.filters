@@ -69,5 +69,11 @@
     <ClInclude Include="..\..\Source\portfolio2\portfolio2.h">
       <Filter>Source\portfolio2</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\StoreGameMode.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\StoreGameMode.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
