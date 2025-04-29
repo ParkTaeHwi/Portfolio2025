@@ -14,4 +14,14 @@ class PORTFOLIO2_API ALobbyGameMode : public AMyGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	virtual void BeginPlay() override;
+
+protected:
+	UPROPERTY(EditAnywhere, Category = "UI")
+	TSubclassOf<class UUserWidget> LobbyUIClass;
+
+private:
+	UPROPERTY()
+	UUserWidget* LobbyUI;
 };

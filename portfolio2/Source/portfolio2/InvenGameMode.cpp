@@ -3,3 +3,18 @@
 
 #include "InvenGameMode.h"
 
+#include "Blueprint/UserWidget.h"
+
+void AInvenGameMode::BeginPlay()
+{
+	Super::BeginPlay();
+
+	if (InvenUIClass)
+	{
+		InvenUI = CreateWidget<UUserWidget>(GetWorld(), InvenUIClass);
+		if (InvenUI)
+		{
+			InvenUI->AddToViewport();
+		}
+	}
+}

@@ -3,3 +3,18 @@
 
 #include "LobbyGameMode.h"
 
+#include "Blueprint/UserWidget.h"
+
+void ALobbyGameMode::BeginPlay()
+{
+	Super::BeginPlay();
+
+	if (LobbyUIClass)
+	{
+		LobbyUI = CreateWidget<UUserWidget>(GetWorld(), LobbyUIClass);
+		if (LobbyUI)
+		{
+			LobbyUI->AddToViewport();
+		}
+	}
+}

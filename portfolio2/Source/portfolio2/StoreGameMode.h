@@ -14,4 +14,14 @@ class PORTFOLIO2_API AStoreGameMode : public AMyGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	virtual void BeginPlay() override;
+
+protected:
+	UPROPERTY(EditAnywhere, Category = "UI")
+	TSubclassOf<class UUserWidget> StoreUIClass;
+
+private:
+	UPROPERTY()
+	UUserWidget* StoreUI;
 };
