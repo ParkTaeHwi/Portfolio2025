@@ -30,6 +30,24 @@
     <Filter Include="Source\portfolio2">
       <UniqueIdentifier>{FFBF3AF5-F652-3130-8E6E-E96A27DF6AEA}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\portfolio2\BattleGameMode.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\BattleGameMode.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\InvenGameMode.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\InvenGameMode.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\LobbyGameMode.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\LobbyGameMode.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\portfolio2\MyGameInstance.cpp">
       <Filter>Source\portfolio2</Filter>
     </ClCompile>
