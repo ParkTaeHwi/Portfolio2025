@@ -36,6 +36,18 @@
     <ClInclude Include="..\..\Source\portfolio2\BattleGameMode.h">
       <Filter>Source\portfolio2</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\BoardManager.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\BoardManager.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\BoardTile.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\BoardTile.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\portfolio2\InvenGameMode.cpp">
       <Filter>Source\portfolio2</Filter>
     </ClCompile>
