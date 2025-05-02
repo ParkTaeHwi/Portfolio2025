@@ -9,6 +9,8 @@
 /**
  * 
  */
+class ABoardManager;
+
 UCLASS()
 class PORTFOLIO2_API ABattleGameMode : public AMyGameModeBase
 {
@@ -20,6 +22,9 @@ public:
 protected:
 	UPROPERTY(EditAnywhere, Category = "UI")
 	TSubclassOf<class UUserWidget> BattleUIClass;
+
+	UPROPERTY(EditAnywhere, Category = "Board") // 블루프린트에서 지정 가능
+	TSubclassOf<ABoardManager> BoardManagerClass; // 생성할 매니저 클래스
 
 private:
 	UPROPERTY()
