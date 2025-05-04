@@ -8,9 +8,16 @@
 #include "Camera/CameraActor.h"
 #include <Kismet/GameplayStatics.h>
 
+ABattleGameMode::ABattleGameMode()
+{
+	DefaultPawnClass = nullptr;
+}
+
 void ABattleGameMode::BeginPlay()
 {
 	Super::BeginPlay();
+
+	DefaultPawnClass = nullptr;
 
 	if (BattleUIClass)
 	{

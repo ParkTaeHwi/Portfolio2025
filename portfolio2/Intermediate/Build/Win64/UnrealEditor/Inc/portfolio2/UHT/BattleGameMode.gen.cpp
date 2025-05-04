@@ -107,7 +107,6 @@ template<> PORTFOLIO2_API UClass* StaticClass<ABattleGameMode>()
 {
 	return ABattleGameMode::StaticClass();
 }
-ABattleGameMode::ABattleGameMode(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 DEFINE_VTABLE_PTR_HELPER_CTOR(ABattleGameMode);
 ABattleGameMode::~ABattleGameMode() {}
 // End Class ABattleGameMode

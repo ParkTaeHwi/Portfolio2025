@@ -17,6 +17,7 @@ class PORTFOLIO2_API ABattleGameMode : public AMyGameModeBase
 	GENERATED_BODY()
 	
 public:
+	ABattleGameMode();
 	virtual void BeginPlay() override;
 
 protected:
