@@ -14,4 +14,6 @@ class PORTFOLIO2_API AMyPlayer : public AMyCharacter
 {
 	GENERATED_BODY()
 	
+public:
+	AMyPlayer();
 };

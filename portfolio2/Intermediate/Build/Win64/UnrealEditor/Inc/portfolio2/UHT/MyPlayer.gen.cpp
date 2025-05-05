@@ -75,7 +75,6 @@ template<> PORTFOLIO2_API UClass* StaticClass<AMyPlayer>()
 {
 	return AMyPlayer::StaticClass();
 }
-AMyPlayer::AMyPlayer() {}
 DEFINE_VTABLE_PTR_HELPER_CTOR(AMyPlayer);
 AMyPlayer::~AMyPlayer() {}
 // End Class AMyPlayer

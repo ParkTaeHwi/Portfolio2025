@@ -24,8 +24,6 @@ public: \
 
 
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPlayer_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AMyPlayer(); \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AMyPlayer(AMyPlayer&&); \

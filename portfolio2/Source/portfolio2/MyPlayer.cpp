@@ -3,3 +3,6 @@
 
 #include "MyPlayer.h"
 
+AMyPlayer::AMyPlayer()
+{
+}
