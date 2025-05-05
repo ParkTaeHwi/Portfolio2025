@@ -60,6 +60,12 @@
     <ClInclude Include="..\..\Source\portfolio2\LobbyGameMode.h">
       <Filter>Source\portfolio2</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\MyAnimInstance.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\MyAnimInstance.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\portfolio2\MyCharacter.cpp">
       <Filter>Source\portfolio2</Filter>
     </ClCompile>
@@ -82,6 +88,12 @@
       <Filter>Source\portfolio2</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\portfolio2\MyPlayer.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\MyStatComponent.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\MyStatComponent.h">
       <Filter>Source\portfolio2</Filter>
     </ClInclude>
     <None Include="..\..\Source\portfolio2\portfolio2.Build.cs">
