@@ -29,10 +29,10 @@ public:
 	TSubclassOf<ABoardTile> TileClass; // 생성할 타일 BP를 지정
 
 	UPROPERTY(EditAnywhere, Category = "Board Settings")
-	int32 RowCount = 5; // 기본 5행
+	int32 RowCount = 5; // 행
 
 	UPROPERTY(EditAnywhere, Category = "Board Settings")
-	int32 ColumnCount = 5; // 기본 5열
+	int32 ColumnCount = 5; // 열
 
 	UPROPERTY(EditAnywhere, Category = "Board Settings")
 	float TileSpacing = 110.0f; // 타일 간격
