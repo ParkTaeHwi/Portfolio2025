@@ -57,21 +57,21 @@ struct Z_Construct_UClass_ABoardManager_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ColumnCount_MetaData[] = {
 		{ "Category", "Board Settings" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// \xef\xbf\xbd\xe2\xba\xbb 5\xef\xbf\xbd\xef\xbf\xbd\n" },
+		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\n" },
 #endif
 		{ "ModuleRelativePath", "BoardManager.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "\xef\xbf\xbd\xe2\xba\xbb 5\xef\xbf\xbd\xef\xbf\xbd" },
+		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TileSpacing_MetaData[] = {
 		{ "Category", "Board Settings" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// \xef\xbf\xbd\xe2\xba\xbb 5\xef\xbf\xbd\xef\xbf\xbd\n" },
+		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\n" },
 #endif
 		{ "ModuleRelativePath", "BoardManager.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "\xef\xbf\xbd\xe2\xba\xbb 5\xef\xbf\xbd\xef\xbf\xbd" },
+		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd" },
 #endif
 	};
 #endif // WITH_METADATA
@@ -137,10 +137,10 @@ ABoardManager::~ABoardManager() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_BoardManager_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABoardManager, ABoardManager::StaticClass, TEXT("ABoardManager"), &Z_Registration_Info_UClass_ABoardManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABoardManager), 3151400067U) },
+		{ Z_Construct_UClass_ABoardManager, ABoardManager::StaticClass, TEXT("ABoardManager"), &Z_Registration_Info_UClass_ABoardManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABoardManager), 3053073300U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_BoardManager_h_97758090(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_BoardManager_h_609754294(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_BoardManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_BoardManager_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

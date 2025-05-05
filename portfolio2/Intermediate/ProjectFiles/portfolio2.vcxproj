@@ -277,6 +277,10 @@
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClInclude Include="..\..\Source\portfolio2\LobbyGameMode.h"/>
+    <ClCompile Include="..\..\Source\portfolio2\MyCharacter.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\MyCharacter.h"/>
     <ClCompile Include="..\..\Source\portfolio2\MyGameInstance.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -285,6 +289,10 @@
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClInclude Include="..\..\Source\portfolio2\MyGameModeBase.h"/>
+    <ClCompile Include="..\..\Source\portfolio2\MyPlayer.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\MyPlayer.h"/>
     <None Include="..\..\Source\portfolio2\portfolio2.Build.cs"/>
     <ClCompile Include="..\..\Source\portfolio2\portfolio2.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
