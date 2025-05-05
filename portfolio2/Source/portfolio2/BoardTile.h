@@ -36,4 +36,9 @@ public:
 	// Tile state (for gameplay logic)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bIsBlocked;
+
+	void SetTileIndex(int32 InIndex); // 인덱스 설정 함수
+
+private:
+	int32 TileIndex;
 };

@@ -36,3 +36,8 @@ void ABoardTile::Tick(float DeltaTime)
 
 }
 
+void ABoardTile::SetTileIndex(int32 InIndex)
+{
+	TileIndex = InIndex;
+}
+

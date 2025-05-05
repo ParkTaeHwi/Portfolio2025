@@ -24,6 +24,8 @@ void ABoardManager::BeginPlay()
 	UWorld* World = GetWorld();
 	if (!World) return;
 
+	int32 TileIndex = 0; // ¿Œµ¶Ω∫ Ω√¿€
+
 	for (int32 Row = 0; Row < RowCount; ++Row)
 	{
 		for (int32 Col = 0; Col < ColumnCount; ++Col)
@@ -33,15 +35,21 @@ void ABoardManager::BeginPlay()
 			SpawnLocation.Y += Row * TileSpacing;
 
 			FActorSpawnParameters Params;
-			World->SpawnActor<ABoardTile>(TileClass, SpawnLocation, FRotator::ZeroRotator, Params);
+			ABoardTile* Tile = World->SpawnActor<ABoardTile>(TileClass, SpawnLocation, FRotator::ZeroRotator, Params);
+			if (Tile)
+			{
+				Tile->SetTileIndex(TileIndex); // ¿Œµ¶Ω∫ ∫Œø©
+			}
+
+			++TileIndex;
 		}
 	}
+
 }
 
 // Called every frame
 void ABoardManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
