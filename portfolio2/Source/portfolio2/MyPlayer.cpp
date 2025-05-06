@@ -4,6 +4,8 @@
 #include "MyPlayer.h"
 #include "MyCharacter.h"
 #include "MyStatComponent.h"
+#include "MyAnimInstance.h"
+#include "MyPlayerController.h"
 
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
@@ -64,6 +66,7 @@ void AMyPlayer::Tick(float DeltaTime)
 void AMyPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+	UE_LOG(LogTemp, Warning, TEXT("SetupPlayerInputComponent called!"));
 
 	UEnhancedInputComponent* enhancedInputCompnent = Cast<UEnhancedInputComponent>(PlayerInputComponent);
 	if (enhancedInputCompnent)
@@ -130,13 +133,12 @@ void AMyPlayer::Attack(const FInputActionValue& value)
 	if (isPress)
 	{
 		_isAttack = true;
-		//_curAttackSection = (_curAttackSection + 1) % 3 + 1;
-		_curAttackSection = 1;
+		_curAttackSection = (_curAttackSection + 1) % 3 + 1;
 
-		//if (!_animInstance->IsAnyMontagePlaying())
-		//{
-		//	_animInstance->PlayAnimMontage();
-		//}
-		//_animInstance->JumpToSection(_curAttackSection);
+		if (!_animInstance->IsAnyMontagePlaying())
+		{
+			_animInstance->PlayAnimMontage();
+		}
+		_animInstance->JumpToSection(_curAttackSection);
 	}
 }

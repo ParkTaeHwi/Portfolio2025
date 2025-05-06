@@ -16,6 +16,7 @@ ABattleGameMode::ABattleGameMode()
 void ABattleGameMode::BeginPlay()
 {
 	Super::BeginPlay();
+	UE_LOG(LogTemp, Warning, TEXT("BattleGameMode BeginPlay!"));
 
 	DefaultPawnClass = nullptr;
 

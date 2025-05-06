@@ -51,3 +51,9 @@ void UMyAnimInstance::AnimNotify_Attack_Dead()
 	if (_deadEvent.IsBound())
 		_deadEvent.Broadcast();
 }
+
+void UMyAnimInstance::JumpToSection(int32 sectionIndex)
+{
+	FName sectionName = FName(*FString::Printf(TEXT("Section%d"), sectionIndex));
+	Montage_JumpToSection(sectionName);
+}
