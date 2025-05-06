@@ -46,8 +46,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
 	bool _isAttack;
 
-	//UPROPERTY()
-	//class UMyAnimInstance* _animInstance;
+	UPROPERTY()
+	class UMyAnimInstance* _animInstance;
 
 	int32 _curAttackSection = 1;
 

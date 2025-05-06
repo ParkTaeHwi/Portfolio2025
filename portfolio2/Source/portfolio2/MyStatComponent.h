@@ -6,6 +6,18 @@
 #include "Components/ActorComponent.h"
 #include "MyStatComponent.generated.h"
 
+USTRUCT()
+struct FMyStatData : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 level;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 hp;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 atk;
+};
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class PORTFOLIO2_API UMyStatComponent : public UActorComponent

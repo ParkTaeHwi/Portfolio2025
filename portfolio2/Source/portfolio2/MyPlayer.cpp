@@ -3,6 +3,7 @@
 
 #include "MyPlayer.h"
 #include "MyCharacter.h"
+#include "MyStatComponent.h"
 
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
@@ -89,8 +90,8 @@ void AMyPlayer::Move(const FInputActionValue& value)
 			_vertical = moveVector.Y * 100.0f;
 			_horizontal = moveVector.X * 100.0f;
 
-			//AddMovementInput(forWard, moveVector.Y * _statComponent->GetSpeed());
-			//AddMovementInput(right, moveVector.X * _statComponent->GetSpeed());
+			AddMovementInput(forWard, moveVector.Y * _statComponent->GetSpeed());
+			AddMovementInput(right, moveVector.X * _statComponent->GetSpeed());
 		}
 	}
 }

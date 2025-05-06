@@ -14,7 +14,15 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PORTFOLIO2_MyStatComponent_generated_h
 
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyStatComponent_h_13_INCLASS_NO_PURE_DECLS \
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyStatComponent_h_12_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FMyStatData_Statics; \
+	PORTFOLIO2_API static class UScriptStruct* StaticStruct(); \
+	typedef FTableRowBase Super;
+
+
+template<> PORTFOLIO2_API UScriptStruct* StaticStruct<struct FMyStatData>();
+
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyStatComponent_h_25_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyStatComponent(); \
 	friend struct Z_Construct_UClass_UMyStatComponent_Statics; \
@@ -23,7 +31,7 @@ public: \
 	DECLARE_SERIALIZER(UMyStatComponent)
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyStatComponent_h_13_ENHANCED_CONSTRUCTORS \
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyStatComponent_h_25_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UMyStatComponent(UMyStatComponent&&); \
@@ -35,12 +43,12 @@ public: \
 	NO_API virtual ~UMyStatComponent();
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyStatComponent_h_10_PROLOG
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyStatComponent_h_13_GENERATED_BODY \
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyStatComponent_h_22_PROLOG
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyStatComponent_h_25_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyStatComponent_h_13_INCLASS_NO_PURE_DECLS \
-	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyStatComponent_h_13_ENHANCED_CONSTRUCTORS \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyStatComponent_h_25_INCLASS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyStatComponent_h_25_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
