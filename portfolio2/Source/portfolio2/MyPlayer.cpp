@@ -129,7 +129,8 @@ void AMyPlayer::Attack(const FInputActionValue& value)
 	if (isPress)
 	{
 		_isAttack = true;
-		_curAttackSection = (_curAttackSection + 1) % 3 + 1;
+		//_curAttackSection = (_curAttackSection + 1) % 3 + 1;
+		_curAttackSection = 1;
 
 		//if (!_animInstance->IsAnyMontagePlaying())
 		//{
