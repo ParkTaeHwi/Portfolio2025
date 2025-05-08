@@ -66,22 +66,49 @@ void AMyPlayer::Tick(float DeltaTime)
 void AMyPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-	UE_LOG(LogTemp, Warning, TEXT("SetupPlayerInputComponent called!"));
 
 	UEnhancedInputComponent* enhancedInputCompnent = Cast<UEnhancedInputComponent>(PlayerInputComponent);
 	if (enhancedInputCompnent)
 	{
+		UE_LOG(LogTemp, Warning, TEXT("EnhancedInputComponent is valid"));
+
+		if (_moveAction){UE_LOG(LogTemp, Warning, TEXT("_moveAction is valid: %s"), *_moveAction->GetName());}
+		else { UE_LOG(LogTemp, Warning, TEXT("_moveAction is NULL!")); }
+
+		if (_lookAction){UE_LOG(LogTemp, Warning, TEXT("_lookAction is valid: %s"), *_lookAction->GetName());}
+		else {UE_LOG(LogTemp, Warning, TEXT("_lookAction is NULL!"));}
+
+		if (_jumpAction) { UE_LOG(LogTemp, Warning, TEXT("_jumpAction is valid: %s"), *_jumpAction->GetName()); }
+		else { UE_LOG(LogTemp, Warning, TEXT("_jumpAction is NULL!")); }
+
+		if (_attackAction) { UE_LOG(LogTemp, Warning, TEXT("_attackAction is valid: %s"), *_attackAction->GetName()); }
+		else { UE_LOG(LogTemp, Warning, TEXT("_attackAction is NULL!")); }
+
+		
 		enhancedInputCompnent->BindAction(_moveAction, ETriggerEvent::Triggered, this, &AMyPlayer::Move);
 		enhancedInputCompnent->BindAction(_lookAction, ETriggerEvent::Triggered, this, &AMyPlayer::Look);
 		enhancedInputCompnent->BindAction(_jumpAction, ETriggerEvent::Triggered, this, &AMyPlayer::JumpA);
 		enhancedInputCompnent->BindAction(_attackAction, ETriggerEvent::Triggered, this, &AMyPlayer::Attack);
 		//enhancedInputCompnent->BindAction(_invenAction, ETriggerEvent::Started, this, &AMyPlayer::InvenOpen);
 	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("EnhancedInputComponent cast failed!"));
+	}
 }
 
 void AMyPlayer::Move(const FInputActionValue& value)
 {
 	FVector2D moveVector = value.Get<FVector2D>();
+	UE_LOG(LogTemp, Warning, TEXT("Move() called"));
+	if (Controller != nullptr)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Controller is valid"));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Controller is NULL!"));
+	}
 
 	if (Controller != nullptr)
 	{
@@ -135,7 +162,7 @@ void AMyPlayer::Attack(const FInputActionValue& value)
 		_isAttack = true;
 		_curAttackSection = (_curAttackSection + 1) % 3 + 1;
 
-		if (!_animInstance->IsAnyMontagePlaying())
+		if (!_animInstance->IsAnyMontagePlaying())	// 
 		{
 			_animInstance->PlayAnimMontage();
 		}

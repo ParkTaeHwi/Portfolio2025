@@ -8,15 +8,47 @@
 
 void AMyPlayerController::BeginPlay()
 {
+	//Super::BeginPlay();
+	//
+	//UEnhancedInputLocalPlayerSubsystem* subSystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
+	//
+	//if (subSystem)
+	//{
+	//	subSystem->AddMappingContext(_inputMappingContext, 0);
+	//}
+	
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Warning, TEXT("MyPlayer BeginPlay!"));
+	UE_LOG(LogTemp, Warning, TEXT("MyPlayerController.cpp"));
 
-	UEnhancedInputLocalPlayerSubsystem* subSystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-
-	if (subSystem)
+	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
 	{
-		subSystem->AddMappingContext(_inputMappingContext, 0);
+		if (_inputMappingContext)
+		{
+			Subsystem->AddMappingContext(_inputMappingContext, 0);
+			UE_LOG(LogTemp, Warning, TEXT("Mapping context added"));
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Input mapping context is NULL!"));
+		}
 	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Enhanced Input Subsystem not found!"));
+	}
+
+	APawn* MyPawn = GetPawn();
+	if (MyPawn)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("PC Possesses: %s"), *MyPawn->GetName());
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("PC does NOT possess any pawn!"));
+	}
+
+	FInputModeGameOnly InputMode;
+	SetInputMode(InputMode);
 }
 
 void AMyPlayerController::ShowUI()

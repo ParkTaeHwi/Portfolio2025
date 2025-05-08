@@ -58,7 +58,7 @@ protected:
 	bool _isAttack;
 
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
 	class UMyAnimInstance* _animInstance;
 
 	int32 _curAttackSection = 1;	// 콤보 공격 시스템 1 -> 2 -> 3

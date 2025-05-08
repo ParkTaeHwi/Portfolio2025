@@ -5,6 +5,7 @@
 
 #include "Engine/DamageEvents.h"
 #include "MyStatComponent.h"
+#include "MyAnimInstance.h"
 
 //#include "MyStatComponent.h"
 
@@ -12,8 +13,6 @@
 AMyCharacter::AMyCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-
 	PrimaryActorTick.bCanEverTick = true;
 
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -88.0f), FRotator(0.0f, -90.0f, 0.0f));
@@ -26,6 +25,13 @@ void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	_animInstance = Cast<UMyAnimInstance>(GetMesh()->GetAnimInstance());
+	if (_animInstance == nullptr)
+		UE_LOG(LogTemp, Error, TEXT("AnimInstance did not Set"));
+
+	_animInstance->OnMontageEnded.AddDynamic(this, &AMyCharacter::AttackEnd);
+	_animInstance->_hitEvent.AddUObject(this, &AMyCharacter::Attack_Hit);
+	_animInstance->_deadEvent.AddUObject(this, &AMyCharacter::DeadEvent);
 }
 
 // Called every frame

@@ -10,15 +10,24 @@
 
 ABattleGameMode::ABattleGameMode()
 {
-	DefaultPawnClass = nullptr;
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/BP/BP_MyPlayer"));
+	if (PlayerPawnBPClass.Succeeded())
+	{
+		DefaultPawnClass = PlayerPawnBPClass.Class;
+	}
+	if (DefaultPawnClass)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("DefaultPawnClass is set: %s"), *DefaultPawnClass->GetName());
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("DefaultPawnClass is NULL!"));
+	}
 }
 
 void ABattleGameMode::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Warning, TEXT("BattleGameMode BeginPlay!"));
-
-	DefaultPawnClass = nullptr;
 
 	if (BattleUIClass)
 	{
@@ -51,3 +60,5 @@ void ABattleGameMode::BeginPlay()
 		}
 	}
 }
+
+
