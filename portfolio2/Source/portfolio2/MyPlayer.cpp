@@ -100,12 +100,7 @@ void AMyPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void AMyPlayer::Move(const FInputActionValue& value)
 {
 	FVector2D moveVector = value.Get<FVector2D>();
-	UE_LOG(LogTemp, Warning, TEXT("Move() called"));
-	if (Controller != nullptr)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Controller is valid"));
-	}
-	else
+	if (Controller == nullptr)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Controller is NULL!"));
 	}
@@ -162,7 +157,7 @@ void AMyPlayer::Attack(const FInputActionValue& value)
 		_isAttack = true;
 		_curAttackSection = (_curAttackSection + 1) % 3 + 1;
 
-		if (!_animInstance->IsAnyMontagePlaying())	// 
+		if (!_animInstance->IsAnyMontagePlaying())
 		{
 			_animInstance->PlayAnimMontage();
 		}

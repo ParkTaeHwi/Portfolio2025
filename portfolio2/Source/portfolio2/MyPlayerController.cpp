@@ -8,24 +8,13 @@
 
 void AMyPlayerController::BeginPlay()
 {
-	//Super::BeginPlay();
-	//
-	//UEnhancedInputLocalPlayerSubsystem* subSystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-	//
-	//if (subSystem)
-	//{
-	//	subSystem->AddMappingContext(_inputMappingContext, 0);
-	//}
-	
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Warning, TEXT("MyPlayerController.cpp"));
 
 	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
 	{
 		if (_inputMappingContext)
 		{
 			Subsystem->AddMappingContext(_inputMappingContext, 0);
-			UE_LOG(LogTemp, Warning, TEXT("Mapping context added"));
 		}
 		else
 		{
