@@ -87,8 +87,8 @@ void AMyPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		
 		enhancedInputCompnent->BindAction(_moveAction, ETriggerEvent::Triggered, this, &AMyPlayer::Move);
 		enhancedInputCompnent->BindAction(_lookAction, ETriggerEvent::Triggered, this, &AMyPlayer::Look);
-		enhancedInputCompnent->BindAction(_jumpAction, ETriggerEvent::Triggered, this, &AMyPlayer::JumpA);
-		enhancedInputCompnent->BindAction(_attackAction, ETriggerEvent::Triggered, this, &AMyPlayer::Attack);
+		enhancedInputCompnent->BindAction(_jumpAction, ETriggerEvent::Started, this, &AMyPlayer::JumpA);
+		enhancedInputCompnent->BindAction(_attackAction, ETriggerEvent::Started, this, &AMyPlayer::Attack);
 		//enhancedInputCompnent->BindAction(_invenAction, ETriggerEvent::Started, this, &AMyPlayer::InvenOpen);
 	}
 	else
@@ -150,17 +150,26 @@ void AMyPlayer::Attack(const FInputActionValue& value)
 {
 	if (_isAttack) return;
 
-	bool isPress = value.Get<bool>();
+	//bool isPress = value.Get<bool>();
+	//if (isPress)
+	//{
+	//	_isAttack = true;
+	//	_curAttackSection = (_curAttackSection + 1) % 3 + 1;
+	//
+	//	if (!_animInstance->IsAnyMontagePlaying())
+	//	{
+	//		_animInstance->PlayAnimMontage();
+	//	}
+	//	_animInstance->JumpToSection(_curAttackSection);
+	//}
 
-	if (isPress)
+
+	_isAttack = true;
+	_curAttackSection = (_curAttackSection + 1) % 3 + 1;
+
+	if (!_animInstance->IsAnyMontagePlaying())
 	{
-		_isAttack = true;
-		_curAttackSection = (_curAttackSection + 1) % 3 + 1;
-
-		if (!_animInstance->IsAnyMontagePlaying())
-		{
-			_animInstance->PlayAnimMontage();
-		}
-		_animInstance->JumpToSection(_curAttackSection);
+		_animInstance->PlayAnimMontage();
 	}
+	_animInstance->JumpToSection(_curAttackSection);
 }
