@@ -66,6 +66,12 @@
     <ClInclude Include="..\..\Source\portfolio2\MyAnimInstance.h">
       <Filter>Source\portfolio2</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\MyCardPack.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\MyCardPack.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\portfolio2\MyCharacter.cpp">
       <Filter>Source\portfolio2</Filter>
     </ClCompile>
