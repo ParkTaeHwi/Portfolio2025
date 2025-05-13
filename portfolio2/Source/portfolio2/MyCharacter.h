@@ -49,8 +49,6 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Animation", meta = (AllowPrivateAccess = "true"))
 	class UMyAnimInstance* _animInstance;
 
-	int32 _curAttackSection = 1;
-
 	float _vertical = 0.0f;
 	float _horizontal = 0.0f;
 	UPROPERTY(EditAnywhere)

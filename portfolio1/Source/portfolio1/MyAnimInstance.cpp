@@ -33,8 +33,8 @@ void UMyAnimInstance::PlayAnimMontage()
 	if (!Montage_IsPlaying(_animMontage))
 	{
 		_attackStart.Execute();
-		_attackStart2.Execute(1, 2);
-		_attackStart3.Broadcast();
+		//_attackStart2.Execute(1, 2);
+		//_attackStart3.Broadcast();
 
 		Montage_Play(_animMontage);
 	}

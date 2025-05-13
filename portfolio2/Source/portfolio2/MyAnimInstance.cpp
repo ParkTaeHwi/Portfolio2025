@@ -27,23 +27,44 @@ void UMyAnimInstance::NativeUpdateAnimation(float DelatSeconds)
 
 void UMyAnimInstance::PlayAnimMontage()
 {
+	UE_LOG(LogTemp, Warning, TEXT("[2] UMyAnimInstance::PlayAnimMontage called"));
+
 	if (_animMontage == nullptr)
+	{
+		UE_LOG(LogTemp, Error, TEXT("AnimMontage is NULL"));
 		return;
+	}
 
 	if (!Montage_IsPlaying(_animMontage))
 	{
-		_attackStart.Execute();
-		//_attackStart2.Execute(1, 2);
-		//_attackStart3.Broadcast();
-
+		if (_attackStart.IsBound())
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Delegate is bound."));
+			_attackStart.Execute();
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Delegate is NOT bound."));
+		}
 		Montage_Play(_animMontage);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Montage is already playing"));
 	}
 }
 
 void UMyAnimInstance::AnimNotify_Attack_Hit()
 {
+	UE_LOG(LogTemp, Warning, TEXT(">> AnimNotify_Attack_Hit called"));
 	if (_hitEvent.IsBound())
 		_hitEvent.Broadcast();
+	UE_LOG(LogTemp, Warning, TEXT("[3] UMyAnimInstance::AnimNotify_Attack_Hit called"));
+	if (_hitEvent.IsBound())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("[4] _hitEvent.Broadcast about to fire"));
+		_hitEvent.Broadcast();
+	}
 }
 
 void UMyAnimInstance::AnimNotify_Attack_Dead()

@@ -34,12 +34,9 @@ public:
 	void AnimNotify_Attack_Dead();
 
 	AnimDelegateTest _attackStart;
-	//AnimDelegateTest2 _attackStart2;
-	//FAnimDelegateTest3 _attackStart3;
 	AttackHitEvent	_hitEvent;
 	DeadEvent _deadEvent;
 
-	//UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pawn", meta = (AllowPrivateAccess = "true"))
 	void JumpToSection(int32 sectionIndex);
 
 private:

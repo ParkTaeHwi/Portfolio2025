@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UAnimMontage;
 struct FInputActionValue;
 #ifdef PORTFOLIO2_MyPlayer_generated_h
 #error "MyPlayer.generated.h already included, missing '#pragma once' in MyPlayer.h"
@@ -16,6 +17,7 @@ struct FInputActionValue;
 #define PORTFOLIO2_MyPlayer_generated_h
 
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPlayer_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execOnAttackMontageEnded); \
 	DECLARE_FUNCTION(execAttack); \
 	DECLARE_FUNCTION(execJumpA); \
 	DECLARE_FUNCTION(execLook); \

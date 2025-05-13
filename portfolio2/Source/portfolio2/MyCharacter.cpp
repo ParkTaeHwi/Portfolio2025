@@ -6,6 +6,8 @@
 #include "Engine/DamageEvents.h"
 #include "MyStatComponent.h"
 #include "MyAnimInstance.h"
+#include "Components/WidgetComponent.h"
+#include "MyPlayerController.h"
 
 //#include "MyStatComponent.h"
 
@@ -55,6 +57,7 @@ void AMyCharacter::AttackEnd(UAnimMontage* Montage, bool bInterrupted)
 
 void AMyCharacter::Attack_Hit()
 {
+	UE_LOG(LogTemp, Warning, TEXT("[5] AMyCharacter::Attack_Hit called"));
 	// 이 함수를 호출한 객체의 이름
 	// auto name = GetName();
 	// UE_LOG(LogTemp, Error, TEXT("Attacker : %s"),*name);
@@ -103,6 +106,7 @@ void AMyCharacter::Attack_Hit()
 
 	//충돌체그리기
 	DrawDebugCapsule(GetWorld(), center, _attackRange * 0.5f, attackRadius, quat, drawColor, false, 1.0f);
+	UE_LOG(LogTemp, Warning, TEXT("Attack_Hit called"));
 }
 
 void AMyCharacter::DeadEvent()

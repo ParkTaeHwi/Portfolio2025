@@ -132,20 +132,28 @@ void AMyPlayer::JumpA(const FInputActionValue& value)
 void AMyPlayer::Attack(const FInputActionValue& value)
 {
 	if (_isAttack) return;
-
+	UE_LOG(LogTemp, Warning, TEXT("Attack called"));
+	
 	bool isPress = value.Get<bool>();
-
-	if (isPress)
+	
+	//if (isPress)
+	//{
+	//	_isAttack = true;
+	//	_curAttackSection = (_curAttackSection + 1) % 3 + 1;
+	//
+	//	if (!_animInstance->IsAnyMontagePlaying())
+	//	{
+	//		_animInstance->PlayAnimMontage();
+	//	}
+	//	_animInstance->JumpToSection(_curAttackSection);
+	//}
+	if (!isPress) return;
+	_isAttack = true;
+	if (!_animInstance->IsAnyMontagePlaying())
 	{
-		_isAttack = true;
-		_curAttackSection = (_curAttackSection + 1) % 3 + 1;
-
-		if (!_animInstance->IsAnyMontagePlaying())
-		{
-			_animInstance->PlayAnimMontage();
-		}
-		_animInstance->JumpToSection(_curAttackSection);
+		_animInstance->PlayAnimMontage();
 	}
+	_animInstance->JumpToSection(1);
 }
 
 void AMyPlayer::InvenOpen(const FInputActionValue& value)

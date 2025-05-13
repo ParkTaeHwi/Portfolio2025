@@ -56,6 +56,17 @@ void AMyPlayer::BeginPlay()
 	Super::BeginPlay();
 
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_GameTraceChannel2, ECR_Block);
+
+	_animInstance = Cast<UMyAnimInstance>(GetMesh()->GetAnimInstance());
+
+	if (_animInstance == nullptr)
+	{
+		UE_LOG(LogTemp, Error, TEXT("AnimInstance is NULL"));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("AnimInstance successfully set"));
+	}
 }
 
 void AMyPlayer::Tick(float DeltaTime)
@@ -67,8 +78,8 @@ void AMyPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	UEnhancedInputComponent* enhancedInputCompnent = Cast<UEnhancedInputComponent>(PlayerInputComponent);
-	if (enhancedInputCompnent)
+	UEnhancedInputComponent* enhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent);
+	if (enhancedInputComponent)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("EnhancedInputComponent is valid"));
 
@@ -85,10 +96,10 @@ void AMyPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		else { UE_LOG(LogTemp, Warning, TEXT("_attackAction is NULL!")); }
 
 		
-		enhancedInputCompnent->BindAction(_moveAction, ETriggerEvent::Triggered, this, &AMyPlayer::Move);
-		enhancedInputCompnent->BindAction(_lookAction, ETriggerEvent::Triggered, this, &AMyPlayer::Look);
-		enhancedInputCompnent->BindAction(_jumpAction, ETriggerEvent::Started, this, &AMyPlayer::JumpA);
-		enhancedInputCompnent->BindAction(_attackAction, ETriggerEvent::Started, this, &AMyPlayer::Attack);
+		enhancedInputComponent->BindAction(_moveAction, ETriggerEvent::Triggered, this, &AMyPlayer::Move);
+		enhancedInputComponent->BindAction(_lookAction, ETriggerEvent::Triggered, this, &AMyPlayer::Look);
+		enhancedInputComponent->BindAction(_jumpAction, ETriggerEvent::Started, this, &AMyPlayer::JumpA);
+		enhancedInputComponent->BindAction(_attackAction, ETriggerEvent::Started, this, &AMyPlayer::Attack);
 		//enhancedInputCompnent->BindAction(_invenAction, ETriggerEvent::Started, this, &AMyPlayer::InvenOpen);
 	}
 	else
@@ -136,6 +147,8 @@ void AMyPlayer::Look(const FInputActionValue& value)
 
 void AMyPlayer::JumpA(const FInputActionValue& value)
 {
+	UE_LOG(LogTemp, Warning, TEXT("Jump called"));
+
 	if (_isAttack) return;
 
 	bool isPress = value.Get<bool>();
@@ -149,27 +162,22 @@ void AMyPlayer::JumpA(const FInputActionValue& value)
 void AMyPlayer::Attack(const FInputActionValue& value)
 {
 	if (_isAttack) return;
+	UE_LOG(LogTemp, Warning, TEXT("[1] AMyPlayer::Attack called"));
 
-	//bool isPress = value.Get<bool>();
-	//if (isPress)
-	//{
-	//	_isAttack = true;
-	//	_curAttackSection = (_curAttackSection + 1) % 3 + 1;
-	//
-	//	if (!_animInstance->IsAnyMontagePlaying())
-	//	{
-	//		_animInstance->PlayAnimMontage();
-	//	}
-	//	_animInstance->JumpToSection(_curAttackSection);
-	//}
-
+	bool isPress = value.Get<bool>();
+	if (!isPress) return;
 
 	_isAttack = true;
-	_curAttackSection = (_curAttackSection + 1) % 3 + 1;
 
 	if (!_animInstance->IsAnyMontagePlaying())
 	{
 		_animInstance->PlayAnimMontage();
 	}
-	_animInstance->JumpToSection(_curAttackSection);
+
+	_animInstance->JumpToSection(1);
+}
+
+void AMyPlayer::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted)
+{
+	_isAttack = false;
 }

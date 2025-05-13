@@ -124,6 +124,7 @@ void AMyCharacter::Attack_Hit()
 
 	//충돌체그리기
 	DrawDebugCapsule(GetWorld(), center, _attackRange * 0.5f, attackRadius, quat, drawColor, false, 1.0f);
+	UE_LOG(LogTemp, Warning, TEXT("Attack_Hit called"));
 }
 
 void AMyCharacter::DeadEvent()

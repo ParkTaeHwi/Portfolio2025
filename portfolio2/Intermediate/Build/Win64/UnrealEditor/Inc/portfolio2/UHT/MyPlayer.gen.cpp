@@ -11,6 +11,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyPlayer() {}
 
 // Begin Cross Module References
+ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
@@ -207,6 +208,58 @@ DEFINE_FUNCTION(AMyPlayer::execMove)
 }
 // End Class AMyPlayer Function Move
 
+// Begin Class AMyPlayer Function OnAttackMontageEnded
+struct Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics
+{
+	struct MyPlayer_eventOnAttackMontageEnded_Parms
+	{
+		UAnimMontage* Montage;
+		bool bInterrupted;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyPlayer.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Montage;
+	static void NewProp_bInterrupted_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bInterrupted;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::NewProp_Montage = { "Montage", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyPlayer_eventOnAttackMontageEnded_Parms, Montage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(0, nullptr) };
+void Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::NewProp_bInterrupted_SetBit(void* Obj)
+{
+	((MyPlayer_eventOnAttackMontageEnded_Parms*)Obj)->bInterrupted = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::NewProp_bInterrupted = { "bInterrupted", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(MyPlayer_eventOnAttackMontageEnded_Parms), &Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::NewProp_bInterrupted_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::NewProp_Montage,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::NewProp_bInterrupted,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyPlayer, nullptr, "OnAttackMontageEnded", nullptr, nullptr, Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::MyPlayer_eventOnAttackMontageEnded_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::MyPlayer_eventOnAttackMontageEnded_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AMyPlayer::execOnAttackMontageEnded)
+{
+	P_GET_OBJECT(UAnimMontage,Z_Param_Montage);
+	P_GET_UBOOL(Z_Param_bInterrupted);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->OnAttackMontageEnded(Z_Param_Montage,Z_Param_bInterrupted);
+	P_NATIVE_END;
+}
+// End Class AMyPlayer Function OnAttackMontageEnded
+
 // Begin Class AMyPlayer
 void AMyPlayer::StaticRegisterNativesAMyPlayer()
 {
@@ -216,6 +269,7 @@ void AMyPlayer::StaticRegisterNativesAMyPlayer()
 		{ "JumpA", &AMyPlayer::execJumpA },
 		{ "Look", &AMyPlayer::execLook },
 		{ "Move", &AMyPlayer::execMove },
+		{ "OnAttackMontageEnded", &AMyPlayer::execOnAttackMontageEnded },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -281,6 +335,7 @@ struct Z_Construct_UClass_AMyPlayer_Statics
 		{ &Z_Construct_UFunction_AMyPlayer_JumpA, "JumpA" }, // 2461617496
 		{ &Z_Construct_UFunction_AMyPlayer_Look, "Look" }, // 2844395973
 		{ &Z_Construct_UFunction_AMyPlayer_Move, "Move" }, // 195183904
+		{ &Z_Construct_UFunction_AMyPlayer_OnAttackMontageEnded, "OnAttackMontageEnded" }, // 1938205135
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -343,10 +398,10 @@ AMyPlayer::~AMyPlayer() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPlayer_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyPlayer, AMyPlayer::StaticClass, TEXT("AMyPlayer"), &Z_Registration_Info_UClass_AMyPlayer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayer), 4224377944U) },
+		{ Z_Construct_UClass_AMyPlayer, AMyPlayer::StaticClass, TEXT("AMyPlayer"), &Z_Registration_Info_UClass_AMyPlayer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayer), 2268272744U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPlayer_h_1170809406(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPlayer_h_4158287843(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPlayer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPlayer_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
