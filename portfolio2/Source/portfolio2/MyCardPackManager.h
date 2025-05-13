@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "MyCardPackManager.generated.h"
 
+class AMyCardPack;
+
 UCLASS()
 class PORTFOLIO2_API AMyCardPackManager : public AActor
 {
@@ -23,4 +25,12 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
+	TSubclassOf<AMyCardPack> CardPackClass; // 생성할 카드팩 BP를 지정
+
+	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
+	int32 CardPackCount = 5; // 카드팩 개수
+
+	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
+	float CardPackSpacing = 110.0f; // 카드팩 간격
 };

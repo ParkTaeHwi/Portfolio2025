@@ -15,6 +15,11 @@ public:
 	// Sets default values for this actor's properties
 	AMyCardPack();
 
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* Mesh;
+
+	void SetCardPackIndex(int32 CPIndex); // 인덱스 설정 함수
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -23,4 +28,6 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+private:
+	int32 CardPackIndex;
 };
