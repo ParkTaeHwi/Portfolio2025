@@ -5,7 +5,6 @@
 
 #include "Components/StaticMeshComponent.h"
 
-
 // Sets default values
 ABoardTile::ABoardTile()
 {
@@ -26,14 +25,12 @@ ABoardTile::ABoardTile()
 void ABoardTile::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
 void ABoardTile::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void ABoardTile::SetTileIndex(int32 InIndex)

@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PORTFOLIO2_StoreGameMode_generated_h
 
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAStoreGameMode(); \
 	friend struct Z_Construct_UClass_AStoreGameMode_Statics; \
@@ -23,9 +23,7 @@ public: \
 	DECLARE_SERIALIZER(AStoreGameMode)
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AStoreGameMode(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AStoreGameMode(AStoreGameMode&&); \
@@ -33,16 +31,16 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AStoreGameMode); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AStoreGameMode); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AStoreGameMode) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AStoreGameMode) \
 	NO_API virtual ~AStoreGameMode();
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_12_PROLOG
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_15_GENERATED_BODY \
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_14_PROLOG
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_15_INCLASS_NO_PURE_DECLS \
-	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_15_ENHANCED_CONSTRUCTORS \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_17_INCLASS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

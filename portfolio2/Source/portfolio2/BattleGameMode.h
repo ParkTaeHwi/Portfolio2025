@@ -18,6 +18,7 @@ class PORTFOLIO2_API ABattleGameMode : public AMyGameModeBase
 	
 public:
 	ABattleGameMode();
+
 	virtual void BeginPlay() override;
 
 protected:
@@ -26,8 +27,6 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Board") // 블루프린트에서 지정 가능
 	TSubclassOf<ABoardManager> BoardManagerClass; // 생성할 매니저 클래스
-
-	
 
 private:
 	UPROPERTY()

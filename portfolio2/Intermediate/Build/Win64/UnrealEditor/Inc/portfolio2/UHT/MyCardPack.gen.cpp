@@ -33,13 +33,41 @@ struct Z_Construct_UClass_AMyCardPack_Statics
 		{ "IncludePath", "MyCardPack.h" },
 		{ "ModuleRelativePath", "MyCardPack.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Mesh_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CubeMesh_MetaData[] = {
 		{ "Category", "MyCardPack" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "MyCardPack.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Row_MetaData[] = {
+		{ "Category", "MyCardPack" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Grid coordinate\n" },
+#endif
+		{ "ModuleRelativePath", "MyCardPack.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Grid coordinate" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Column_MetaData[] = {
+		{ "Category", "MyCardPack" },
+		{ "ModuleRelativePath", "MyCardPack.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsBlocked_MetaData[] = {
+		{ "Category", "MyCardPack" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Tile state (for gameplay logic)\n" },
+#endif
+		{ "ModuleRelativePath", "MyCardPack.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Tile state (for gameplay logic)" },
+#endif
+	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_Mesh;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_CubeMesh;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_Row;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_Column;
+	static void NewProp_bIsBlocked_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsBlocked;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -47,9 +75,19 @@ struct Z_Construct_UClass_AMyCardPack_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyCardPack_Statics::NewProp_Mesh = { "Mesh", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCardPack, Mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Mesh_MetaData), NewProp_Mesh_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyCardPack_Statics::NewProp_CubeMesh = { "CubeMesh", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCardPack, CubeMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CubeMesh_MetaData), NewProp_CubeMesh_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AMyCardPack_Statics::NewProp_Row = { "Row", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCardPack, Row), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Row_MetaData), NewProp_Row_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AMyCardPack_Statics::NewProp_Column = { "Column", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCardPack, Column), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Column_MetaData), NewProp_Column_MetaData) };
+void Z_Construct_UClass_AMyCardPack_Statics::NewProp_bIsBlocked_SetBit(void* Obj)
+{
+	((AMyCardPack*)Obj)->bIsBlocked = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMyCardPack_Statics::NewProp_bIsBlocked = { "bIsBlocked", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AMyCardPack), &Z_Construct_UClass_AMyCardPack_Statics::NewProp_bIsBlocked_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsBlocked_MetaData), NewProp_bIsBlocked_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyCardPack_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCardPack_Statics::NewProp_Mesh,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCardPack_Statics::NewProp_CubeMesh,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCardPack_Statics::NewProp_Row,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCardPack_Statics::NewProp_Column,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCardPack_Statics::NewProp_bIsBlocked,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCardPack_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AMyCardPack_Statics::DependentSingletons[])() = {
@@ -92,10 +130,10 @@ AMyCardPack::~AMyCardPack() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyCardPack, AMyCardPack::StaticClass, TEXT("AMyCardPack"), &Z_Registration_Info_UClass_AMyCardPack, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCardPack), 1285031715U) },
+		{ Z_Construct_UClass_AMyCardPack, AMyCardPack::StaticClass, TEXT("AMyCardPack"), &Z_Registration_Info_UClass_AMyCardPack, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCardPack), 519004689U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_3748025141(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_3821829796(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -26,11 +26,14 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
-	TSubclassOf<AMyCardPack> CardPackClass; // 생성할 카드팩 BP를 지정
+	TSubclassOf<AMyCardPack> CardPackClass; // 생성할 타일 BP를 지정
 
 	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
-	int32 CardPackCount = 5; // 카드팩 개수
+	int32 RowCount = 1; // 행
 
 	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
-	float CardPackSpacing = 110.0f; // 카드팩 간격
+	int32 ColumnCount = 20; // 열
+
+	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
+	float TileSpacing = 110.0f; // 간격
 };
