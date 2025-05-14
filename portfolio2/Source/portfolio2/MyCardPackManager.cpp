@@ -24,21 +24,25 @@ void AMyCardPackManager::BeginPlay()
 	UWorld* World = GetWorld();
 	if (!World) return;
 
-	int32 CardPackIndex = 0; // 인덱스 시작
+	int32 CardPackIndex = 0;
 
 	for (int32 Row = 0; Row < RowCount; ++Row)
 	{
 		for (int32 Col = 0; Col < ColumnCount; ++Col)
 		{
-			FVector SpawnLocation = GetActorLocation();
+			// 기준 위치를 기반으로 생성 위치 계산
+			FVector SpawnLocation = DefaultCardPackLocation;
 			SpawnLocation.X += Col * TileSpacing;
 			SpawnLocation.Y += Row * TileSpacing;
 
+			FTransform SpawnTransform(DefaultCardPackRotation, SpawnLocation, DefaultCardPackScale); // 모든 카드팩에 적용
+
 			FActorSpawnParameters Params;
-			AMyCardPack* CardPack = World->SpawnActor<AMyCardPack>(CardPackClass, SpawnLocation, FRotator::ZeroRotator, Params);
+			AMyCardPack* CardPack = World->SpawnActor<AMyCardPack>(CardPackClass, SpawnTransform, Params); //
+
 			if (CardPack)
 			{
-				CardPack->SetCardPackIndex(CardPackIndex); // 인덱스 부여
+				CardPack->SetCardPackIndex(CardPackIndex);
 			}
 
 			++CardPackIndex;

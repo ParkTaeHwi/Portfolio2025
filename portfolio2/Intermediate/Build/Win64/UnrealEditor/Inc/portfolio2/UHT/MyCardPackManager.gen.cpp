@@ -11,6 +11,8 @@ void EmptyLinkFunctionForGeneratedCodeMyCardPackManager() {}
 
 // Begin Cross Module References
 COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 PORTFOLIO2_API UClass* Z_Construct_UClass_AMyCardPack_NoRegister();
 PORTFOLIO2_API UClass* Z_Construct_UClass_AMyCardPackManager();
@@ -68,11 +70,32 @@ struct Z_Construct_UClass_AMyCardPackManager_Statics
 		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DefaultCardPackLocation_MetaData[] = {
+		{ "Category", "CardPack Settings" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\n" },
+#endif
+		{ "ModuleRelativePath", "MyCardPackManager.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DefaultCardPackRotation_MetaData[] = {
+		{ "Category", "CardPack Settings" },
+		{ "ModuleRelativePath", "MyCardPackManager.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DefaultCardPackScale_MetaData[] = {
+		{ "Category", "CardPack Settings" },
+		{ "ModuleRelativePath", "MyCardPackManager.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FClassPropertyParams NewProp_CardPackClass;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_RowCount;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_ColumnCount;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_TileSpacing;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_DefaultCardPackLocation;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_DefaultCardPackRotation;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_DefaultCardPackScale;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -84,11 +107,17 @@ const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AMyCardPackMana
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AMyCardPackManager_Statics::NewProp_RowCount = { "RowCount", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCardPackManager, RowCount), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RowCount_MetaData), NewProp_RowCount_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AMyCardPackManager_Statics::NewProp_ColumnCount = { "ColumnCount", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCardPackManager, ColumnCount), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ColumnCount_MetaData), NewProp_ColumnCount_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyCardPackManager_Statics::NewProp_TileSpacing = { "TileSpacing", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCardPackManager, TileSpacing), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TileSpacing_MetaData), NewProp_TileSpacing_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMyCardPackManager_Statics::NewProp_DefaultCardPackLocation = { "DefaultCardPackLocation", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCardPackManager, DefaultCardPackLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DefaultCardPackLocation_MetaData), NewProp_DefaultCardPackLocation_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMyCardPackManager_Statics::NewProp_DefaultCardPackRotation = { "DefaultCardPackRotation", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCardPackManager, DefaultCardPackRotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DefaultCardPackRotation_MetaData), NewProp_DefaultCardPackRotation_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMyCardPackManager_Statics::NewProp_DefaultCardPackScale = { "DefaultCardPackScale", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCardPackManager, DefaultCardPackScale), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DefaultCardPackScale_MetaData), NewProp_DefaultCardPackScale_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyCardPackManager_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCardPackManager_Statics::NewProp_CardPackClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCardPackManager_Statics::NewProp_RowCount,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCardPackManager_Statics::NewProp_ColumnCount,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCardPackManager_Statics::NewProp_TileSpacing,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCardPackManager_Statics::NewProp_DefaultCardPackLocation,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCardPackManager_Statics::NewProp_DefaultCardPackRotation,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCardPackManager_Statics::NewProp_DefaultCardPackScale,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCardPackManager_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AMyCardPackManager_Statics::DependentSingletons[])() = {
@@ -131,10 +160,10 @@ AMyCardPackManager::~AMyCardPackManager() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPackManager_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyCardPackManager, AMyCardPackManager::StaticClass, TEXT("AMyCardPackManager"), &Z_Registration_Info_UClass_AMyCardPackManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCardPackManager), 2205487447U) },
+		{ Z_Construct_UClass_AMyCardPackManager, AMyCardPackManager::StaticClass, TEXT("AMyCardPackManager"), &Z_Registration_Info_UClass_AMyCardPackManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCardPackManager), 2678445463U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPackManager_h_3270587138(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPackManager_h_1171251896(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPackManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPackManager_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

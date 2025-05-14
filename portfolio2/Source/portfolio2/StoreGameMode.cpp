@@ -10,20 +10,7 @@
 
 AStoreGameMode::AStoreGameMode()
 {
-	//static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/BP/BP_MyPlayer"));
-	//if (PlayerPawnBPClass.Succeeded())
-	//{
-	//	DefaultPawnClass = PlayerPawnBPClass.Class;
-	//}
-	//if (DefaultPawnClass)
-	//{
-	//	UE_LOG(LogTemp, Warning, TEXT("DefaultPawnClass is set: %s"), *DefaultPawnClass->GetName());
-	//}
-	//else
-	//{
-	//	UE_LOG(LogTemp, Warning, TEXT("DefaultPawnClass is NULL!"));
-	//}
-	//DefaultPawnClass = nullptr;
+	DefaultPawnClass = nullptr;
 }
 
 void AStoreGameMode::BeginPlay()
@@ -45,21 +32,6 @@ void AStoreGameMode::BeginPlay()
 		GetWorld()->SpawnActor<AMyCardPackManager>(MyCardPackManagerClass, FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams); // 타일 매니저 스폰
 	}
 
-	//APlayerController* PC = UGameplayStatics::GetPlayerController(GetWorld(), 0);
-	//if (PC)
-	//{
-	//	TArray<AActor*> FoundCameras;
-	//	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ACameraActor::StaticClass(), FoundCameras);
-	//
-	//	for (AActor* Cam : FoundCameras)
-	//	{
-	//		if (Cam->GetName().Contains(TEXT("CameraActor"))) // 이름으로 구분
-	//		{
-	//			PC->SetViewTargetWithBlend(Cam, 0.f); // 즉시 전환
-	//			break;
-	//		}
-	//	}
-	//}
 	// 카메라 액터 찾기
 	TArray<AActor*> Cameras;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ACameraActor::StaticClass(), Cameras);
