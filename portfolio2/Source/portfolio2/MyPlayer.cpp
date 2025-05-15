@@ -128,6 +128,8 @@ void AMyPlayer::Move(const FInputActionValue& value)
 
 			AddMovementInput(forWard, moveVector.Y * _statComponent->GetSpeed());
 			AddMovementInput(right, moveVector.X * _statComponent->GetSpeed());
+
+			Cast<AMyPlayerController>(Controller)->bShowMouseCursor = false;
 		}
 	}
 }
