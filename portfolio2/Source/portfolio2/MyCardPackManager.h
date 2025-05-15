@@ -35,13 +35,13 @@ public:
 	int32 ColumnCount = 20; // 열
 
 	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
-	float TileSpacing = 110.0f; // 간격
+	float TileSpacing = 50.0f; // 간격
 
 	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
 	FVector DefaultCardPackLocation = FVector(-416.871593f, 0.61713f, 159.859186f);
 
 	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
-	FRotator DefaultCardPackRotation = FRotator(-10.f, 0.f, 0.f);
+	FRotator DefaultCardPackRotation = FRotator(-15.f, 0.f, 0.f);
 
 	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
 	FVector DefaultCardPackScale = FVector(0.1f, 1.6f, 3.0f);
