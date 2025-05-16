@@ -36,9 +36,14 @@ public:
 	void JumpA(const struct FInputActionValue& value);
 	UFUNCTION()
 	void Attack(const struct FInputActionValue& value);
+	UFUNCTION()
+	void ChangeUI(const struct FInputActionValue& value);
 
 	UFUNCTION()
 	void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+
+	bool _isUIOpen = false;
+	bool _changeUI = false;
 
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
@@ -58,4 +63,7 @@ private:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input", meta = (AllowPrivateAccess = "true"))
 	class UInputAction* _attackAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input", meta = (AllowPrivateAccess = "true"))
+	class UInputAction* _changeUIAction;
 };

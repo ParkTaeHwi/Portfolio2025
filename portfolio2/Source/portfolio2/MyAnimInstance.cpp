@@ -27,8 +27,6 @@ void UMyAnimInstance::NativeUpdateAnimation(float DelatSeconds)
 
 void UMyAnimInstance::PlayAnimMontage()
 {
-	UE_LOG(LogTemp, Warning, TEXT("[2] UMyAnimInstance::PlayAnimMontage called"));
-
 	if (_animMontage == nullptr)
 	{
 		UE_LOG(LogTemp, Error, TEXT("AnimMontage is NULL"));
@@ -56,13 +54,10 @@ void UMyAnimInstance::PlayAnimMontage()
 
 void UMyAnimInstance::AnimNotify_Attack_Hit()
 {
-	UE_LOG(LogTemp, Warning, TEXT(">> AnimNotify_Attack_Hit called"));
 	if (_hitEvent.IsBound())
 		_hitEvent.Broadcast();
-	UE_LOG(LogTemp, Warning, TEXT("[3] UMyAnimInstance::AnimNotify_Attack_Hit called"));
 	if (_hitEvent.IsBound())
 	{
-		UE_LOG(LogTemp, Warning, TEXT("[4] _hitEvent.Broadcast about to fire"));
 		_hitEvent.Broadcast();
 	}
 }

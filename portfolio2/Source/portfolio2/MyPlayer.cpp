@@ -18,7 +18,7 @@
 AMyPlayer::AMyPlayer()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	
+
 	_springArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
 	_camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 
@@ -83,23 +83,15 @@ void AMyPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("EnhancedInputComponent is valid"));
 
-		if (_moveAction){UE_LOG(LogTemp, Warning, TEXT("_moveAction is valid: %s"), *_moveAction->GetName());}
-		else { UE_LOG(LogTemp, Warning, TEXT("_moveAction is NULL!")); }
+		if (_changeUIAction) { UE_LOG(LogTemp, Warning, TEXT("_changeUIAction is valid: %s"), *_changeUIAction->GetName()); }
+		else { UE_LOG(LogTemp, Warning, TEXT("_changeUIAction is NULL!")); }
 
-		if (_lookAction){UE_LOG(LogTemp, Warning, TEXT("_lookAction is valid: %s"), *_lookAction->GetName());}
-		else {UE_LOG(LogTemp, Warning, TEXT("_lookAction is NULL!"));}
 
-		if (_jumpAction) { UE_LOG(LogTemp, Warning, TEXT("_jumpAction is valid: %s"), *_jumpAction->GetName()); }
-		else { UE_LOG(LogTemp, Warning, TEXT("_jumpAction is NULL!")); }
-
-		if (_attackAction) { UE_LOG(LogTemp, Warning, TEXT("_attackAction is valid: %s"), *_attackAction->GetName()); }
-		else { UE_LOG(LogTemp, Warning, TEXT("_attackAction is NULL!")); }
-
-		
 		enhancedInputComponent->BindAction(_moveAction, ETriggerEvent::Triggered, this, &AMyPlayer::Move);
 		enhancedInputComponent->BindAction(_lookAction, ETriggerEvent::Triggered, this, &AMyPlayer::Look);
 		enhancedInputComponent->BindAction(_jumpAction, ETriggerEvent::Started, this, &AMyPlayer::JumpA);
 		enhancedInputComponent->BindAction(_attackAction, ETriggerEvent::Started, this, &AMyPlayer::Attack);
+		enhancedInputComponent->BindAction(_changeUIAction, ETriggerEvent::Started, this, &AMyPlayer::ChangeUI);
 		//enhancedInputCompnent->BindAction(_invenAction, ETriggerEvent::Started, this, &AMyPlayer::InvenOpen);
 	}
 	else
@@ -110,6 +102,7 @@ void AMyPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void AMyPlayer::Move(const FInputActionValue& value)
 {
+	if (_isUIOpen) return;
 	FVector2D moveVector = value.Get<FVector2D>();
 	if (Controller == nullptr)
 	{
@@ -136,8 +129,8 @@ void AMyPlayer::Move(const FInputActionValue& value)
 
 void AMyPlayer::Look(const FInputActionValue& value)
 {
-	if (_isAttack) return;
-
+	//if (_isAttack) return;
+	if (_isUIOpen) return;
 	FVector2D lookAxisVector = value.Get<FVector2D>();
 
 	if (Controller != nullptr)
@@ -150,8 +143,8 @@ void AMyPlayer::Look(const FInputActionValue& value)
 void AMyPlayer::JumpA(const FInputActionValue& value)
 {
 	UE_LOG(LogTemp, Warning, TEXT("Jump called"));
-
-	if (_isAttack) return;
+	if (_isUIOpen) return;
+	//if (_isAttack) return;
 
 	bool isPress = value.Get<bool>();
 
@@ -163,8 +156,9 @@ void AMyPlayer::JumpA(const FInputActionValue& value)
 
 void AMyPlayer::Attack(const FInputActionValue& value)
 {
-	if (_isAttack) return;
-	UE_LOG(LogTemp, Warning, TEXT("[1] AMyPlayer::Attack called"));
+	if (_isUIOpen) return;
+	//if (_isAttack) return;
+	UE_LOG(LogTemp, Warning, TEXT("Attack called"));
 
 	bool isPress = value.Get<bool>();
 	if (!isPress) return;
@@ -177,6 +171,32 @@ void AMyPlayer::Attack(const FInputActionValue& value)
 	}
 
 	_animInstance->JumpToSection(1);
+}
+
+void AMyPlayer::ChangeUI(const FInputActionValue& value)	// press 'y'
+{
+	bool isPress = value.Get<bool>();
+
+	AMyPlayerController* MyController = Cast<AMyPlayerController>(Controller);
+	if (!MyController) return;
+
+	if (isPress)
+	{
+		if (_changeUI == false)
+		{
+			AMyPlayer::_isUIOpen = true;
+			AMyPlayer::_changeUI = true;
+			MyController->bShowMouseCursor = true;
+			UE_LOG(LogTemp, Warning, TEXT("if"));
+		}
+		else if (_changeUI == true)
+		{
+			AMyPlayer::_isUIOpen = false;
+			AMyPlayer::_changeUI = false;
+			MyController->bShowMouseCursor = false;
+			UE_LOG(LogTemp, Warning, TEXT("else if"));
+		}
+	}
 }
 
 void AMyPlayer::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted)

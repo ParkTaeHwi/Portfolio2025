@@ -57,7 +57,6 @@ void AMyCharacter::AttackEnd(UAnimMontage* Montage, bool bInterrupted)
 
 void AMyCharacter::Attack_Hit()
 {
-	UE_LOG(LogTemp, Warning, TEXT("[5] AMyCharacter::Attack_Hit called"));
 	// 이 함수를 호출한 객체의 이름
 	// auto name = GetName();
 	// UE_LOG(LogTemp, Error, TEXT("Attacker : %s"),*name);

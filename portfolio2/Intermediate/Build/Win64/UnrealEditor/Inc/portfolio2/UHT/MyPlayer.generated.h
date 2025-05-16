@@ -18,6 +18,7 @@ struct FInputActionValue;
 
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPlayer_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execOnAttackMontageEnded); \
+	DECLARE_FUNCTION(execChangeUI); \
 	DECLARE_FUNCTION(execAttack); \
 	DECLARE_FUNCTION(execJumpA); \
 	DECLARE_FUNCTION(execLook); \
