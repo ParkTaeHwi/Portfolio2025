@@ -108,6 +108,12 @@
     <ClInclude Include="..\..\Source\portfolio2\MyPlayerController.h">
       <Filter>Source\portfolio2</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\MySpectatorPawn.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\MySpectatorPawn.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\portfolio2\MyStatComponent.cpp">
       <Filter>Source\portfolio2</Filter>
     </ClCompile>

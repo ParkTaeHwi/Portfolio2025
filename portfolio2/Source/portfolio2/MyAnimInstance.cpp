@@ -13,8 +13,8 @@ UMyAnimInstance::UMyAnimInstance()
 
 void UMyAnimInstance::NativeUpdateAnimation(float DelatSeconds)
 {
-	auto pawn = TryGetPawnOwner();						              // 애니메이션 블루프린트가 적용된 소유자(Pawn, 즉 캐릭터)를 가져오는 함수
-	AMyCharacter* character = Cast<AMyCharacter>(pawn);	              // pawn이 AMyCharacter 타입인지 확인하고 캐스팅
+	auto pawn = TryGetPawnOwner();						 // 애니메이션 블루프린트가 적용된 소유자(Pawn, 즉 캐릭터)를 가져오는 함수
+	AMyCharacter* character = Cast<AMyCharacter>(pawn);	 // pawn이 AMyCharacter 타입인지 확인하고 캐스팅
 	if (character != nullptr)
 	{
 		_speed = character->GetVelocity().Size();
