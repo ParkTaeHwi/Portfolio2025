@@ -158,7 +158,7 @@ void AMyPlayer::Attack(const FInputActionValue& value)
 {
 	if (_isUIOpen) return;
 	//if (_isAttack) return;
-	UE_LOG(LogTemp, Warning, TEXT("Attack called"));
+	UE_LOG(LogTemp, Warning, TEXT("Attack called/MyPlayer.cpp"));
 
 	bool isPress = value.Get<bool>();
 	if (!isPress) return;
