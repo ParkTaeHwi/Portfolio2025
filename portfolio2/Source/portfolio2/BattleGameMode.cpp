@@ -43,22 +43,6 @@ void ABattleGameMode::BeginPlay()
 		FActorSpawnParameters SpawnParams;
 		GetWorld()->SpawnActor<ABoardManager>(BoardManagerClass, FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams); // 타일 매니저 스폰
 	}
-
-	APlayerController* PC = UGameplayStatics::GetPlayerController(GetWorld(), 0);
-	if (PC)
-	{
-		TArray<AActor*> FoundCameras;
-		UGameplayStatics::GetAllActorsOfClass(GetWorld(), ACameraActor::StaticClass(), FoundCameras);
-
-		for (AActor* Cam : FoundCameras)
-		{
-			if (Cam->GetName().Contains(TEXT("CameraActor"))) // 이름으로 구분
-			{
-				PC->SetViewTargetWithBlend(Cam, 0.f); // 즉시 전환
-				break;
-			}
-		}
-	}
 }
 
 

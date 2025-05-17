@@ -44,5 +44,5 @@ public:
 	FRotator DefaultCardPackRotation = FRotator(-35.f, 0.f, 0.f);
 
 	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
-	FVector DefaultCardPackScale = FVector(0.1f, 3.6f,10.0f);	// 두께, 가로, 세로
+	FVector DefaultCardPackScale = FVector(0.1f, 5.0f,10.0f);	// 두께, 가로, 세로
 };
