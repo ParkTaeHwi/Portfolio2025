@@ -14,6 +14,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PORTFOLIO2_MyCardPack_generated_h
 
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execSetCards);
+
+
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyCardPack(); \
@@ -39,6 +43,7 @@ public: \
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_12_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_12_INCLASS_NO_PURE_DECLS \
 	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_12_ENHANCED_CONSTRUCTORS \
 private: \

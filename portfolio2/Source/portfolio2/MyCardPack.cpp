@@ -37,3 +37,8 @@ void AMyCardPack::SetCardPackIndex(int32 CPIndex)
 {
     CardPackIndex = CPIndex;
 }
+
+void AMyCardPack::SetCards(const TArray<FString>& InCards)
+{
+	CardList = InCards;
+}

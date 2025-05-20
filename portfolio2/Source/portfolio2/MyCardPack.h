@@ -39,6 +39,13 @@ public:
 
 	void SetCardPackIndex(int32 CPIndex); // 인덱스 설정 함수
 
+
+	UPROPERTY()
+	TArray<FString> CardList;
+
+	UFUNCTION()
+	void SetCards(const TArray<FString>& InCards);
+
 private:
 	int32 CardPackIndex;
 };
