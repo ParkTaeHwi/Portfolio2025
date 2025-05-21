@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
+#include "MyCardPackData.h"
 #include "MyGameInstance.generated.h"
 
 /**
@@ -25,4 +26,7 @@ public:
     FName Store;
 
     int32 SelectedBattleIndex;
+
+    UPROPERTY()
+    TArray<FCardPackData> CardPackDataList;
 };

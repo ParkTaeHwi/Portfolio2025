@@ -7,6 +7,7 @@
 #include "MyCardPackManager.generated.h"
 
 class AMyCardPack;
+class UMyGameInstance;
 
 UCLASS()
 class PORTFOLIO2_API AMyCardPackManager : public AActor
@@ -45,4 +46,10 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
 	FVector DefaultCardPackScale = FVector(0.1f, 5.0f,10.0f);	// 두께, 가로, 세로
+
+private:
+	UMyGameInstance* MyGameInstance = nullptr;
+
+	void InitializeCardPacks();
+	void SpawnCardPacksFromData();
 };
