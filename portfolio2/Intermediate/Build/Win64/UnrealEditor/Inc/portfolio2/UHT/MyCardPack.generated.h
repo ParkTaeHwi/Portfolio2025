@@ -9,13 +9,17 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
+class UPrimitiveComponent;
+struct FHitResult;
 #ifdef PORTFOLIO2_MyCardPack_generated_h
 #error "MyCardPack.generated.h already included, missing '#pragma once' in MyCardPack.h"
 #endif
 #define PORTFOLIO2_MyCardPack_generated_h
 
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execSetCards);
+	DECLARE_FUNCTION(execSetCards); \
+	DECLARE_FUNCTION(execOnOverlap);
 
 
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_12_INCLASS_NO_PURE_DECLS \
