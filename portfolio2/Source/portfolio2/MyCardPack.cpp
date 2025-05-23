@@ -6,6 +6,7 @@
 #include "MyCharacter.h"
 #include "MyPlayer.h"
 #include "MyPlayerController.h"
+#include "MyGameInstance.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/CapsuleComponent.h"
 
@@ -68,6 +69,19 @@ void AMyCardPack::OnOverlap(
 
 		SetActorHiddenInGame(true);  // 아이템을 화면에서 숨김
 		SetActorEnableCollision(false);  // 아이템의 충돌을 비활성화 (다시 충돌하지 않도록)
+	}
+
+	if (character != nullptr && player != nullptr)
+	{
+		SetActorHiddenInGame(true);
+		SetActorEnableCollision(false);
+
+		// GameInstance에서 이 카드팩의 데이터 비우기
+		UMyGameInstance* MyGameInstance = Cast<UMyGameInstance>(GetGameInstance());
+		if (MyGameInstance && CardPackIndex >= 0 && CardPackIndex < MyGameInstance->CardPackDataList.Num())
+		{
+			MyGameInstance->CardPackDataList[CardPackIndex].Cards.Empty();  // 카드 정보 제거!
+		}
 	}
 }
 

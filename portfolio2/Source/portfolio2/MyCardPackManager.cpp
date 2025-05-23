@@ -106,6 +106,11 @@ void AMyCardPackManager::SpawnCardPacksFromData()
 
 	for (int32 i = 0; i < TotalCardPacks; ++i)
 	{
+		if (MyGameInstance->CardPackDataList[i].Cards.Num() == 0)
+		{
+			continue; // 카드가 없으면 스폰하지 않음
+		}
+		
 		FVector SpawnLocation = DefaultCardPackLocation;
 		SpawnLocation.X += (i % ColumnCount) * TileSpacing;
 		SpawnLocation.Y += (i / ColumnCount) * TileSpacing;
