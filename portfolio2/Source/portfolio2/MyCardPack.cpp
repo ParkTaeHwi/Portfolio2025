@@ -94,3 +94,45 @@ void AMyCardPack::SetCards(const TArray<FString>& InCards)
 {
 	CardList = InCards;
 }
+
+void AMyCardPack::NotifyActorBeginCursorOver()
+{
+	Super::NotifyActorBeginCursorOver();
+
+	UE_LOG(LogTemp, Warning, TEXT("Mouse Hovered Over CardPack"));  // 디버그 로그
+
+	// 예: 메쉬의 색을 변경한다거나
+	if (CubeMesh)
+	{
+		CubeMesh->SetRenderCustomDepth(true);  // 아웃라인 효과 등
+	}
+}
+
+void AMyCardPack::NotifyActorEndCursorOver()
+{
+	Super::NotifyActorEndCursorOver();
+
+	UE_LOG(LogTemp, Warning, TEXT("Mouse Left CardPack"));
+
+	if (CubeMesh)
+	{
+		CubeMesh->SetRenderCustomDepth(false);
+	}
+}
+
+void AMyCardPack::NotifyActorOnClicked(FKey ButtonPressed)
+{
+	Super::NotifyActorOnClicked(ButtonPressed);
+
+	UE_LOG(LogTemp, Warning, TEXT("CardPack Clicked!"));
+
+	// 원하는 기능 수행 (오버랩과 비슷한 로직 사용 가능)
+	SetActorHiddenInGame(true);
+	SetActorEnableCollision(false);
+
+	UMyGameInstance* MyGameInstance = Cast<UMyGameInstance>(GetGameInstance());
+	if (MyGameInstance && CardPackIndex >= 0 && CardPackIndex < MyGameInstance->CardPackDataList.Num())
+	{
+		MyGameInstance->CardPackDataList[CardPackIndex].Cards.Empty();
+	}
+}

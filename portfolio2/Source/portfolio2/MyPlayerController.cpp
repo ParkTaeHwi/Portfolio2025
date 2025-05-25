@@ -38,6 +38,9 @@ void AMyPlayerController::BeginPlay()
 
 	FInputModeGameOnly InputMode;
 	SetInputMode(InputMode);
+	bShowMouseCursor = true;
+	bEnableClickEvents = true;
+	bEnableMouseOverEvents = true;
 }
 
 void AMyPlayerController::ShowUI()

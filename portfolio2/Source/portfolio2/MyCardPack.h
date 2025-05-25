@@ -53,6 +53,10 @@ public:
 	UFUNCTION()
 	void SetCards(const TArray<FString>& InCards);
 
+	virtual void NotifyActorBeginCursorOver() override;  // 마우스 호버 시작
+	virtual void NotifyActorEndCursorOver() override;    // 마우스 호버 종료
+	virtual void NotifyActorOnClicked(FKey ButtonPressed) override;	// 클릭
+
 private:
 	int32 CardPackIndex;
 };
