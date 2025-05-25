@@ -36,7 +36,7 @@ public:
 	int32 ColumnCount = 20; // 열
 
 	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
-	float TileSpacing = 50.0f; // 간격
+	float TileSpacing = 250.0f; // 간격
 
 	UPROPERTY(EditAnywhere, Category = "CardPack Settings")
 	FVector DefaultCardPackLocation = FVector(-416.871593f, 0.61713f, 159.859186f);
