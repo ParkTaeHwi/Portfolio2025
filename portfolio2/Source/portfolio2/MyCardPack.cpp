@@ -7,6 +7,7 @@
 #include "MyPlayer.h"
 #include "MyPlayerController.h"
 #include "MyGameInstance.h"
+#include "MyOpenCardWidget.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/CapsuleComponent.h"
 
@@ -57,32 +58,15 @@ void AMyCardPack::OnOverlap(
 	bool bFromSweep,                           // 스윕(sweep)으로 감지된 충돌인지 여부
 	const FHitResult& SweepResult)             // 충돌에 대한 상세 정보
 {
-	auto character = Cast<AMyPlayer>(OtherActor);  // 충돌한 액터가 AMyCharacter인지 확인
-	if (character == nullptr)
+	auto character = Cast<AMyPlayer>(OtherActor);
+	if (!character)
 		return;
 
-	auto player = Cast<AMyPlayerController>(character->GetController());  // 캐릭터의 컨트롤러가 AMyPlayerController인지 확인
+	auto player = Cast<AMyPlayerController>(character->GetController());
+	if (!player)
+		return;
 
-	if (character != nullptr && player != nullptr)  // 캐릭터와 컨트롤러가 유효하면
-	{
-		//character->AddItem(this);
-
-		SetActorHiddenInGame(true);  // 아이템을 화면에서 숨김
-		SetActorEnableCollision(false);  // 아이템의 충돌을 비활성화 (다시 충돌하지 않도록)
-	}
-
-	if (character != nullptr && player != nullptr)
-	{
-		SetActorHiddenInGame(true);
-		SetActorEnableCollision(false);
-
-		// GameInstance에서 이 카드팩의 데이터 비우기
-		UMyGameInstance* MyGameInstance = Cast<UMyGameInstance>(GetGameInstance());
-		if (MyGameInstance && CardPackIndex >= 0 && CardPackIndex < MyGameInstance->CardPackDataList.Num())
-		{
-			MyGameInstance->CardPackDataList[CardPackIndex].Cards.Empty();  // 카드 정보 제거!
-		}
-	}
+	HandleCardOpen();
 }
 
 void AMyCardPack::SetCardPackIndex(int32 CPIndex)
@@ -127,12 +111,61 @@ void AMyCardPack::NotifyActorOnClicked(FKey ButtonPressed)
 	UE_LOG(LogTemp, Warning, TEXT("CardPack Clicked!"));
 
 	// 원하는 기능 수행 (오버랩과 비슷한 로직 사용 가능)
+	HandleCardOpen();
+}
+
+void AMyCardPack::HandleCardOpen()
+{
+	if (bCardOpened)
+		return;
+
+	bCardOpened = true;
+
 	SetActorHiddenInGame(true);
 	SetActorEnableCollision(false);
 
+	// 카드팩 데이터 비우기
 	UMyGameInstance* MyGameInstance = Cast<UMyGameInstance>(GetGameInstance());
 	if (MyGameInstance && CardPackIndex >= 0 && CardPackIndex < MyGameInstance->CardPackDataList.Num())
 	{
 		MyGameInstance->CardPackDataList[CardPackIndex].Cards.Empty();
 	}
+
+	// 1. 런타임 경로 기반으로 UClass 로드
+	UClass* WidgetClass = LoadClass<UUserWidget>(nullptr, TEXT("/Game/UI/StoreUI/OpenCardMenu.OpenCardMenu_C"));
+	if (!WidgetClass)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to load OpenCardMenu class!"));
+		return;
+	}
+
+	// 2. 위젯 생성
+	APlayerController* PC = GetWorld()->GetFirstPlayerController();
+	if (!PC)
+		return;
+
+	UUserWidget* Widget = CreateWidget<UUserWidget>(PC, WidgetClass);
+	if (!Widget)
+		return;
+
+	// 3. 캐스팅해서 함수 사용 (InitCardInfo, OnWidgetClosed)
+	if (UMyOpenCardWidget* OpenCardMenu = Cast<UMyOpenCardWidget>(Widget))
+	{
+		OpenCardMenu->InitCardInfo(CardList);
+
+		OpenCardMenu->OnWidgetClosed.BindLambda([PC]()
+			{
+				PC->SetInputMode(FInputModeGameOnly());
+				PC->bShowMouseCursor = false;
+				UE_LOG(LogTemp, Warning, TEXT("Card menu closed"));
+			});
+	}
+
+	// 4. 입력 모드 전환
+	PC->SetInputMode(FInputModeUIOnly());
+	PC->bShowMouseCursor = true;
+
+	// 5. 위젯 화면에 추가
+	Widget->AddToViewport(999);
 }
+

@@ -57,6 +57,9 @@ public:
 	virtual void NotifyActorEndCursorOver() override;    // 마우스 호버 종료
 	virtual void NotifyActorOnClicked(FKey ButtonPressed) override;	// 클릭
 
+	bool bCardOpened = false;
+	void HandleCardOpen();
+
 private:
 	int32 CardPackIndex;
 };

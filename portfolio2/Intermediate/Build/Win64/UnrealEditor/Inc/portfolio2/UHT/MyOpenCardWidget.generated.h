@@ -14,7 +14,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PORTFOLIO2_MyOpenCardWidget_generated_h
 
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execCloseWidget); \
+	DECLARE_FUNCTION(execInitCardInfo);
+
+
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyOpenCardWidget(); \
 	friend struct Z_Construct_UClass_UMyOpenCardWidget_Statics; \
@@ -23,7 +28,7 @@ public: \
 	DECLARE_SERIALIZER(UMyOpenCardWidget)
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_17_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UMyOpenCardWidget(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -37,12 +42,13 @@ public: \
 	NO_API virtual ~UMyOpenCardWidget();
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_12_PROLOG
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_15_GENERATED_BODY \
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_14_PROLOG
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_15_INCLASS_NO_PURE_DECLS \
-	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_15_ENHANCED_CONSTRUCTORS \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_17_INCLASS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
