@@ -21,4 +21,6 @@ void UMyOpenCardWidget::CloseWidget()
 
 	// 외부 델리게이트 호출 (예: 입력 모드 복원)
 	OnWidgetClosed.ExecuteIfBound();
+
+	UE_LOG(LogTemp, Warning, TEXT("UMyOpenCardWidget::CloseWidget::CardList closed"));
 }

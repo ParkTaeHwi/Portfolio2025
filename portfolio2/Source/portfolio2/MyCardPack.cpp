@@ -83,7 +83,7 @@ void AMyCardPack::NotifyActorBeginCursorOver()
 {
 	Super::NotifyActorBeginCursorOver();
 
-	UE_LOG(LogTemp, Warning, TEXT("Mouse Hovered Over CardPack"));  // 디버그 로그
+	//UE_LOG(LogTemp, Warning, TEXT("Mouse Hovered Over CardPack"));
 
 	// 예: 메쉬의 색을 변경한다거나
 	if (CubeMesh)
@@ -96,7 +96,7 @@ void AMyCardPack::NotifyActorEndCursorOver()
 {
 	Super::NotifyActorEndCursorOver();
 
-	UE_LOG(LogTemp, Warning, TEXT("Mouse Left CardPack"));
+	//UE_LOG(LogTemp, Warning, TEXT("Mouse Left CardPack"));
 
 	if (CubeMesh)
 	{
@@ -156,8 +156,7 @@ void AMyCardPack::HandleCardOpen()
 		OpenCardMenu->OnWidgetClosed.BindLambda([PC]()
 			{
 				PC->SetInputMode(FInputModeGameOnly());
-				PC->bShowMouseCursor = false;
-				UE_LOG(LogTemp, Warning, TEXT("Card menu closed"));
+				UE_LOG(LogTemp, Warning, TEXT("AMyCardPack::HandleCardOpen::CardList closed"));
 			});
 	}
 
