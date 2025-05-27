@@ -66,7 +66,7 @@ void AMyCardPack::OnOverlap(
 	if (!player)
 		return;
 
-	HandleCardOpen();
+	BeforeCardOpen();
 }
 
 void AMyCardPack::SetCardPackIndex(int32 CPIndex)
@@ -111,7 +111,22 @@ void AMyCardPack::NotifyActorOnClicked(FKey ButtonPressed)
 	UE_LOG(LogTemp, Warning, TEXT("CardPack Clicked!"));
 
 	// 원하는 기능 수행 (오버랩과 비슷한 로직 사용 가능)
-	HandleCardOpen();
+	BeforeCardOpen();
+}
+
+void AMyCardPack::BeforeCardOpen()
+{
+	UClass* WidgetClass = LoadClass<UMyOpenCardWidget>(nullptr, TEXT("/Game/UI/StoreUI/BeforeCardOpen.BeforeCardOpen_C"));
+	if (WidgetClass)
+	{
+		UMyOpenCardWidget* Widget = CreateWidget<UMyOpenCardWidget>(GetWorld(), WidgetClass);
+		if (Widget)
+		{
+			Widget->OwnerCardPack = this; // 나 자신(AMyCardPack)을 위젯에 알려줌
+
+			Widget->AddToViewport(999);
+		}
+	}
 }
 
 void AMyCardPack::HandleCardOpen()

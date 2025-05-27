@@ -2,6 +2,7 @@
 
 
 #include "MyOpenCardWidget.h"
+#include "MyCardPack.h"
 
 void UMyOpenCardWidget::InitCardInfo(const TArray<FString>& Cards)
 {
@@ -23,4 +24,12 @@ void UMyOpenCardWidget::CloseWidget()
 	OnWidgetClosed.ExecuteIfBound();
 
 	UE_LOG(LogTemp, Warning, TEXT("UMyOpenCardWidget::CloseWidget::CardList closed"));
+}
+
+void UMyOpenCardWidget::CardOpen()
+{
+	if (OwnerCardPack)
+	{
+		OwnerCardPack->HandleCardOpen();
+	}
 }

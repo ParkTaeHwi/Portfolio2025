@@ -27,4 +27,10 @@ public:
 	// 확인 버튼 클릭 시 이걸 블루프린트에서 바인딩하거나 직접 호출
 	UFUNCTION(BlueprintCallable)
 	void CloseWidget();
+
+	UPROPERTY()
+	AMyCardPack* OwnerCardPack;
+
+	UFUNCTION(BlueprintCallable)
+	void CardOpen();
 };

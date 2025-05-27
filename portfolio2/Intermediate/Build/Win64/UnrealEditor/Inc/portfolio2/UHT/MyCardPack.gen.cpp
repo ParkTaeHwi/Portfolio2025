@@ -22,6 +22,64 @@ PORTFOLIO2_API UClass* Z_Construct_UClass_AMyCardPack_NoRegister();
 UPackage* Z_Construct_UPackage__Script_portfolio2();
 // End Cross Module References
 
+// Begin Class AMyCardPack Function BeforeCardOpen
+struct Z_Construct_UFunction_AMyCardPack_BeforeCardOpen_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyCardPack.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCardPack_BeforeCardOpen_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyCardPack, nullptr, "BeforeCardOpen", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCardPack_BeforeCardOpen_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCardPack_BeforeCardOpen_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AMyCardPack_BeforeCardOpen()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCardPack_BeforeCardOpen_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AMyCardPack::execBeforeCardOpen)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->BeforeCardOpen();
+	P_NATIVE_END;
+}
+// End Class AMyCardPack Function BeforeCardOpen
+
+// Begin Class AMyCardPack Function HandleCardOpen
+struct Z_Construct_UFunction_AMyCardPack_HandleCardOpen_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyCardPack.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCardPack_HandleCardOpen_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyCardPack, nullptr, "HandleCardOpen", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCardPack_HandleCardOpen_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCardPack_HandleCardOpen_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AMyCardPack_HandleCardOpen()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCardPack_HandleCardOpen_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AMyCardPack::execHandleCardOpen)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->HandleCardOpen();
+	P_NATIVE_END;
+}
+// End Class AMyCardPack Function HandleCardOpen
+
 // Begin Class AMyCardPack Function OnOverlap
 struct Z_Construct_UFunction_AMyCardPack_OnOverlap_Statics
 {
@@ -156,6 +214,8 @@ void AMyCardPack::StaticRegisterNativesAMyCardPack()
 {
 	UClass* Class = AMyCardPack::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "BeforeCardOpen", &AMyCardPack::execBeforeCardOpen },
+		{ "HandleCardOpen", &AMyCardPack::execHandleCardOpen },
 		{ "OnOverlap", &AMyCardPack::execOnOverlap },
 		{ "SetCards", &AMyCardPack::execSetCards },
 	};
@@ -228,6 +288,8 @@ struct Z_Construct_UClass_AMyCardPack_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMyCardPack_BeforeCardOpen, "BeforeCardOpen" }, // 1493596046
+		{ &Z_Construct_UFunction_AMyCardPack_HandleCardOpen, "HandleCardOpen" }, // 3622794257
 		{ &Z_Construct_UFunction_AMyCardPack_OnOverlap, "OnOverlap" }, // 2698938466
 		{ &Z_Construct_UFunction_AMyCardPack_SetCards, "SetCards" }, // 2100594127
 	};
@@ -298,10 +360,10 @@ AMyCardPack::~AMyCardPack() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyCardPack, AMyCardPack::StaticClass, TEXT("AMyCardPack"), &Z_Registration_Info_UClass_AMyCardPack, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCardPack), 3293679383U) },
+		{ Z_Construct_UClass_AMyCardPack, AMyCardPack::StaticClass, TEXT("AMyCardPack"), &Z_Registration_Info_UClass_AMyCardPack, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCardPack), 3250636803U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_3758994523(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_2251014774(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -10,11 +10,41 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyOpenCardWidget() {}
 
 // Begin Cross Module References
+PORTFOLIO2_API UClass* Z_Construct_UClass_AMyCardPack_NoRegister();
 PORTFOLIO2_API UClass* Z_Construct_UClass_UMyOpenCardWidget();
 PORTFOLIO2_API UClass* Z_Construct_UClass_UMyOpenCardWidget_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UUserWidget();
 UPackage* Z_Construct_UPackage__Script_portfolio2();
 // End Cross Module References
+
+// Begin Class UMyOpenCardWidget Function CardOpen
+struct Z_Construct_UFunction_UMyOpenCardWidget_CardOpen_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyOpenCardWidget.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyOpenCardWidget_CardOpen_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyOpenCardWidget, nullptr, "CardOpen", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyOpenCardWidget_CardOpen_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyOpenCardWidget_CardOpen_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UMyOpenCardWidget_CardOpen()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyOpenCardWidget_CardOpen_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UMyOpenCardWidget::execCardOpen)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->CardOpen();
+	P_NATIVE_END;
+}
+// End Class UMyOpenCardWidget Function CardOpen
 
 // Begin Class UMyOpenCardWidget Function CloseWidget
 struct Z_Construct_UFunction_UMyOpenCardWidget_CloseWidget_Statics
@@ -110,6 +140,7 @@ void UMyOpenCardWidget::StaticRegisterNativesUMyOpenCardWidget()
 {
 	UClass* Class = UMyOpenCardWidget::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "CardOpen", &UMyOpenCardWidget::execCardOpen },
 		{ "CloseWidget", &UMyOpenCardWidget::execCloseWidget },
 		{ "InitCardInfo", &UMyOpenCardWidget::execInitCardInfo },
 	};
@@ -133,9 +164,15 @@ struct Z_Construct_UClass_UMyOpenCardWidget_Statics
 		{ "ToolTip", "\xc4\xab\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd UI \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OwnerCardPack_MetaData[] = {
+		{ "ModuleRelativePath", "MyOpenCardWidget.h" },
+	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_OwnerCardPack;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_UMyOpenCardWidget_CardOpen, "CardOpen" }, // 3044969769
 		{ &Z_Construct_UFunction_UMyOpenCardWidget_CloseWidget, "CloseWidget" }, // 1039650597
 		{ &Z_Construct_UFunction_UMyOpenCardWidget_InitCardInfo, "InitCardInfo" }, // 2319869796
 	};
@@ -145,6 +182,11 @@ struct Z_Construct_UClass_UMyOpenCardWidget_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyOpenCardWidget_Statics::NewProp_OwnerCardPack = { "OwnerCardPack", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyOpenCardWidget, OwnerCardPack), Z_Construct_UClass_AMyCardPack_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OwnerCardPack_MetaData), NewProp_OwnerCardPack_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMyOpenCardWidget_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyOpenCardWidget_Statics::NewProp_OwnerCardPack,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMyOpenCardWidget_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UMyOpenCardWidget_Statics::DependentSingletons[])() = {
 	(UObject* (*)())Z_Construct_UClass_UUserWidget,
 	(UObject* (*)())Z_Construct_UPackage__Script_portfolio2,
@@ -156,11 +198,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_UMyOpenCardWidget_Stati
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
 	FuncInfo,
-	nullptr,
+	Z_Construct_UClass_UMyOpenCardWidget_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
 	UE_ARRAY_COUNT(FuncInfo),
-	0,
+	UE_ARRAY_COUNT(Z_Construct_UClass_UMyOpenCardWidget_Statics::PropPointers),
 	0,
 	0x00B010A0u,
 	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMyOpenCardWidget_Statics::Class_MetaDataParams), Z_Construct_UClass_UMyOpenCardWidget_Statics::Class_MetaDataParams)
@@ -186,10 +228,10 @@ UMyOpenCardWidget::~UMyOpenCardWidget() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMyOpenCardWidget, UMyOpenCardWidget::StaticClass, TEXT("UMyOpenCardWidget"), &Z_Registration_Info_UClass_UMyOpenCardWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyOpenCardWidget), 2986026726U) },
+		{ Z_Construct_UClass_UMyOpenCardWidget, UMyOpenCardWidget::StaticClass, TEXT("UMyOpenCardWidget"), &Z_Registration_Info_UClass_UMyOpenCardWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyOpenCardWidget), 3521328573U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_2782265696(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_660505841(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

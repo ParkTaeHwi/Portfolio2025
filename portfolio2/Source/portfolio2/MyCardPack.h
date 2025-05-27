@@ -58,6 +58,9 @@ public:
 	virtual void NotifyActorOnClicked(FKey ButtonPressed) override;	// Å¬¸¯
 
 	bool bCardOpened = false;
+	UFUNCTION(BlueprintCallable)
+	void BeforeCardOpen();
+	UFUNCTION(BlueprintCallable)
 	void HandleCardOpen();
 
 private:

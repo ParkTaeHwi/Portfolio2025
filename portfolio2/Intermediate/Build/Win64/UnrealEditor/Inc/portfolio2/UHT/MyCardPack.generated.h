@@ -18,6 +18,8 @@ struct FHitResult;
 #define PORTFOLIO2_MyCardPack_generated_h
 
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCardPack_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execHandleCardOpen); \
+	DECLARE_FUNCTION(execBeforeCardOpen); \
 	DECLARE_FUNCTION(execSetCards); \
 	DECLARE_FUNCTION(execOnOverlap);
 
