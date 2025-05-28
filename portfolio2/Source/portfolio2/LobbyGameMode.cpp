@@ -17,4 +17,13 @@ void ALobbyGameMode::BeginPlay()
 			LobbyUI->AddToViewport();
 		}
 	}
+
+	if (JewelUIClass)
+	{
+		UUserWidget* JewelWidget = CreateWidget<UUserWidget>(GetWorld(), JewelUIClass);
+		if (JewelWidget)
+		{
+			JewelWidget->AddToViewport();
+		}
+	}
 }

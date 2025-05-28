@@ -43,4 +43,13 @@ void AStoreGameMode::BeginPlay()
 		FActorSpawnParameters SpawnParams;
 		GetWorld()->SpawnActor<AMyCardPackManager>(MyCardPackManagerClass, FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams); // 타일 매니저 스폰
 	}
+
+	if (JewelUIClass)
+	{
+		UUserWidget* JewelWidget = CreateWidget<UUserWidget>(GetWorld(), JewelUIClass);
+		if (JewelWidget)
+		{
+			JewelWidget->AddToViewport();
+		}
+	}
 }

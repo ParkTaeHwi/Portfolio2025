@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
 #include "MyCardPackData.h"
+#include "MyJewelWidget.h"
 #include "MyGameInstance.generated.h"
 
 /**
@@ -30,12 +31,18 @@ public:
     UPROPERTY()
     TArray<FCardPackData> CardPackDataList;
 
-    UPROPERTY(BlueprintReadOnly)
-    int32 Jewel = 0;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Jewel")
+    int32 Jewel = 0;    // 게임 시작시 기본 쥬얼 '0'
 
     UFUNCTION(BlueprintCallable)
-    void JewelCharge();
+    void AddJewel();
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Jewel")
+    int32 AddJ = 5000;  // 증가량 수정 가능
 
     UFUNCTION(BlueprintCallable)
-    bool JewelSpend(); // 성공/실패 여부 반환
+    bool SpendJewel();
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Jewel")
+    int32 SpendJ = 500; // 감소량 수정 가능
 };

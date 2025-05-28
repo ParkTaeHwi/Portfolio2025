@@ -28,6 +28,9 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "CardPack") // 블루프린트에서 지정 가능
 	TSubclassOf<AMyCardPackManager> MyCardPackManagerClass; // 생성할 매니저 클래스
 
+	UPROPERTY(EditAnywhere, Category = "UI")
+	TSubclassOf<class UUserWidget> JewelUIClass;
+
 private:
 	UPROPERTY()
 	UUserWidget* StoreUI;

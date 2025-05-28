@@ -51,6 +51,16 @@ struct Z_Construct_UClass_AStoreGameMode_Statics
 		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc6\xae\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_JewelUIClass_MetaData[] = {
+		{ "Category", "UI" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xc5\xb4\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xc5\xac\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\n" },
+#endif
+		{ "ModuleRelativePath", "StoreGameMode.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xc5\xb4\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xc5\xac\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
+#endif
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_StoreUI_MetaData[] = {
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "StoreGameMode.h" },
@@ -58,6 +68,7 @@ struct Z_Construct_UClass_AStoreGameMode_Statics
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FClassPropertyParams NewProp_StoreUIClass;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_MyCardPackManagerClass;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_JewelUIClass;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_StoreUI;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
@@ -68,10 +79,12 @@ struct Z_Construct_UClass_AStoreGameMode_Statics
 };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AStoreGameMode_Statics::NewProp_StoreUIClass = { "StoreUIClass", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AStoreGameMode, StoreUIClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StoreUIClass_MetaData), NewProp_StoreUIClass_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AStoreGameMode_Statics::NewProp_MyCardPackManagerClass = { "MyCardPackManagerClass", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AStoreGameMode, MyCardPackManagerClass), Z_Construct_UClass_UClass, Z_Construct_UClass_AMyCardPackManager_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MyCardPackManagerClass_MetaData), NewProp_MyCardPackManagerClass_MetaData) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AStoreGameMode_Statics::NewProp_JewelUIClass = { "JewelUIClass", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AStoreGameMode, JewelUIClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_JewelUIClass_MetaData), NewProp_JewelUIClass_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AStoreGameMode_Statics::NewProp_StoreUI = { "StoreUI", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AStoreGameMode, StoreUI), Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StoreUI_MetaData), NewProp_StoreUI_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AStoreGameMode_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStoreGameMode_Statics::NewProp_StoreUIClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStoreGameMode_Statics::NewProp_MyCardPackManagerClass,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStoreGameMode_Statics::NewProp_JewelUIClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStoreGameMode_Statics::NewProp_StoreUI,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AStoreGameMode_Statics::PropPointers) < 2048);
@@ -115,10 +128,10 @@ AStoreGameMode::~AStoreGameMode() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AStoreGameMode, AStoreGameMode::StaticClass, TEXT("AStoreGameMode"), &Z_Registration_Info_UClass_AStoreGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AStoreGameMode), 1976865813U) },
+		{ Z_Construct_UClass_AStoreGameMode, AStoreGameMode::StaticClass, TEXT("AStoreGameMode"), &Z_Registration_Info_UClass_AStoreGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AStoreGameMode), 2238723210U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_3712242386(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_1253871363(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_StoreGameMode_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

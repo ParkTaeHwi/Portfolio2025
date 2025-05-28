@@ -14,6 +14,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PORTFOLIO2_MyJewelWidget_generated_h
 
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyJewelWidget_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execspendJewel); \
+	DECLARE_FUNCTION(execaddJewel);
+
+
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyJewelWidget_h_15_CALLBACK_WRAPPERS
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyJewelWidget_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyJewelWidget(); \
@@ -41,6 +47,8 @@ public: \
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyJewelWidget_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyJewelWidget_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyJewelWidget_h_15_CALLBACK_WRAPPERS \
 	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyJewelWidget_h_15_INCLASS_NO_PURE_DECLS \
 	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyJewelWidget_h_15_ENHANCED_CONSTRUCTORS \
 private: \

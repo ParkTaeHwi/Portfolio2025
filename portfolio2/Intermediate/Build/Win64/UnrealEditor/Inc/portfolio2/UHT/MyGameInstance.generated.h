@@ -14,12 +14,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PORTFOLIO2_MyGameInstance_generated_h
 
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execJewelSpend); \
-	DECLARE_FUNCTION(execJewelCharge);
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execSpendJewel); \
+	DECLARE_FUNCTION(execAddJewel);
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_16_INCLASS_NO_PURE_DECLS \
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyGameInstance(); \
 	friend struct Z_Construct_UClass_UMyGameInstance_Statics; \
@@ -28,7 +28,7 @@ public: \
 	DECLARE_SERIALIZER(UMyGameInstance)
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_16_ENHANCED_CONSTRUCTORS \
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_17_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UMyGameInstance(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -42,13 +42,13 @@ public: \
 	NO_API virtual ~UMyGameInstance();
 
 
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_13_PROLOG
-#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_16_GENERATED_BODY \
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_14_PROLOG
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_16_INCLASS_NO_PURE_DECLS \
-	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_16_ENHANCED_CONSTRUCTORS \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_17_INCLASS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

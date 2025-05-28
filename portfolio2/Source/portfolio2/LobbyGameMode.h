@@ -21,6 +21,9 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "UI")
 	TSubclassOf<class UUserWidget> LobbyUIClass;
 
+	UPROPERTY(EditAnywhere, Category = "UI")
+	TSubclassOf<class UUserWidget> JewelUIClass;
+
 private:
 	UPROPERTY()
 	UUserWidget* LobbyUI;

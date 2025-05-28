@@ -18,45 +18,57 @@ PORTFOLIO2_API UScriptStruct* Z_Construct_UScriptStruct_FCardPackData();
 UPackage* Z_Construct_UPackage__Script_portfolio2();
 // End Cross Module References
 
-// Begin Class UMyGameInstance Function JewelCharge
-struct Z_Construct_UFunction_UMyGameInstance_JewelCharge_Statics
+// Begin Class UMyGameInstance Function AddJewel
+struct Z_Construct_UFunction_UMyGameInstance_AddJewel_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xdb\xbd\xef\xbf\xbd \xef\xbf\xbd\xe2\xba\xbb \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd '0'\n" },
+#endif
 		{ "ModuleRelativePath", "MyGameInstance.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xdb\xbd\xef\xbf\xbd \xef\xbf\xbd\xe2\xba\xbb \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd '0'" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyGameInstance_JewelCharge_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyGameInstance, nullptr, "JewelCharge", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyGameInstance_JewelCharge_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyGameInstance_JewelCharge_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_UMyGameInstance_JewelCharge()
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyGameInstance_AddJewel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyGameInstance, nullptr, "AddJewel", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyGameInstance_AddJewel_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyGameInstance_AddJewel_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UMyGameInstance_AddJewel()
 {
 	static UFunction* ReturnFunction = nullptr;
 	if (!ReturnFunction)
 	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyGameInstance_JewelCharge_Statics::FuncParams);
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyGameInstance_AddJewel_Statics::FuncParams);
 	}
 	return ReturnFunction;
 }
-DEFINE_FUNCTION(UMyGameInstance::execJewelCharge)
+DEFINE_FUNCTION(UMyGameInstance::execAddJewel)
 {
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->JewelCharge();
+	P_THIS->AddJewel();
 	P_NATIVE_END;
 }
-// End Class UMyGameInstance Function JewelCharge
+// End Class UMyGameInstance Function AddJewel
 
-// Begin Class UMyGameInstance Function JewelSpend
-struct Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics
+// Begin Class UMyGameInstance Function SpendJewel
+struct Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics
 {
-	struct MyGameInstance_eventJewelSpend_Parms
+	struct MyGameInstance_eventSpendJewel_Parms
 	{
 		bool ReturnValue;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\n" },
+#endif
 		{ "ModuleRelativePath", "MyGameInstance.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
+#endif
 	};
 #endif // WITH_METADATA
 	static void NewProp_ReturnValue_SetBit(void* Obj);
@@ -64,42 +76,42 @@ struct Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-void Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+void Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics::NewProp_ReturnValue_SetBit(void* Obj)
 {
-	((MyGameInstance_eventJewelSpend_Parms*)Obj)->ReturnValue = 1;
+	((MyGameInstance_eventSpendJewel_Parms*)Obj)->ReturnValue = 1;
 }
-const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(MyGameInstance_eventJewelSpend_Parms), &Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics::NewProp_ReturnValue,
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(MyGameInstance_eventSpendJewel_Parms), &Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics::NewProp_ReturnValue,
 };
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyGameInstance, nullptr, "JewelSpend", nullptr, nullptr, Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics::PropPointers), sizeof(Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics::MyGameInstance_eventJewelSpend_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics::MyGameInstance_eventJewelSpend_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_UMyGameInstance_JewelSpend()
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyGameInstance, nullptr, "SpendJewel", nullptr, nullptr, Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics::PropPointers), sizeof(Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics::MyGameInstance_eventSpendJewel_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics::MyGameInstance_eventSpendJewel_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UMyGameInstance_SpendJewel()
 {
 	static UFunction* ReturnFunction = nullptr;
 	if (!ReturnFunction)
 	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyGameInstance_JewelSpend_Statics::FuncParams);
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyGameInstance_SpendJewel_Statics::FuncParams);
 	}
 	return ReturnFunction;
 }
-DEFINE_FUNCTION(UMyGameInstance::execJewelSpend)
+DEFINE_FUNCTION(UMyGameInstance::execSpendJewel)
 {
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	*(bool*)Z_Param__Result=P_THIS->JewelSpend();
+	*(bool*)Z_Param__Result=P_THIS->SpendJewel();
 	P_NATIVE_END;
 }
-// End Class UMyGameInstance Function JewelSpend
+// End Class UMyGameInstance Function SpendJewel
 
 // Begin Class UMyGameInstance
 void UMyGameInstance::StaticRegisterNativesUMyGameInstance()
 {
 	UClass* Class = UMyGameInstance::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
-		{ "JewelCharge", &UMyGameInstance::execJewelCharge },
-		{ "JewelSpend", &UMyGameInstance::execJewelSpend },
+		{ "AddJewel", &UMyGameInstance::execAddJewel },
+		{ "SpendJewel", &UMyGameInstance::execSpendJewel },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -122,18 +134,28 @@ struct Z_Construct_UClass_UMyGameInstance_Statics
 		{ "ModuleRelativePath", "MyGameInstance.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Jewel_MetaData[] = {
-		{ "Category", "MyGameInstance" },
+		{ "Category", "Jewel" },
+		{ "ModuleRelativePath", "MyGameInstance.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AddJ_MetaData[] = {
+		{ "Category", "Jewel" },
+		{ "ModuleRelativePath", "MyGameInstance.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SpendJ_MetaData[] = {
+		{ "Category", "Jewel" },
 		{ "ModuleRelativePath", "MyGameInstance.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FStructPropertyParams NewProp_CardPackDataList_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_CardPackDataList;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_Jewel;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_AddJ;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_SpendJ;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UMyGameInstance_JewelCharge, "JewelCharge" }, // 2828167032
-		{ &Z_Construct_UFunction_UMyGameInstance_JewelSpend, "JewelSpend" }, // 3050025877
+		{ &Z_Construct_UFunction_UMyGameInstance_AddJewel, "AddJewel" }, // 2172964508
+		{ &Z_Construct_UFunction_UMyGameInstance_SpendJewel, "SpendJewel" }, // 3225170082
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -143,11 +165,15 @@ struct Z_Construct_UClass_UMyGameInstance_Statics
 };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMyGameInstance_Statics::NewProp_CardPackDataList_Inner = { "CardPackDataList", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FCardPackData, METADATA_PARAMS(0, nullptr) }; // 2731966007
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMyGameInstance_Statics::NewProp_CardPackDataList = { "CardPackDataList", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyGameInstance, CardPackDataList), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CardPackDataList_MetaData), NewProp_CardPackDataList_MetaData) }; // 2731966007
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMyGameInstance_Statics::NewProp_Jewel = { "Jewel", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyGameInstance, Jewel), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Jewel_MetaData), NewProp_Jewel_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMyGameInstance_Statics::NewProp_Jewel = { "Jewel", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyGameInstance, Jewel), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Jewel_MetaData), NewProp_Jewel_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMyGameInstance_Statics::NewProp_AddJ = { "AddJ", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyGameInstance, AddJ), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AddJ_MetaData), NewProp_AddJ_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMyGameInstance_Statics::NewProp_SpendJ = { "SpendJ", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyGameInstance, SpendJ), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SpendJ_MetaData), NewProp_SpendJ_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMyGameInstance_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyGameInstance_Statics::NewProp_CardPackDataList_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyGameInstance_Statics::NewProp_CardPackDataList,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyGameInstance_Statics::NewProp_Jewel,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyGameInstance_Statics::NewProp_AddJ,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyGameInstance_Statics::NewProp_SpendJ,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMyGameInstance_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UMyGameInstance_Statics::DependentSingletons[])() = {
@@ -191,10 +217,10 @@ UMyGameInstance::~UMyGameInstance() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMyGameInstance, UMyGameInstance::StaticClass, TEXT("UMyGameInstance"), &Z_Registration_Info_UClass_UMyGameInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyGameInstance), 1585323044U) },
+		{ Z_Construct_UClass_UMyGameInstance, UMyGameInstance::StaticClass, TEXT("UMyGameInstance"), &Z_Registration_Info_UClass_UMyGameInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyGameInstance), 820005477U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_4095117524(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_1419052498(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

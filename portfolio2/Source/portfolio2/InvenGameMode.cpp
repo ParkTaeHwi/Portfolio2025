@@ -17,4 +17,13 @@ void AInvenGameMode::BeginPlay()
 			InvenUI->AddToViewport();
 		}
 	}
+
+	if (JewelUIClass)
+	{
+		UUserWidget* JewelWidget = CreateWidget<UUserWidget>(GetWorld(), JewelUIClass);
+		if (JewelWidget)
+		{
+			JewelWidget->AddToViewport();
+		}
+	}
 }
