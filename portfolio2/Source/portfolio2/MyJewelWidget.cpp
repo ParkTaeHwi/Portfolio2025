@@ -14,6 +14,7 @@ void UMyJewelWidget::addJewel()
         {
             MyGI->AddJewel();
             UpdateJewelText(MyGI->Jewel);
+            UE_LOG(LogTemp, Warning, TEXT("UMyJewelWidget::addJewel::CurrentJewel = %d"), MyGI->Jewel);
         }
     }
 }

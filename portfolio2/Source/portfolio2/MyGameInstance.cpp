@@ -25,6 +25,7 @@ void UMyGameInstance::GoToMap(FName MapName)
 void UMyGameInstance::AddJewel()
 {
     Jewel += AddJ;
+    UE_LOG(LogTemp, Warning, TEXT("UMyGameInstance::AddJewel::CurrentJewel = %d"),Jewel);
 }
 
 bool UMyGameInstance::SpendJewel()
