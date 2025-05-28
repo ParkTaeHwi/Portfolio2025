@@ -21,3 +21,24 @@ void UMyGameInstance::GoToMap(FName MapName)
 {
     UGameplayStatics::OpenLevel(this, MapName);
 }
+
+void UMyGameInstance::JewelCharge()
+{
+    Jewel += 5000;
+
+    UE_LOG(LogTemp, Log, TEXT("UMyGameInstance::JewelCharge || Jewel charged. Current Jewel: %d"), Jewel);
+}
+
+bool UMyGameInstance::JewelSpend()
+{
+    if (Jewel < 500)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("UMyGameInstance::JewelSpend || Not enough jewel to open card!"));
+        return false; // 실패
+    }
+
+    Jewel -= 500;
+
+    UE_LOG(LogTemp, Log, TEXT("UMyGameInstance::JewelSpend || Card opened. Jewel left: %d"), Jewel);
+    return true; // 성공
+}

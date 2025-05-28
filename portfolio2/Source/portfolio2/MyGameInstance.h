@@ -29,4 +29,13 @@ public:
 
     UPROPERTY()
     TArray<FCardPackData> CardPackDataList;
+
+    UPROPERTY(BlueprintReadOnly)
+    int32 Jewel = 0;
+
+    UFUNCTION(BlueprintCallable)
+    void JewelCharge();
+
+    UFUNCTION(BlueprintCallable)
+    bool JewelSpend(); // 성공/실패 여부 반환
 };

@@ -14,6 +14,11 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PORTFOLIO2_MyGameInstance_generated_h
 
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execJewelSpend); \
+	DECLARE_FUNCTION(execJewelCharge);
+
+
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyGameInstance(); \
@@ -41,6 +46,7 @@ public: \
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_16_INCLASS_NO_PURE_DECLS \
 	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_16_ENHANCED_CONSTRUCTORS \
 private: \
