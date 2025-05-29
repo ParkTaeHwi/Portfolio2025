@@ -33,4 +33,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void CardOpen();
+
+	UFUNCTION(BlueprintPure, Category = "Jewel")
+	bool IsJewelEnough() const;
 };

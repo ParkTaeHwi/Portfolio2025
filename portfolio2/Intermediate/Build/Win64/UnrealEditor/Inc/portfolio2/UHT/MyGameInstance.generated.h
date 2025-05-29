@@ -15,6 +15,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define PORTFOLIO2_MyGameInstance_generated_h
 
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execIsJewelEnough); \
+	DECLARE_FUNCTION(execGetJewel); \
 	DECLARE_FUNCTION(execSpendJewel); \
 	DECLARE_FUNCTION(execAddJewel);
 

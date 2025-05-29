@@ -45,4 +45,10 @@ public:
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Jewel")
     int32 SpendJ = 500; // 감소량 수정 가능
+
+    UFUNCTION(BlueprintCallable, Category = "Jewel")
+    int32 GetJewel() const { return Jewel; }
+
+    UFUNCTION(BlueprintPure, Category = "Jewel")
+    bool IsJewelEnough() const { return Jewel >= 500; }
 };

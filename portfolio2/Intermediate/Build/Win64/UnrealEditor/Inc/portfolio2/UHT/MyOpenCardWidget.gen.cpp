@@ -135,6 +135,53 @@ DEFINE_FUNCTION(UMyOpenCardWidget::execInitCardInfo)
 }
 // End Class UMyOpenCardWidget Function InitCardInfo
 
+// Begin Class UMyOpenCardWidget Function IsJewelEnough
+struct Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics
+{
+	struct MyOpenCardWidget_eventIsJewelEnough_Parms
+	{
+		bool ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Jewel" },
+		{ "ModuleRelativePath", "MyOpenCardWidget.h" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_ReturnValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+{
+	((MyOpenCardWidget_eventIsJewelEnough_Parms*)Obj)->ReturnValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(MyOpenCardWidget_eventIsJewelEnough_Parms), &Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyOpenCardWidget, nullptr, "IsJewelEnough", nullptr, nullptr, Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics::PropPointers), sizeof(Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics::MyOpenCardWidget_eventIsJewelEnough_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics::MyOpenCardWidget_eventIsJewelEnough_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UMyOpenCardWidget::execIsJewelEnough)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(bool*)Z_Param__Result=P_THIS->IsJewelEnough();
+	P_NATIVE_END;
+}
+// End Class UMyOpenCardWidget Function IsJewelEnough
+
 // Begin Class UMyOpenCardWidget
 void UMyOpenCardWidget::StaticRegisterNativesUMyOpenCardWidget()
 {
@@ -143,6 +190,7 @@ void UMyOpenCardWidget::StaticRegisterNativesUMyOpenCardWidget()
 		{ "CardOpen", &UMyOpenCardWidget::execCardOpen },
 		{ "CloseWidget", &UMyOpenCardWidget::execCloseWidget },
 		{ "InitCardInfo", &UMyOpenCardWidget::execInitCardInfo },
+		{ "IsJewelEnough", &UMyOpenCardWidget::execIsJewelEnough },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -175,6 +223,7 @@ struct Z_Construct_UClass_UMyOpenCardWidget_Statics
 		{ &Z_Construct_UFunction_UMyOpenCardWidget_CardOpen, "CardOpen" }, // 3044969769
 		{ &Z_Construct_UFunction_UMyOpenCardWidget_CloseWidget, "CloseWidget" }, // 1039650597
 		{ &Z_Construct_UFunction_UMyOpenCardWidget_InitCardInfo, "InitCardInfo" }, // 2319869796
+		{ &Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough, "IsJewelEnough" }, // 4067111282
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -228,10 +277,10 @@ UMyOpenCardWidget::~UMyOpenCardWidget() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMyOpenCardWidget, UMyOpenCardWidget::StaticClass, TEXT("UMyOpenCardWidget"), &Z_Registration_Info_UClass_UMyOpenCardWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyOpenCardWidget), 3521328573U) },
+		{ Z_Construct_UClass_UMyOpenCardWidget, UMyOpenCardWidget::StaticClass, TEXT("UMyOpenCardWidget"), &Z_Registration_Info_UClass_UMyOpenCardWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyOpenCardWidget), 1073297686U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_660505841(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_568353281(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

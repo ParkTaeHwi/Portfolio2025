@@ -2,7 +2,9 @@
 
 
 #include "MyOpenCardWidget.h"
+
 #include "MyCardPack.h"
+#include "MyGameInstance.h"
 
 void UMyOpenCardWidget::InitCardInfo(const TArray<FString>& Cards)
 {
@@ -32,4 +34,14 @@ void UMyOpenCardWidget::CardOpen()
 	{
 		OwnerCardPack->HandleCardOpen();
 	}
+}
+
+bool UMyOpenCardWidget::IsJewelEnough() const
+{
+	if (const UMyGameInstance* MyGI = Cast<UMyGameInstance>(GetGameInstance()))
+	{
+		return MyGI->IsJewelEnough();  // GameInstance에 있는 함수
+	}
+
+	return false;  // GameInstance가 없거나 캐스팅 실패 시 false
 }
