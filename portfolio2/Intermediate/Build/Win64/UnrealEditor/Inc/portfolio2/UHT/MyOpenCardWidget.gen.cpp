@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeMyOpenCardWidget() {}
 PORTFOLIO2_API UClass* Z_Construct_UClass_AMyCardPack_NoRegister();
 PORTFOLIO2_API UClass* Z_Construct_UClass_UMyOpenCardWidget();
 PORTFOLIO2_API UClass* Z_Construct_UClass_UMyOpenCardWidget_NoRegister();
+UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UUserWidget();
 UPackage* Z_Construct_UPackage__Script_portfolio2();
 // End Cross Module References
@@ -286,8 +287,38 @@ struct Z_Construct_UClass_UMyOpenCardWidget_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OwnerCardPack_MetaData[] = {
 		{ "ModuleRelativePath", "MyOpenCardWidget.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Image1_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "MyOpenCardWidget.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Image2_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "MyOpenCardWidget.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Image3_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "MyOpenCardWidget.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Image4_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "MyOpenCardWidget.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Image5_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "MyOpenCardWidget.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_OwnerCardPack;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Image1;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Image2;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Image3;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Image4;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Image5;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -305,8 +336,18 @@ struct Z_Construct_UClass_UMyOpenCardWidget_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyOpenCardWidget_Statics::NewProp_OwnerCardPack = { "OwnerCardPack", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyOpenCardWidget, OwnerCardPack), Z_Construct_UClass_AMyCardPack_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OwnerCardPack_MetaData), NewProp_OwnerCardPack_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyOpenCardWidget_Statics::NewProp_Image1 = { "Image1", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyOpenCardWidget, Image1), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Image1_MetaData), NewProp_Image1_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyOpenCardWidget_Statics::NewProp_Image2 = { "Image2", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyOpenCardWidget, Image2), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Image2_MetaData), NewProp_Image2_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyOpenCardWidget_Statics::NewProp_Image3 = { "Image3", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyOpenCardWidget, Image3), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Image3_MetaData), NewProp_Image3_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyOpenCardWidget_Statics::NewProp_Image4 = { "Image4", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyOpenCardWidget, Image4), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Image4_MetaData), NewProp_Image4_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyOpenCardWidget_Statics::NewProp_Image5 = { "Image5", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyOpenCardWidget, Image5), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Image5_MetaData), NewProp_Image5_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMyOpenCardWidget_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyOpenCardWidget_Statics::NewProp_OwnerCardPack,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyOpenCardWidget_Statics::NewProp_Image1,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyOpenCardWidget_Statics::NewProp_Image2,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyOpenCardWidget_Statics::NewProp_Image3,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyOpenCardWidget_Statics::NewProp_Image4,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyOpenCardWidget_Statics::NewProp_Image5,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMyOpenCardWidget_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UMyOpenCardWidget_Statics::DependentSingletons[])() = {
@@ -350,10 +391,10 @@ UMyOpenCardWidget::~UMyOpenCardWidget() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMyOpenCardWidget, UMyOpenCardWidget::StaticClass, TEXT("UMyOpenCardWidget"), &Z_Registration_Info_UClass_UMyOpenCardWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyOpenCardWidget), 2571446009U) },
+		{ Z_Construct_UClass_UMyOpenCardWidget, UMyOpenCardWidget::StaticClass, TEXT("UMyOpenCardWidget"), &Z_Registration_Info_UClass_UMyOpenCardWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyOpenCardWidget), 2363527477U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_2888257167(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_3088999085(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

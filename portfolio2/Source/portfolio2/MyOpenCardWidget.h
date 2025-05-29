@@ -7,6 +7,7 @@
 #include "MyOpenCardWidget.generated.h"
 
 DECLARE_DELEGATE(FOnWidgetClosed)
+class UImage;
 
 /**
  * Ä«µåÆÑ ¿­±â¿ë UI À§Á¬
@@ -42,4 +43,19 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void UpdateJewelText(int32 NewJewel);
+
+	UPROPERTY(meta = (BindWidget))
+	UImage* Image1;
+
+	UPROPERTY(meta = (BindWidget))
+	UImage* Image2;
+
+	UPROPERTY(meta = (BindWidget))
+	UImage* Image3;
+
+	UPROPERTY(meta = (BindWidget))
+	UImage* Image4;
+
+	UPROPERTY(meta = (BindWidget))
+	UImage* Image5;
 };
