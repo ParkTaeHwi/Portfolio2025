@@ -15,12 +15,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define PORTFOLIO2_MyOpenCardWidget_generated_h
 
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execspendJewel); \
 	DECLARE_FUNCTION(execIsJewelEnough); \
 	DECLARE_FUNCTION(execCardOpen); \
 	DECLARE_FUNCTION(execCloseWidget); \
 	DECLARE_FUNCTION(execInitCardInfo);
 
 
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_17_CALLBACK_WRAPPERS
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyOpenCardWidget(); \
@@ -49,6 +51,7 @@ public: \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_17_CALLBACK_WRAPPERS \
 	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_17_INCLASS_NO_PURE_DECLS \
 	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_17_ENHANCED_CONSTRUCTORS \
 private: \

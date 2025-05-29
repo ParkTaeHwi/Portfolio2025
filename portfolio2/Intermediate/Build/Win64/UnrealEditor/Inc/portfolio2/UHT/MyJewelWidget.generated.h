@@ -15,7 +15,6 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define PORTFOLIO2_MyJewelWidget_generated_h
 
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyJewelWidget_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execspendJewel); \
 	DECLARE_FUNCTION(execaddJewel);
 
 

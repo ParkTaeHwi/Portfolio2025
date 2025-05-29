@@ -21,9 +21,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void addJewel();
 
-	UFUNCTION(BlueprintCallable)
-	void spendJewel();
-
 	UFUNCTION(BlueprintImplementableEvent)
 	void UpdateJewelText(int32 NewJewel);
 };

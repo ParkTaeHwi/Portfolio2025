@@ -18,17 +18,3 @@ void UMyJewelWidget::addJewel()
         }
     }
 }
-
-void UMyJewelWidget::spendJewel()
-{
-    if (UGameInstance* GI = GetGameInstance())
-    {
-        if (UMyGameInstance* MyGI = Cast<UMyGameInstance>(GI))
-        {
-            if (MyGI->SpendJewel())
-            {
-                UpdateJewelText(MyGI->Jewel);
-            }
-        }
-    }
-}

@@ -36,4 +36,10 @@ public:
 
 	UFUNCTION(BlueprintPure, Category = "Jewel")
 	bool IsJewelEnough() const;
+
+	UFUNCTION(BlueprintCallable)
+	void spendJewel();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void UpdateJewelText(int32 NewJewel);
 };

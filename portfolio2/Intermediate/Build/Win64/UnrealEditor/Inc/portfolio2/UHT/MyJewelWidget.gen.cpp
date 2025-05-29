@@ -51,35 +51,6 @@ DEFINE_FUNCTION(UMyJewelWidget::execaddJewel)
 }
 // End Class UMyJewelWidget Function addJewel
 
-// Begin Class UMyJewelWidget Function spendJewel
-struct Z_Construct_UFunction_UMyJewelWidget_spendJewel_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "MyJewelWidget.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyJewelWidget_spendJewel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyJewelWidget, nullptr, "spendJewel", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyJewelWidget_spendJewel_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyJewelWidget_spendJewel_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_UMyJewelWidget_spendJewel()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyJewelWidget_spendJewel_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(UMyJewelWidget::execspendJewel)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->spendJewel();
-	P_NATIVE_END;
-}
-// End Class UMyJewelWidget Function spendJewel
-
 // Begin Class UMyJewelWidget Function UpdateJewelText
 struct MyJewelWidget_eventUpdateJewelText_Parms
 {
@@ -96,7 +67,13 @@ struct Z_Construct_UFunction_UMyJewelWidget_UpdateJewelText_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//UFUNCTION(BlueprintCallable)\n//void spendJewel();\n" },
+#endif
 		{ "ModuleRelativePath", "MyJewelWidget.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "UFUNCTION(BlueprintCallable)\nvoid spendJewel();" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_NewJewel;
@@ -127,7 +104,6 @@ void UMyJewelWidget::StaticRegisterNativesUMyJewelWidget()
 	UClass* Class = UMyJewelWidget::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "addJewel", &UMyJewelWidget::execaddJewel },
-		{ "spendJewel", &UMyJewelWidget::execspendJewel },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -150,8 +126,7 @@ struct Z_Construct_UClass_UMyJewelWidget_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UMyJewelWidget_addJewel, "addJewel" }, // 1076742252
-		{ &Z_Construct_UFunction_UMyJewelWidget_spendJewel, "spendJewel" }, // 887412482
-		{ &Z_Construct_UFunction_UMyJewelWidget_UpdateJewelText, "UpdateJewelText" }, // 3570337002
+		{ &Z_Construct_UFunction_UMyJewelWidget_UpdateJewelText, "UpdateJewelText" }, // 788872689
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -200,10 +175,10 @@ UMyJewelWidget::~UMyJewelWidget() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyJewelWidget_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMyJewelWidget, UMyJewelWidget::StaticClass, TEXT("UMyJewelWidget"), &Z_Registration_Info_UClass_UMyJewelWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyJewelWidget), 2566936935U) },
+		{ Z_Construct_UClass_UMyJewelWidget, UMyJewelWidget::StaticClass, TEXT("UMyJewelWidget"), &Z_Registration_Info_UClass_UMyJewelWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyJewelWidget), 3696742698U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyJewelWidget_h_707931327(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyJewelWidget_h_1960537254(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyJewelWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyJewelWidget_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

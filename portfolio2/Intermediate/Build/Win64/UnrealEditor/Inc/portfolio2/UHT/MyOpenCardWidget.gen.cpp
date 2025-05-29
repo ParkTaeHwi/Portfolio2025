@@ -182,6 +182,76 @@ DEFINE_FUNCTION(UMyOpenCardWidget::execIsJewelEnough)
 }
 // End Class UMyOpenCardWidget Function IsJewelEnough
 
+// Begin Class UMyOpenCardWidget Function spendJewel
+struct Z_Construct_UFunction_UMyOpenCardWidget_spendJewel_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyOpenCardWidget.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyOpenCardWidget_spendJewel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyOpenCardWidget, nullptr, "spendJewel", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyOpenCardWidget_spendJewel_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyOpenCardWidget_spendJewel_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UMyOpenCardWidget_spendJewel()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyOpenCardWidget_spendJewel_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UMyOpenCardWidget::execspendJewel)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->spendJewel();
+	P_NATIVE_END;
+}
+// End Class UMyOpenCardWidget Function spendJewel
+
+// Begin Class UMyOpenCardWidget Function UpdateJewelText
+struct MyOpenCardWidget_eventUpdateJewelText_Parms
+{
+	int32 NewJewel;
+};
+static FName NAME_UMyOpenCardWidget_UpdateJewelText = FName(TEXT("UpdateJewelText"));
+void UMyOpenCardWidget::UpdateJewelText(int32 NewJewel)
+{
+	MyOpenCardWidget_eventUpdateJewelText_Parms Parms;
+	Parms.NewJewel=NewJewel;
+	ProcessEvent(FindFunctionChecked(NAME_UMyOpenCardWidget_UpdateJewelText),&Parms);
+}
+struct Z_Construct_UFunction_UMyOpenCardWidget_UpdateJewelText_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyOpenCardWidget.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FIntPropertyParams NewProp_NewJewel;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UMyOpenCardWidget_UpdateJewelText_Statics::NewProp_NewJewel = { "NewJewel", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyOpenCardWidget_eventUpdateJewelText_Parms, NewJewel), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMyOpenCardWidget_UpdateJewelText_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMyOpenCardWidget_UpdateJewelText_Statics::NewProp_NewJewel,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyOpenCardWidget_UpdateJewelText_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyOpenCardWidget_UpdateJewelText_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyOpenCardWidget, nullptr, "UpdateJewelText", nullptr, nullptr, Z_Construct_UFunction_UMyOpenCardWidget_UpdateJewelText_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyOpenCardWidget_UpdateJewelText_Statics::PropPointers), sizeof(MyOpenCardWidget_eventUpdateJewelText_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyOpenCardWidget_UpdateJewelText_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyOpenCardWidget_UpdateJewelText_Statics::Function_MetaDataParams) };
+static_assert(sizeof(MyOpenCardWidget_eventUpdateJewelText_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UMyOpenCardWidget_UpdateJewelText()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyOpenCardWidget_UpdateJewelText_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+// End Class UMyOpenCardWidget Function UpdateJewelText
+
 // Begin Class UMyOpenCardWidget
 void UMyOpenCardWidget::StaticRegisterNativesUMyOpenCardWidget()
 {
@@ -191,6 +261,7 @@ void UMyOpenCardWidget::StaticRegisterNativesUMyOpenCardWidget()
 		{ "CloseWidget", &UMyOpenCardWidget::execCloseWidget },
 		{ "InitCardInfo", &UMyOpenCardWidget::execInitCardInfo },
 		{ "IsJewelEnough", &UMyOpenCardWidget::execIsJewelEnough },
+		{ "spendJewel", &UMyOpenCardWidget::execspendJewel },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -224,6 +295,8 @@ struct Z_Construct_UClass_UMyOpenCardWidget_Statics
 		{ &Z_Construct_UFunction_UMyOpenCardWidget_CloseWidget, "CloseWidget" }, // 1039650597
 		{ &Z_Construct_UFunction_UMyOpenCardWidget_InitCardInfo, "InitCardInfo" }, // 2319869796
 		{ &Z_Construct_UFunction_UMyOpenCardWidget_IsJewelEnough, "IsJewelEnough" }, // 4067111282
+		{ &Z_Construct_UFunction_UMyOpenCardWidget_spendJewel, "spendJewel" }, // 4203260385
+		{ &Z_Construct_UFunction_UMyOpenCardWidget_UpdateJewelText, "UpdateJewelText" }, // 40222885
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -277,10 +350,10 @@ UMyOpenCardWidget::~UMyOpenCardWidget() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMyOpenCardWidget, UMyOpenCardWidget::StaticClass, TEXT("UMyOpenCardWidget"), &Z_Registration_Info_UClass_UMyOpenCardWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyOpenCardWidget), 1073297686U) },
+		{ Z_Construct_UClass_UMyOpenCardWidget, UMyOpenCardWidget::StaticClass, TEXT("UMyOpenCardWidget"), &Z_Registration_Info_UClass_UMyOpenCardWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyOpenCardWidget), 2571446009U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_568353281(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_2888257167(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyOpenCardWidget_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -5,6 +5,7 @@
 
 #include "MyCardPack.h"
 #include "MyGameInstance.h"
+#include "MyJewelWidget.h"
 
 void UMyOpenCardWidget::InitCardInfo(const TArray<FString>& Cards)
 {
@@ -32,6 +33,7 @@ void UMyOpenCardWidget::CardOpen()
 {
 	if (OwnerCardPack)
 	{
+		spendJewel();
 		OwnerCardPack->HandleCardOpen();
 	}
 }
@@ -44,4 +46,19 @@ bool UMyOpenCardWidget::IsJewelEnough() const
 	}
 
 	return false;  // GameInstance가 없거나 캐스팅 실패 시 false
+}
+
+void UMyOpenCardWidget::spendJewel()
+{
+	if (UGameInstance* GI = GetGameInstance())
+	{
+		if (UMyGameInstance* MyGI = Cast<UMyGameInstance>(GI))
+		{
+			if (MyGI->SpendJewel())
+			{
+				UpdateJewelText(MyGI->Jewel);
+				UE_LOG(LogTemp, Warning, TEXT("UMyOpenCardWidget::spendJewel::CurrentJewel = %d"), MyGI->Jewel);
+			}
+		}
+	}
 }
