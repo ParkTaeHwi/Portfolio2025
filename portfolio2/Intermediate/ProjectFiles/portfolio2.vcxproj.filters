@@ -102,6 +102,12 @@
     <ClInclude Include="..\..\Source\portfolio2\MyGameModeBase.h">
       <Filter>Source\portfolio2</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\MyInvenWidget.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\MyInvenWidget.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\portfolio2\MyJewelWidget.cpp">
       <Filter>Source\portfolio2</Filter>
     </ClCompile>
