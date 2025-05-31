@@ -38,3 +38,12 @@ bool UMyGameInstance::SpendJewel()
     UE_LOG(LogTemp, Warning, TEXT("UMyGameInstance::SpendJewel::return false"));
     return false;
 }
+
+void UMyGameInstance::AddCards(const TArray<FString>& NewCards)
+{
+    for (const FString& Card : NewCards)
+    {
+        FString Prefix = Card.Left(1);
+        TotalCardCountMap.FindOrAdd(Prefix)++;
+    }
+}

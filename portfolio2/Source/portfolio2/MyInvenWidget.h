@@ -14,4 +14,6 @@ class PORTFOLIO2_API UMyInvenWidget : public UUserWidget
 {
 	GENERATED_BODY()
 	
+public:
+	virtual void NativeConstruct() override;
 };

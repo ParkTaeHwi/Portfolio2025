@@ -51,4 +51,10 @@ public:
 
     UFUNCTION(BlueprintPure, Category = "Jewel")
     bool IsJewelEnough() const { return Jewel >= 500; }
+
+    void AddCards(const TArray<FString>& NewCards); // ´©Àû °¹¼ö
+    const TMap<FString, int32>& GetCardCountMap() const { return TotalCardCountMap; }
+
+private:
+    TMap<FString, int32> TotalCardCountMap;
 };
