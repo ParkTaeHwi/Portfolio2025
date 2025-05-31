@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "Components/Image.h"
 #include "MyInvenWidget.generated.h"
 
 /**
@@ -16,4 +17,15 @@ class PORTFOLIO2_API UMyInvenWidget : public UUserWidget
 	
 public:
 	virtual void NativeConstruct() override;
+
+	void ChangeImage();
+
+	UPROPERTY(meta = (BindWidget))
+	UImage* InvenImage0;
+
+	UPROPERTY(meta = (BindWidget))
+	UImage* InvenImage1;
+
+	UPROPERTY(meta = (BindWidget))
+	UImage* InvenImage2;
 };
