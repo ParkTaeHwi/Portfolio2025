@@ -69,7 +69,7 @@ void UMyInvenWidget::ChangeImage()
 			}
 			else if (Type == "W")
 			{
-				LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/InvenImage/White_inven.White_inven"));
+				LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/InvenImage/White_Inven.White_Inven"));
 				if (InvenImage2 && LoadedTexture)
 				{
 					InvenImage2->SetBrushFromTexture(LoadedTexture);
