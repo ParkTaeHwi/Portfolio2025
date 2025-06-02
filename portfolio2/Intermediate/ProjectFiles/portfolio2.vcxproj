@@ -313,6 +313,10 @@
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClInclude Include="..\..\Source\portfolio2\MyJewelWidget.h"/>
+    <ClCompile Include="..\..\Source\portfolio2\MyLobbyWidget.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\MyLobbyWidget.h"/>
     <ClCompile Include="..\..\Source\portfolio2\MyOpenCardWidget.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>

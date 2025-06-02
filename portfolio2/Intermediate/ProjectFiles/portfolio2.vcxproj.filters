@@ -114,6 +114,12 @@
     <ClInclude Include="..\..\Source\portfolio2\MyJewelWidget.h">
       <Filter>Source\portfolio2</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\MyLobbyWidget.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\MyLobbyWidget.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\portfolio2\MyOpenCardWidget.cpp">
       <Filter>Source\portfolio2</Filter>
     </ClCompile>
