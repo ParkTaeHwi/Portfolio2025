@@ -317,6 +317,10 @@
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClInclude Include="..\..\Source\portfolio2\MyLobbyCharacter.h"/>
+    <ClCompile Include="..\..\Source\portfolio2\MyLobbyStage.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\MyLobbyStage.h"/>
     <ClCompile Include="..\..\Source\portfolio2\MyLobbyWidget.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>

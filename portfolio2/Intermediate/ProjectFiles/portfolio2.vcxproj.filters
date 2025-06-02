@@ -120,6 +120,12 @@
     <ClInclude Include="..\..\Source\portfolio2\MyLobbyCharacter.h">
       <Filter>Source\portfolio2</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\MyLobbyStage.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\MyLobbyStage.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\portfolio2\MyLobbyWidget.cpp">
       <Filter>Source\portfolio2</Filter>
     </ClCompile>
