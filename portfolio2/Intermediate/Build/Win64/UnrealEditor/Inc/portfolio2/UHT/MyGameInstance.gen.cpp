@@ -242,12 +242,17 @@ struct Z_Construct_UClass_UMyGameInstance_Statics
 		{ "Category", "Jewel" },
 		{ "ModuleRelativePath", "MyGameInstance.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SavedCubeIndex_MetaData[] = {
+		{ "Category", "MyGameInstance" },
+		{ "ModuleRelativePath", "MyGameInstance.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FStructPropertyParams NewProp_CardPackDataList_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_CardPackDataList;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_Jewel;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_AddJ;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_SpendJ;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_SavedCubeIndex;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -267,12 +272,14 @@ const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMyGameInstance
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMyGameInstance_Statics::NewProp_Jewel = { "Jewel", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyGameInstance, Jewel), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Jewel_MetaData), NewProp_Jewel_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMyGameInstance_Statics::NewProp_AddJ = { "AddJ", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyGameInstance, AddJ), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AddJ_MetaData), NewProp_AddJ_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMyGameInstance_Statics::NewProp_SpendJ = { "SpendJ", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyGameInstance, SpendJ), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SpendJ_MetaData), NewProp_SpendJ_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMyGameInstance_Statics::NewProp_SavedCubeIndex = { "SavedCubeIndex", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyGameInstance, SavedCubeIndex), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SavedCubeIndex_MetaData), NewProp_SavedCubeIndex_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMyGameInstance_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyGameInstance_Statics::NewProp_CardPackDataList_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyGameInstance_Statics::NewProp_CardPackDataList,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyGameInstance_Statics::NewProp_Jewel,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyGameInstance_Statics::NewProp_AddJ,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyGameInstance_Statics::NewProp_SpendJ,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyGameInstance_Statics::NewProp_SavedCubeIndex,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMyGameInstance_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UMyGameInstance_Statics::DependentSingletons[])() = {
@@ -316,10 +323,10 @@ UMyGameInstance::~UMyGameInstance() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMyGameInstance, UMyGameInstance::StaticClass, TEXT("UMyGameInstance"), &Z_Registration_Info_UClass_UMyGameInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyGameInstance), 1022435215U) },
+		{ Z_Construct_UClass_UMyGameInstance, UMyGameInstance::StaticClass, TEXT("UMyGameInstance"), &Z_Registration_Info_UClass_UMyGameInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyGameInstance), 3254443322U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_2046395921(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_4063339078(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyGameInstance_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

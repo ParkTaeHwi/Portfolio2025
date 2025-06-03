@@ -14,4 +14,7 @@ class PORTFOLIO2_API UMyLobbyWidget : public UUserWidget
 {
 	GENERATED_BODY()
 	
+public:
+	UFUNCTION(BlueprintCallable)
+	void SomeFunctionBeforeLevelChange();
 };

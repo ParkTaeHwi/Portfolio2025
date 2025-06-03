@@ -3,6 +3,9 @@
 
 #include "MyLobbyStage.h"
 
+#include "MyGameInstance.h"
+#include <Kismet/GameplayStatics.h>
+
 // Sets default values
 AMyLobbyStage::AMyLobbyStage()
 {
@@ -16,6 +19,8 @@ void AMyLobbyStage::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	SetCubeIndex();
+	UE_LOG(LogTemp, Warning, TEXT("AMyLobbyStage::BeginPlay::CurrentCubeIndex = %d"), CurrentCubeIndex);
 }
 
 // Called every frame
@@ -25,3 +30,18 @@ void AMyLobbyStage::Tick(float DeltaTime)
 
 }
 
+void AMyLobbyStage::LogCubeIndex()
+{
+	UE_LOG(LogTemp, Warning, TEXT("AMyLobbyStage::LogCubeIndex::CurrentCubeIndex = %d"), CurrentCubeIndex);
+}
+
+int AMyLobbyStage::SetCubeIndex()
+{
+	UMyGameInstance* MyGI = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
+	if (MyGI)
+	{
+		CurrentCubeIndex = MyGI->SavedCubeIndex;
+	}
+	UE_LOG(LogTemp, Warning, TEXT("AMyLobbyStage::SetCubeIndex::CurrentCubeIndex = %d"), CurrentCubeIndex);
+	return CurrentCubeIndex;	// 받아온 숫자로 설정된 CurrentCubeIndex 다시 넘겨주기
+}

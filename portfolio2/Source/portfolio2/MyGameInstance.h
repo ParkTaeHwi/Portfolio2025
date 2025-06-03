@@ -55,6 +55,9 @@ public:
     void AddCards(const TArray<FString>& NewCards); // ´©Àû °¹¼ö
     const TMap<FString, int32>& GetCardCountMap() const { return TotalCardCountMap; }
 
+    UPROPERTY(BlueprintReadWrite)
+    int32 SavedCubeIndex = 0;
+
 private:
     TMap<FString, int32> TotalCardCountMap;
 };
