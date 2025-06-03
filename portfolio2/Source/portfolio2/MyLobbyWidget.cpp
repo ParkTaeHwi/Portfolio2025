@@ -5,6 +5,7 @@
 
 #include "MyGameInstance.h"
 #include "MyLobbyStage.h"
+#include "MyLobbyCharacter.h"
 #include "EngineUtils.h"
 #include <Kismet/GameplayStatics.h>
 
@@ -31,5 +32,30 @@ void UMyLobbyWidget::SomeFunctionBeforeLevelChange()
     else
     {
         UE_LOG(LogTemp, Warning, TEXT("AMyLobbyStage not found in world!"));
+    }
+}
+
+void UMyLobbyWidget::SomeFunctionBeforeCharacterChange()
+{
+    AMyLobbyCharacter* LobbyCharacter = nullptr;
+
+    for (TActorIterator<AMyLobbyCharacter> It(GetWorld()); It; ++It)
+    {
+        LobbyCharacter = *It;
+        break;
+    }
+
+    if (LobbyCharacter)
+    {
+        UMyGameInstance* MyGI = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
+        if (MyGI)
+        {
+            MyGI->SavedCharacterIndex = LobbyCharacter->CurrentCharacterIndex;
+            UE_LOG(LogTemp, Warning, TEXT("SavedCharacterIndex = %d"), LobbyCharacter->CurrentCharacterIndex);
+        }
+    }
+    else
+    {
+        UE_LOG(LogTemp, Warning, TEXT("AMyLobbyCharacter not found in world!"));
     }
 }

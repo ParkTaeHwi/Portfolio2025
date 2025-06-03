@@ -15,6 +15,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define PORTFOLIO2_MyLobbyWidget_generated_h
 
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyLobbyWidget_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execSomeFunctionBeforeCharacterChange); \
 	DECLARE_FUNCTION(execSomeFunctionBeforeLevelChange);
 
 

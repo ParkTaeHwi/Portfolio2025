@@ -3,6 +3,9 @@
 
 #include "MyLobbyCharacter.h"
 
+#include "MyGameInstance.h"
+#include <Kismet/GameplayStatics.h>
+
 // Sets default values
 AMyLobbyCharacter::AMyLobbyCharacter()
 {
@@ -23,5 +26,21 @@ void AMyLobbyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void AMyLobbyCharacter::LogCharacterIndex()
+{
+	UE_LOG(LogTemp, Warning, TEXT("AMyLobbyCharacter::LogCharacterIndex::CurrentCharacterIndex = %d"), CurrentCharacterIndex);
+}
+
+int AMyLobbyCharacter::SetCharacterIndex()
+{
+	UMyGameInstance* MyGI = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
+	if (MyGI)
+	{
+		CurrentCharacterIndex = MyGI->SavedCharacterIndex;
+	}
+	UE_LOG(LogTemp, Warning, TEXT("AMyLobbyCharacter::SetCharacterIndex::CurrentCharacterIndex = %d"), CurrentCharacterIndex);
+	return CurrentCharacterIndex;
 }
 

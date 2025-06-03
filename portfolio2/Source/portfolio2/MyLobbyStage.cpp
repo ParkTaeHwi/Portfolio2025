@@ -43,5 +43,5 @@ int AMyLobbyStage::SetCubeIndex()
 		CurrentCubeIndex = MyGI->SavedCubeIndex;
 	}
 	UE_LOG(LogTemp, Warning, TEXT("AMyLobbyStage::SetCubeIndex::CurrentCubeIndex = %d"), CurrentCubeIndex);
-	return CurrentCubeIndex;	// 받아온 숫자로 설정된 CurrentCubeIndex 다시 넘겨주기
+	return CurrentCubeIndex;
 }

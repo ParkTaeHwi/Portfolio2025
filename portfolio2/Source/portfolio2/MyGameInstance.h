@@ -58,6 +58,9 @@ public:
     UPROPERTY(BlueprintReadWrite)
     int32 SavedCubeIndex = 0;
 
+    UPROPERTY(BlueprintReadWrite)
+    int32 SavedCharacterIndex = 0;
+
 private:
     TMap<FString, int32> TotalCardCountMap;
 };

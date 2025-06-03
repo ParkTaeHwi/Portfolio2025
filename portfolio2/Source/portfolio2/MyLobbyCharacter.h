@@ -23,4 +23,12 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Cube")
+	int32 CurrentCharacterIndex = 1;	// �ʱⰪ
+
+	UFUNCTION(BlueprintCallable)
+	void LogCharacterIndex();
+
+	UFUNCTION(BlueprintCallable)
+	int SetCharacterIndex();
 };

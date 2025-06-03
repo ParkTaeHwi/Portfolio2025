@@ -17,4 +17,7 @@ class PORTFOLIO2_API UMyLobbyWidget : public UUserWidget
 public:
 	UFUNCTION(BlueprintCallable)
 	void SomeFunctionBeforeLevelChange();
+
+	UFUNCTION(BlueprintCallable)
+	void SomeFunctionBeforeCharacterChange();
 };
