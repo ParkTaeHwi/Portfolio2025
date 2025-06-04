@@ -13,5 +13,5 @@ UCLASS()
 class PORTFOLIO2_API UMyBattleFieldWidget : public UUserWidget
 {
 	GENERATED_BODY()
-	
+
 };

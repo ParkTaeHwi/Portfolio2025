@@ -28,6 +28,9 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Board") // 블루프린트에서 지정 가능
 	TSubclassOf<ABoardManager> BoardManagerClass; // 생성할 매니저 클래스
 
+	FVector SpawnLocation;
+	FRotator SpawnRotation;
+
 private:
 	UPROPERTY()
 	UUserWidget* BattleUI;
