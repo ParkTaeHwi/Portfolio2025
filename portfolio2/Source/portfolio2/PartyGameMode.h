@@ -14,4 +14,17 @@ class PORTFOLIO2_API APartyGameMode : public AMyGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	virtual void BeginPlay() override;
+
+protected:
+	UPROPERTY(EditAnywhere, Category = "UI")
+	TSubclassOf<class UUserWidget> PartyUIClass;
+
+	UPROPERTY(EditAnywhere, Category = "UI")
+	TSubclassOf<class UUserWidget> JewelUIClass;
+
+private:
+	UPROPERTY()
+	UUserWidget* PartyUI;
 };

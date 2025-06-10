@@ -25,6 +25,7 @@ public:
     FName BattleField_1;
     FName BattleField_2;
     FName Store;
+    FName Party;
 
     int32 SelectedBattleIndex;
 

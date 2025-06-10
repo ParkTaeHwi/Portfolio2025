@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+//#include "Components/Image.h"
 #include "MyPartyWidget.generated.h"
 
 /**
@@ -14,4 +15,5 @@ class PORTFOLIO2_API UMyPartyWidget : public UUserWidget
 {
 	GENERATED_BODY()
 	
+
 };

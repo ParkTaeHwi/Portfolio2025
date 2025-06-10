@@ -13,6 +13,7 @@ void UMyGameInstance::Init()
     BattleField_1 =     FName(TEXT("BattleField_1"));
     BattleField_2 =     FName(TEXT("BattleField_2"));
     Store =             FName(TEXT("Store"));
+    Party =             FName(TEXT("Party"));
 
     SelectedBattleIndex = 0;
 }
