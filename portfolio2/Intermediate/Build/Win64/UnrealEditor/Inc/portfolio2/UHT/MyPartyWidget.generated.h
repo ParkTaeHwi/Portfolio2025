@@ -9,10 +9,15 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UImage;
 #ifdef PORTFOLIO2_MyPartyWidget_generated_h
 #error "MyPartyWidget.generated.h already included, missing '#pragma once' in MyPartyWidget.h"
 #endif
 #define PORTFOLIO2_MyPartyWidget_generated_h
+
+#define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execbBWorNot);
+
 
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_16_INCLASS_NO_PURE_DECLS \
 private: \
@@ -41,6 +46,7 @@ public: \
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_16_INCLASS_NO_PURE_DECLS \
 	FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_16_ENHANCED_CONSTRUCTORS \
 private: \

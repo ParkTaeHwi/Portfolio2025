@@ -20,12 +20,15 @@ public:
 
 	void ChangeImage();
 
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(meta = (BindWidget), BlueprintReadOnly)
 	UImage* PartyImage0;
 
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(meta = (BindWidget), BlueprintReadOnly)
 	UImage* PartyImage1;
 
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(meta = (BindWidget), BlueprintReadOnly)
 	UImage* PartyImage2;
+
+	UFUNCTION(BlueprintCallable)
+	bool bBWorNot(UImage* TargetImage);
 };

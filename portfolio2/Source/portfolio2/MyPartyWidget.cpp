@@ -77,3 +77,28 @@ void UMyPartyWidget::ChangeImage()
 		}
 	}
 }
+
+bool UMyPartyWidget::bBWorNot(UImage* TargetImage)
+{
+	if (TargetImage && TargetImage->GetBrush().GetResourceObject())
+	{
+		// 텍스처의 이름을 가져와서 "BW"가 포함되어 있는지 확인
+		FString ImageName = TargetImage->GetBrush().GetResourceObject()->GetName();
+
+		// 이미지 이름에 "BW" 문자열이 포함되어 있는지 판별
+		bool bContainsBW = ImageName.Contains(TEXT("BW"));
+
+		// %s는 FString을 출력하기 위한 형식 지정자
+		UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::bBWorNot::%s, 'BW': %s"), *ImageName, bContainsBW ? TEXT("True") : TEXT("False"));
+
+		return bContainsBW;
+	}
+	else
+	{
+		// TargetImage가 유효하지 않거나 이미지가 설정되어 있지 않을 경우 로그 출력
+		UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::bBWorNot::TargetImage is invalid or has no resource object."));
+	}
+
+	// TargetImage가 유효하지 않거나 이미지가 설정되어 있지 않으면 false를 반환
+	return false;
+}
