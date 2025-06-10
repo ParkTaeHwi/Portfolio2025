@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-//#include "Components/Image.h"
+#include "Components/Image.h"
 #include "MyPartyWidget.generated.h"
 
 /**
@@ -15,5 +15,17 @@ class PORTFOLIO2_API UMyPartyWidget : public UUserWidget
 {
 	GENERATED_BODY()
 	
+public:
+	virtual void NativeConstruct() override;
 
+	void ChangeImage();
+
+	UPROPERTY(meta = (BindWidget))
+	UImage* InvenImage0;
+
+	UPROPERTY(meta = (BindWidget))
+	UImage* InvenImage1;
+
+	UPROPERTY(meta = (BindWidget))
+	UImage* InvenImage2;
 };
