@@ -24,7 +24,6 @@ void UMyPartyWidget::NativeConstruct()
 			Count = *Found;
 		}
 
-		UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::NativeConstruct::Card %s: %d"), *Type, Count);
 
 		// 여기에 텍스트 위젯 갱신 등
 	}
@@ -53,26 +52,26 @@ void UMyPartyWidget::ChangeImage()
 
 			if (Type == "B")
 			{
-				LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/InvenImage/Blue_Inven.Blue_Inven"));
-				if (InvenImage0 && LoadedTexture)
+				LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/PartyImage/Blue_Party.Blue_Party"));
+				if (PartyImage0 && LoadedTexture)
 				{
-					InvenImage0->SetBrushFromTexture(LoadedTexture);
+					PartyImage0->SetBrushFromTexture(LoadedTexture);
 				}
 			}
 			else if (Type == "Y")
 			{
-				LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/InvenImage/Yellow_Inven.Yellow_Inven"));
-				if (InvenImage1 && LoadedTexture)
+				LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/PartyImage/Yellow_Party.Yellow_Party"));
+				if (PartyImage1 && LoadedTexture)
 				{
-					InvenImage1->SetBrushFromTexture(LoadedTexture);
+					PartyImage1->SetBrushFromTexture(LoadedTexture);
 				}
 			}
 			else if (Type == "W")
 			{
-				LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/InvenImage/White_Inven.White_Inven"));
-				if (InvenImage2 && LoadedTexture)
+				LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/PartyImage/White_Party.White_Party"));
+				if (PartyImage2 && LoadedTexture)
 				{
-					InvenImage2->SetBrushFromTexture(LoadedTexture);
+					PartyImage2->SetBrushFromTexture(LoadedTexture);
 				}
 			}
 		}

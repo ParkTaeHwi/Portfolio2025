@@ -21,11 +21,11 @@ public:
 	void ChangeImage();
 
 	UPROPERTY(meta = (BindWidget))
-	UImage* InvenImage0;
+	UImage* PartyImage0;
 
 	UPROPERTY(meta = (BindWidget))
-	UImage* InvenImage1;
+	UImage* PartyImage1;
 
 	UPROPERTY(meta = (BindWidget))
-	UImage* InvenImage2;
+	UImage* PartyImage2;
 };
