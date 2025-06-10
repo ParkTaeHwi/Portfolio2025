@@ -144,6 +144,12 @@
     <ClInclude Include="..\..\Source\portfolio2\MyOpenCardWidget.h">
       <Filter>Source\portfolio2</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\MyPartyWidget.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\MyPartyWidget.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\portfolio2\MyPlayer.cpp">
       <Filter>Source\portfolio2</Filter>
     </ClCompile>
@@ -166,6 +172,12 @@
       <Filter>Source\portfolio2</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\portfolio2\MyStatComponent.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\PartyGameMode.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\PartyGameMode.h">
       <Filter>Source\portfolio2</Filter>
     </ClInclude>
     <None Include="..\..\Source\portfolio2\portfolio2.Build.cs">
