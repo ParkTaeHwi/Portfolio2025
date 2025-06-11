@@ -262,4 +262,11 @@ void UMyPartyWidget::LogAllLaneTextureNames()
 	FString BotName = GetTextureName(BottomLane);
 
 	UE_LOG(LogTemp, Warning, TEXT("TopLane: %s / MidLane: %s / BottomLane: %s"), *TopName, *MidName, *BotName);
+
+	// GameInstance¿¡ Àü´Þ
+	UMyGameInstance* GI = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
+	if (GI)
+	{
+		GI->SelectedPartyTextureNames = { TopName, MidName, BotName };
+	}
 }

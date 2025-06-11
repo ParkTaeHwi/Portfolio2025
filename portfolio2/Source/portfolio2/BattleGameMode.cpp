@@ -68,4 +68,13 @@ void ABattleGameMode::BeginPlay()
 
 		UE_LOG(LogTemp, Warning, TEXT("ABattleGameMode::BeginPlay::Card %s: %d"), *Type, Count);
 	}
+
+	UMyGameInstance* GI = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
+	if (GI)
+	{
+		for (const FString& Name : GI->SelectedPartyTextureNames)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("ABattleGameMode::BeginPlay::Carried Texture: %s"), *Name);
+		}
+	}
 }

@@ -62,6 +62,9 @@ public:
     UPROPERTY(BlueprintReadWrite)
     int32 SavedCharacterIndex = 0;
 
+    UPROPERTY(BlueprintReadWrite)
+    TArray<FString> SelectedPartyTextureNames;
+
 private:
     TMap<FString, int32> TotalCardCountMap;
 };
