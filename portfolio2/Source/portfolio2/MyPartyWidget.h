@@ -32,6 +32,15 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool bBWorNot(UImage* TargetImage);
 
+	UPROPERTY(meta = (BindWidget), BlueprintReadOnly)
+	UImage* TopLane;
+
+	UPROPERTY(meta = (BindWidget), BlueprintReadOnly)
+	UImage* MidLane;
+
+	UPROPERTY(meta = (BindWidget), BlueprintReadOnly)
+	UImage* BottomLane;
+
 public:
 	UPROPERTY(BlueprintReadWrite, Category = "MyCategory")
 	int32 X;
@@ -63,4 +72,32 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "MyCategory")
 	void YSetTo3();
+
+public:
+	UFUNCTION(BlueprintCallable)
+	void TtoB();
+
+	UFUNCTION(BlueprintCallable)
+	void TtoY();
+
+	UFUNCTION(BlueprintCallable)
+	void TtoW();
+
+	UFUNCTION(BlueprintCallable)
+	void MtoB();
+
+	UFUNCTION(BlueprintCallable)
+	void MtoY();
+
+	UFUNCTION(BlueprintCallable)
+	void MtoW();
+
+	UFUNCTION(BlueprintCallable)
+	void BtoB();
+
+	UFUNCTION(BlueprintCallable)
+	void BtoY();
+
+	UFUNCTION(BlueprintCallable)
+	void BtoW();
 };

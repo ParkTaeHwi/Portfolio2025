@@ -142,3 +142,102 @@ void UMyPartyWidget::YSetTo3()
 {
 	Y = 3;
 }
+
+void UMyPartyWidget::TtoB()
+{
+	UTexture2D* LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/PartyImage/Blue_Pick.Blue_Pick"));
+
+	if (LoadedTexture && TopLane)
+	{
+		TopLane->SetBrushFromTexture(LoadedTexture);
+	}
+	UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::TtoB::X = %d, Y = %d"), X, Y);
+}
+
+void UMyPartyWidget::TtoY()
+{
+	UTexture2D* LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/PartyImage/Yellow_Pick.Yellow_Pick"));
+
+	if (LoadedTexture && TopLane)
+	{
+		TopLane->SetBrushFromTexture(LoadedTexture);
+	}
+	UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::TtoW::X = %d, Y = %d"), X, Y);
+}
+
+void UMyPartyWidget::TtoW()
+{
+	UTexture2D* LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/PartyImage/White_Pick.White_Pick"));
+
+	if (LoadedTexture && TopLane)
+	{
+		TopLane->SetBrushFromTexture(LoadedTexture);
+	}
+	UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::TtoW::X = %d, Y = %d"), X, Y);
+}
+
+void UMyPartyWidget::MtoB()
+{
+	UTexture2D* LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/PartyImage/Blue_Pick.Blue_Pick"));
+
+	if (LoadedTexture && MidLane)
+	{
+		MidLane->SetBrushFromTexture(LoadedTexture);
+	}
+	UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::MtoB::X = %d, Y = %d"), X, Y);
+}
+
+void UMyPartyWidget::MtoY()
+{
+	UTexture2D* LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/PartyImage/Yellow_Pick.Yellow_Pick"));
+
+	if (LoadedTexture && MidLane)
+	{
+		MidLane->SetBrushFromTexture(LoadedTexture);
+	}
+	UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::MtoW::X = %d, Y = %d"), X, Y);
+}
+
+void UMyPartyWidget::MtoW()
+{
+	UTexture2D* LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/PartyImage/White_Pick.White_Pick"));
+
+	if (LoadedTexture && MidLane)
+	{
+		MidLane->SetBrushFromTexture(LoadedTexture);
+	}
+	UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::MtoW::X = %d, Y = %d"), X, Y);
+}
+
+void UMyPartyWidget::BtoB()
+{
+	UTexture2D* LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/PartyImage/Blue_Pick.Blue_Pick"));
+
+	if (LoadedTexture && BottomLane)
+	{
+		BottomLane->SetBrushFromTexture(LoadedTexture);
+	}
+	UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::BtoB::X = %d, Y = %d"), X, Y);
+}
+
+void UMyPartyWidget::BtoY()
+{
+	UTexture2D* LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/PartyImage/Yellow_Pick.Yellow_Pick"));
+
+	if (LoadedTexture && BottomLane)
+	{
+		BottomLane->SetBrushFromTexture(LoadedTexture);
+	}
+	UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::BtoW::X = %d, Y = %d"), X, Y);
+}
+
+void UMyPartyWidget::BtoW()
+{
+	UTexture2D* LoadedTexture = LoadObject<UTexture2D>(nullptr, TEXT("/Game/Image/PartyImage/White_Pick.White_Pick"));
+
+	if (LoadedTexture && BottomLane)
+	{
+		BottomLane->SetBrushFromTexture(LoadedTexture);
+	}
+	UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::BtoW::X = %d, Y = %d"), X, Y);
+}
