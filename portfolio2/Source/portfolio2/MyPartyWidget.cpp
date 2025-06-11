@@ -241,3 +241,25 @@ void UMyPartyWidget::BtoW()
 	}
 	UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::BtoW::X = %d, Y = %d"), X, Y);
 }
+
+void UMyPartyWidget::LogAllLaneTextureNames()
+{
+	auto GetTextureName = [](UImage* Image) -> FString
+		{
+			if (!Image) return TEXT("Invalid Image");
+
+			UObject* ResourceObj = Image->GetBrush().GetResourceObject();
+			if (!ResourceObj) return TEXT("No Texture");
+
+			UTexture2D* Texture = Cast<UTexture2D>(ResourceObj);
+			if (!Texture) return TEXT("Not a Texture");
+
+			return Texture->GetName();
+		};
+
+	FString TopName = GetTextureName(TopLane);
+	FString MidName = GetTextureName(MidLane);
+	FString BotName = GetTextureName(BottomLane);
+
+	UE_LOG(LogTemp, Warning, TEXT("TopLane: %s / MidLane: %s / BottomLane: %s"), *TopName, *MidName, *BotName);
+}

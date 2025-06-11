@@ -100,4 +100,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void BtoW();
+
+public:
+	UFUNCTION(BlueprintCallable)
+	void LogAllLaneTextureNames();
 };

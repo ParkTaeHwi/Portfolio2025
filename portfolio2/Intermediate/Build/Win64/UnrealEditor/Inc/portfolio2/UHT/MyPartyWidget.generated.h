@@ -16,6 +16,7 @@ class UImage;
 #define PORTFOLIO2_MyPartyWidget_generated_h
 
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execLogAllLaneTextureNames); \
 	DECLARE_FUNCTION(execBtoW); \
 	DECLARE_FUNCTION(execBtoY); \
 	DECLARE_FUNCTION(execBtoB); \
