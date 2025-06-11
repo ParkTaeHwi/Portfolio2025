@@ -71,12 +71,284 @@ DEFINE_FUNCTION(UMyPartyWidget::execbBWorNot)
 }
 // End Class UMyPartyWidget Function bBWorNot
 
+// Begin Class UMyPartyWidget Function XReturn
+struct Z_Construct_UFunction_UMyPartyWidget_XReturn_Statics
+{
+	struct MyPartyWidget_eventXReturn_Parms
+	{
+		int32 ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "MyCategory" },
+		{ "ModuleRelativePath", "MyPartyWidget.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UMyPartyWidget_XReturn_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyPartyWidget_eventXReturn_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMyPartyWidget_XReturn_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMyPartyWidget_XReturn_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPartyWidget_XReturn_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyPartyWidget_XReturn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyPartyWidget, nullptr, "XReturn", nullptr, nullptr, Z_Construct_UFunction_UMyPartyWidget_XReturn_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPartyWidget_XReturn_Statics::PropPointers), sizeof(Z_Construct_UFunction_UMyPartyWidget_XReturn_Statics::MyPartyWidget_eventXReturn_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPartyWidget_XReturn_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyPartyWidget_XReturn_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UMyPartyWidget_XReturn_Statics::MyPartyWidget_eventXReturn_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UMyPartyWidget_XReturn()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyPartyWidget_XReturn_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UMyPartyWidget::execXReturn)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(int32*)Z_Param__Result=P_THIS->XReturn();
+	P_NATIVE_END;
+}
+// End Class UMyPartyWidget Function XReturn
+
+// Begin Class UMyPartyWidget Function XSetTo1
+struct Z_Construct_UFunction_UMyPartyWidget_XSetTo1_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "MyCategory" },
+		{ "ModuleRelativePath", "MyPartyWidget.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyPartyWidget_XSetTo1_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyPartyWidget, nullptr, "XSetTo1", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPartyWidget_XSetTo1_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyPartyWidget_XSetTo1_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UMyPartyWidget_XSetTo1()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyPartyWidget_XSetTo1_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UMyPartyWidget::execXSetTo1)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->XSetTo1();
+	P_NATIVE_END;
+}
+// End Class UMyPartyWidget Function XSetTo1
+
+// Begin Class UMyPartyWidget Function XSetTo2
+struct Z_Construct_UFunction_UMyPartyWidget_XSetTo2_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "MyCategory" },
+		{ "ModuleRelativePath", "MyPartyWidget.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyPartyWidget_XSetTo2_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyPartyWidget, nullptr, "XSetTo2", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPartyWidget_XSetTo2_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyPartyWidget_XSetTo2_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UMyPartyWidget_XSetTo2()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyPartyWidget_XSetTo2_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UMyPartyWidget::execXSetTo2)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->XSetTo2();
+	P_NATIVE_END;
+}
+// End Class UMyPartyWidget Function XSetTo2
+
+// Begin Class UMyPartyWidget Function XSetTo3
+struct Z_Construct_UFunction_UMyPartyWidget_XSetTo3_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "MyCategory" },
+		{ "ModuleRelativePath", "MyPartyWidget.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyPartyWidget_XSetTo3_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyPartyWidget, nullptr, "XSetTo3", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPartyWidget_XSetTo3_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyPartyWidget_XSetTo3_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UMyPartyWidget_XSetTo3()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyPartyWidget_XSetTo3_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UMyPartyWidget::execXSetTo3)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->XSetTo3();
+	P_NATIVE_END;
+}
+// End Class UMyPartyWidget Function XSetTo3
+
+// Begin Class UMyPartyWidget Function YReturn
+struct Z_Construct_UFunction_UMyPartyWidget_YReturn_Statics
+{
+	struct MyPartyWidget_eventYReturn_Parms
+	{
+		int32 ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "MyCategory" },
+		{ "ModuleRelativePath", "MyPartyWidget.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UMyPartyWidget_YReturn_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyPartyWidget_eventYReturn_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMyPartyWidget_YReturn_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMyPartyWidget_YReturn_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPartyWidget_YReturn_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyPartyWidget_YReturn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyPartyWidget, nullptr, "YReturn", nullptr, nullptr, Z_Construct_UFunction_UMyPartyWidget_YReturn_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPartyWidget_YReturn_Statics::PropPointers), sizeof(Z_Construct_UFunction_UMyPartyWidget_YReturn_Statics::MyPartyWidget_eventYReturn_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPartyWidget_YReturn_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyPartyWidget_YReturn_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UMyPartyWidget_YReturn_Statics::MyPartyWidget_eventYReturn_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UMyPartyWidget_YReturn()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyPartyWidget_YReturn_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UMyPartyWidget::execYReturn)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(int32*)Z_Param__Result=P_THIS->YReturn();
+	P_NATIVE_END;
+}
+// End Class UMyPartyWidget Function YReturn
+
+// Begin Class UMyPartyWidget Function YSetTo1
+struct Z_Construct_UFunction_UMyPartyWidget_YSetTo1_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "MyCategory" },
+		{ "ModuleRelativePath", "MyPartyWidget.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyPartyWidget_YSetTo1_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyPartyWidget, nullptr, "YSetTo1", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPartyWidget_YSetTo1_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyPartyWidget_YSetTo1_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UMyPartyWidget_YSetTo1()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyPartyWidget_YSetTo1_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UMyPartyWidget::execYSetTo1)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->YSetTo1();
+	P_NATIVE_END;
+}
+// End Class UMyPartyWidget Function YSetTo1
+
+// Begin Class UMyPartyWidget Function YSetTo2
+struct Z_Construct_UFunction_UMyPartyWidget_YSetTo2_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "MyCategory" },
+		{ "ModuleRelativePath", "MyPartyWidget.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyPartyWidget_YSetTo2_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyPartyWidget, nullptr, "YSetTo2", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPartyWidget_YSetTo2_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyPartyWidget_YSetTo2_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UMyPartyWidget_YSetTo2()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyPartyWidget_YSetTo2_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UMyPartyWidget::execYSetTo2)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->YSetTo2();
+	P_NATIVE_END;
+}
+// End Class UMyPartyWidget Function YSetTo2
+
+// Begin Class UMyPartyWidget Function YSetTo3
+struct Z_Construct_UFunction_UMyPartyWidget_YSetTo3_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "MyCategory" },
+		{ "ModuleRelativePath", "MyPartyWidget.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyPartyWidget_YSetTo3_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyPartyWidget, nullptr, "YSetTo3", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPartyWidget_YSetTo3_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyPartyWidget_YSetTo3_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UMyPartyWidget_YSetTo3()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyPartyWidget_YSetTo3_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UMyPartyWidget::execYSetTo3)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->YSetTo3();
+	P_NATIVE_END;
+}
+// End Class UMyPartyWidget Function YSetTo3
+
 // Begin Class UMyPartyWidget
 void UMyPartyWidget::StaticRegisterNativesUMyPartyWidget()
 {
 	UClass* Class = UMyPartyWidget::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "bBWorNot", &UMyPartyWidget::execbBWorNot },
+		{ "XReturn", &UMyPartyWidget::execXReturn },
+		{ "XSetTo1", &UMyPartyWidget::execXSetTo1 },
+		{ "XSetTo2", &UMyPartyWidget::execXSetTo2 },
+		{ "XSetTo3", &UMyPartyWidget::execXSetTo3 },
+		{ "YReturn", &UMyPartyWidget::execYReturn },
+		{ "YSetTo1", &UMyPartyWidget::execYSetTo1 },
+		{ "YSetTo2", &UMyPartyWidget::execYSetTo2 },
+		{ "YSetTo3", &UMyPartyWidget::execYSetTo3 },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -113,14 +385,32 @@ struct Z_Construct_UClass_UMyPartyWidget_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "MyPartyWidget.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_X_MetaData[] = {
+		{ "Category", "MyCategory" },
+		{ "ModuleRelativePath", "MyPartyWidget.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Y_MetaData[] = {
+		{ "Category", "MyCategory" },
+		{ "ModuleRelativePath", "MyPartyWidget.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_PartyImage0;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_PartyImage1;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_PartyImage2;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_X;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_Y;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UMyPartyWidget_bBWorNot, "bBWorNot" }, // 269442510
+		{ &Z_Construct_UFunction_UMyPartyWidget_XReturn, "XReturn" }, // 1447817895
+		{ &Z_Construct_UFunction_UMyPartyWidget_XSetTo1, "XSetTo1" }, // 2369751688
+		{ &Z_Construct_UFunction_UMyPartyWidget_XSetTo2, "XSetTo2" }, // 2785848935
+		{ &Z_Construct_UFunction_UMyPartyWidget_XSetTo3, "XSetTo3" }, // 2150495339
+		{ &Z_Construct_UFunction_UMyPartyWidget_YReturn, "YReturn" }, // 13931896
+		{ &Z_Construct_UFunction_UMyPartyWidget_YSetTo1, "YSetTo1" }, // 575901362
+		{ &Z_Construct_UFunction_UMyPartyWidget_YSetTo2, "YSetTo2" }, // 3528304100
+		{ &Z_Construct_UFunction_UMyPartyWidget_YSetTo3, "YSetTo3" }, // 3465534480
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -131,10 +421,14 @@ struct Z_Construct_UClass_UMyPartyWidget_Statics
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyPartyWidget_Statics::NewProp_PartyImage0 = { "PartyImage0", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyPartyWidget, PartyImage0), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PartyImage0_MetaData), NewProp_PartyImage0_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyPartyWidget_Statics::NewProp_PartyImage1 = { "PartyImage1", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyPartyWidget, PartyImage1), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PartyImage1_MetaData), NewProp_PartyImage1_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyPartyWidget_Statics::NewProp_PartyImage2 = { "PartyImage2", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyPartyWidget, PartyImage2), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PartyImage2_MetaData), NewProp_PartyImage2_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMyPartyWidget_Statics::NewProp_X = { "X", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyPartyWidget, X), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_X_MetaData), NewProp_X_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMyPartyWidget_Statics::NewProp_Y = { "Y", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyPartyWidget, Y), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Y_MetaData), NewProp_Y_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMyPartyWidget_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyPartyWidget_Statics::NewProp_PartyImage0,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyPartyWidget_Statics::NewProp_PartyImage1,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyPartyWidget_Statics::NewProp_PartyImage2,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyPartyWidget_Statics::NewProp_X,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyPartyWidget_Statics::NewProp_Y,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMyPartyWidget_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UMyPartyWidget_Statics::DependentSingletons[])() = {
@@ -178,10 +472,10 @@ UMyPartyWidget::~UMyPartyWidget() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMyPartyWidget, UMyPartyWidget::StaticClass, TEXT("UMyPartyWidget"), &Z_Registration_Info_UClass_UMyPartyWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyPartyWidget), 2996693181U) },
+		{ Z_Construct_UClass_UMyPartyWidget, UMyPartyWidget::StaticClass, TEXT("UMyPartyWidget"), &Z_Registration_Info_UClass_UMyPartyWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyPartyWidget), 3961456371U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_3424936488(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_186281211(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

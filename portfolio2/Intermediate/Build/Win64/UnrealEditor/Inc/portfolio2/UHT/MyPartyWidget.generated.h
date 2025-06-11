@@ -16,6 +16,14 @@ class UImage;
 #define PORTFOLIO2_MyPartyWidget_generated_h
 
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execYSetTo3); \
+	DECLARE_FUNCTION(execYSetTo2); \
+	DECLARE_FUNCTION(execYSetTo1); \
+	DECLARE_FUNCTION(execYReturn); \
+	DECLARE_FUNCTION(execXSetTo3); \
+	DECLARE_FUNCTION(execXSetTo2); \
+	DECLARE_FUNCTION(execXSetTo1); \
+	DECLARE_FUNCTION(execXReturn); \
 	DECLARE_FUNCTION(execbBWorNot);
 
 

@@ -89,7 +89,7 @@ bool UMyPartyWidget::bBWorNot(UImage* TargetImage)
 		bool bContainsBW = ImageName.Contains(TEXT("BW"));
 
 		// %s는 FString을 출력하기 위한 형식 지정자
-		UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::bBWorNot::%s, 'BW': %s"), *ImageName, bContainsBW ? TEXT("True") : TEXT("False"));
+		UE_LOG(LogTemp, Warning, TEXT("UMyPartyWidget::bBWorNot::%s, 'BW': %s, X = %d, Y = %d"), *ImageName, bContainsBW ? TEXT("True") : TEXT("False"),X,Y);
 
 		return bContainsBW;
 	}
@@ -101,4 +101,44 @@ bool UMyPartyWidget::bBWorNot(UImage* TargetImage)
 
 	// TargetImage가 유효하지 않거나 이미지가 설정되어 있지 않으면 false를 반환
 	return false;
+}
+
+int32 UMyPartyWidget::XReturn() const
+{
+	return X;
+}
+
+void UMyPartyWidget::XSetTo1()
+{
+	X = 1;
+}
+
+void UMyPartyWidget::XSetTo2()
+{
+	X = 2;
+}
+
+void UMyPartyWidget::XSetTo3()
+{
+	X = 3;
+}
+
+int32 UMyPartyWidget::YReturn() const
+{
+	return Y;
+}
+
+void UMyPartyWidget::YSetTo1()
+{
+	Y = 1;
+}
+
+void UMyPartyWidget::YSetTo2()
+{
+	Y = 2;
+}
+
+void UMyPartyWidget::YSetTo3()
+{
+	Y = 3;
 }

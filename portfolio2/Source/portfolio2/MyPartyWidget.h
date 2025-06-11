@@ -31,4 +31,36 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	bool bBWorNot(UImage* TargetImage);
+
+public:
+	UPROPERTY(BlueprintReadWrite, Category = "MyCategory")
+	int32 X;
+
+	UFUNCTION(BlueprintCallable, Category = "MyCategory")
+	int32 XReturn() const;
+
+	UFUNCTION(BlueprintCallable, Category = "MyCategory")
+	void XSetTo1();
+
+	UFUNCTION(BlueprintCallable, Category = "MyCategory")
+	void XSetTo2();
+
+	UFUNCTION(BlueprintCallable, Category = "MyCategory")
+	void XSetTo3();
+
+public:
+	UPROPERTY(BlueprintReadWrite, Category = "MyCategory")
+	int32 Y;
+
+	UFUNCTION(BlueprintCallable, Category = "MyCategory")
+	int32 YReturn() const;
+
+	UFUNCTION(BlueprintCallable, Category = "MyCategory")
+	void YSetTo1();
+
+	UFUNCTION(BlueprintCallable, Category = "MyCategory")
+	void YSetTo2();
+
+	UFUNCTION(BlueprintCallable, Category = "MyCategory")
+	void YSetTo3();
 };
