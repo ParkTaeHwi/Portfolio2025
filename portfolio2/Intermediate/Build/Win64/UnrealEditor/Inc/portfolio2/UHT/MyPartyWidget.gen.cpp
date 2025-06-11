@@ -274,6 +274,35 @@ DEFINE_FUNCTION(UMyPartyWidget::execMtoY)
 }
 // End Class UMyPartyWidget Function MtoY
 
+// Begin Class UMyPartyWidget Function RestorePartyImagesFromGameInstance
+struct Z_Construct_UFunction_UMyPartyWidget_RestorePartyImagesFromGameInstance_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyPartyWidget.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyPartyWidget_RestorePartyImagesFromGameInstance_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyPartyWidget, nullptr, "RestorePartyImagesFromGameInstance", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPartyWidget_RestorePartyImagesFromGameInstance_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyPartyWidget_RestorePartyImagesFromGameInstance_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UMyPartyWidget_RestorePartyImagesFromGameInstance()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyPartyWidget_RestorePartyImagesFromGameInstance_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UMyPartyWidget::execRestorePartyImagesFromGameInstance)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->RestorePartyImagesFromGameInstance();
+	P_NATIVE_END;
+}
+// End Class UMyPartyWidget Function RestorePartyImagesFromGameInstance
+
 // Begin Class UMyPartyWidget Function TtoB
 struct Z_Construct_UFunction_UMyPartyWidget_TtoB_Statics
 {
@@ -638,6 +667,7 @@ void UMyPartyWidget::StaticRegisterNativesUMyPartyWidget()
 		{ "MtoB", &UMyPartyWidget::execMtoB },
 		{ "MtoW", &UMyPartyWidget::execMtoW },
 		{ "MtoY", &UMyPartyWidget::execMtoY },
+		{ "RestorePartyImagesFromGameInstance", &UMyPartyWidget::execRestorePartyImagesFromGameInstance },
 		{ "TtoB", &UMyPartyWidget::execTtoB },
 		{ "TtoW", &UMyPartyWidget::execTtoW },
 		{ "TtoY", &UMyPartyWidget::execTtoY },
@@ -731,6 +761,7 @@ struct Z_Construct_UClass_UMyPartyWidget_Statics
 		{ &Z_Construct_UFunction_UMyPartyWidget_MtoB, "MtoB" }, // 1308685475
 		{ &Z_Construct_UFunction_UMyPartyWidget_MtoW, "MtoW" }, // 1288834184
 		{ &Z_Construct_UFunction_UMyPartyWidget_MtoY, "MtoY" }, // 531356301
+		{ &Z_Construct_UFunction_UMyPartyWidget_RestorePartyImagesFromGameInstance, "RestorePartyImagesFromGameInstance" }, // 1556400622
 		{ &Z_Construct_UFunction_UMyPartyWidget_TtoB, "TtoB" }, // 747153583
 		{ &Z_Construct_UFunction_UMyPartyWidget_TtoW, "TtoW" }, // 1539466664
 		{ &Z_Construct_UFunction_UMyPartyWidget_TtoY, "TtoY" }, // 3580053958
@@ -809,10 +840,10 @@ UMyPartyWidget::~UMyPartyWidget() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMyPartyWidget, UMyPartyWidget::StaticClass, TEXT("UMyPartyWidget"), &Z_Registration_Info_UClass_UMyPartyWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyPartyWidget), 4107413132U) },
+		{ Z_Construct_UClass_UMyPartyWidget, UMyPartyWidget::StaticClass, TEXT("UMyPartyWidget"), &Z_Registration_Info_UClass_UMyPartyWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyPartyWidget), 3391109647U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_1525222938(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_2458217303(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPartyWidget_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -270,3 +270,45 @@ void UMyPartyWidget::LogAllLaneTextureNames()
 		GI->SelectedPartyTextureNames = { TopName, MidName, BotName };
 	}
 }
+
+void UMyPartyWidget::RestorePartyImagesFromGameInstance()
+{
+	UE_LOG(LogTemp, Warning, TEXT("RestorePartyImagesFromGameInstance called!"));  // 호출 확인 로그
+
+	UMyGameInstance* GI = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
+	if (!GI)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("GameInstance is nullptr!"));
+		return;
+	}
+
+	if (GI->SelectedPartyTextureNames.Num() < 3)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Not enough textures saved in GameInstance!"));
+		return;
+	}
+
+	TArray<UImage*> Lanes = { TopLane, MidLane, BottomLane };
+
+	for (int32 i = 0; i < Lanes.Num(); ++i)
+	{
+		FString Path = FString::Printf(TEXT("/Game/Image/PartyImage/%s.%s"), *GI->SelectedPartyTextureNames[i], *GI->SelectedPartyTextureNames[i]);
+		UTexture2D* LoadedTexture = LoadObject<UTexture2D>(nullptr, *Path);
+
+		if (!LoadedTexture)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Failed to load texture at path: %s"), *Path);
+			continue;
+		}
+
+		if (Lanes[i])
+		{
+			Lanes[i]->SetBrushFromTexture(LoadedTexture);
+			UE_LOG(LogTemp, Warning, TEXT("Applied texture %s to lane %d"), *GI->SelectedPartyTextureNames[i], i);
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Lane %d is nullptr!"), i);
+		}
+	}
+}

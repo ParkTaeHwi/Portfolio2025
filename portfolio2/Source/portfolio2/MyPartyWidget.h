@@ -104,4 +104,7 @@ public:
 public:
 	UFUNCTION(BlueprintCallable)
 	void LogAllLaneTextureNames();
+
+	UFUNCTION(BlueprintCallable)
+	void RestorePartyImagesFromGameInstance();
 };

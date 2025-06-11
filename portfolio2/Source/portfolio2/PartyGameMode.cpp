@@ -5,19 +5,33 @@
 
 #include "Blueprint/UserWidget.h"
 #include "MyGameInstance.h"
+#include "MyPartyWidget.h"
 #include <Kismet/GameplayStatics.h>
 
 void APartyGameMode::BeginPlay()
 {
 	Super::BeginPlay();
+	UE_LOG(LogTemp, Warning, TEXT("APartyGameMode::BeginPlay called!"));
 
 	if (PartyUIClass)
 	{
-		PartyUI = CreateWidget<UUserWidget>(GetWorld(), PartyUIClass);
-		if (PartyUI)
+		UMyPartyWidget* MyPartyWidget = CreateWidget<UMyPartyWidget>(GetWorld(), PartyUIClass);
+
+		if (MyPartyWidget)
 		{
-			PartyUI->AddToViewport();
+			MyPartyWidget->AddToViewport();
+			UE_LOG(LogTemp, Warning, TEXT("APartyGameMode::BeginPlay::AddToViewport"));
+			MyPartyWidget->RestorePartyImagesFromGameInstance();
+			UE_LOG(LogTemp, Warning, TEXT("APartyGameMode::BeginPlay::RestorePartyImagesFromGameInstance"));
 		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Failed to create MyPartyWidget"));
+		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("PartyUIClass is null!"));
 	}
 
 	if (JewelUIClass)
