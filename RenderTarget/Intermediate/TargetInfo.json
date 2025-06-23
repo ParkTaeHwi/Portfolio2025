@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "RenderTarget",
+			"Path": "..\\Source\\RenderTarget.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "RenderTargetEditor",
+			"Path": "..\\Source\\RenderTargetEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\RenderTarget.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\RenderTarget.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\RenderTargetEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\RenderTarget">
+      <UniqueIdentifier>{CFC24C40-F6CC-3E39-9932-FC9207128670}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\RenderTarget\RenderTarget.Build.cs">
+      <Filter>Source\RenderTarget</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\RenderTarget\RenderTarget.cpp">
+      <Filter>Source\RenderTarget</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\RenderTarget\RenderTarget.h">
+      <Filter>Source\RenderTarget</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\RenderTarget\RenderTargetCharacter.cpp">
+      <Filter>Source\RenderTarget</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\RenderTarget\RenderTargetCharacter.h">
+      <Filter>Source\RenderTarget</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\RenderTarget\RenderTargetGameMode.cpp">
+      <Filter>Source\RenderTarget</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\RenderTarget\RenderTargetGameMode.h">
+      <Filter>Source\RenderTarget</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
