@@ -29,6 +29,7 @@ public:
 	UFUNCTION()
 	void AttackEnd(class UAnimMontage* Montage, bool bInterrupted);
 
+	UFUNCTION(BlueprintCallable)
 	void Attack_Hit();
 	void DeadEvent();
 
@@ -41,8 +42,10 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	float _attackRange = 1000.0f;
-	//float attackRadius = 100.0f;	// Ä¸½¶ ±½±â
-	//float heightOffset = 50.0f;		// Ä¸½¶ ³ôÀÌ
+	UPROPERTY(EditAnywhere)
+	float attackRadius = 100.0f;	// Ä¸½¶ ±½±â
+	UPROPERTY(EditAnywhere)
+	float heightOffset = 50.0f;		// Ä¸½¶ ³ôÀÌ
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stat", meta = (AllowPrivateAccess = "true"))

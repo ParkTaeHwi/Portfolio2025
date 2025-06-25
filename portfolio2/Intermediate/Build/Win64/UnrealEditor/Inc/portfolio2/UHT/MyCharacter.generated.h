@@ -16,6 +16,7 @@ class UAnimMontage;
 #define PORTFOLIO2_MyCharacter_generated_h
 
 #define FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCharacter_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execAttack_Hit); \
 	DECLARE_FUNCTION(execAttackEnd);
 
 

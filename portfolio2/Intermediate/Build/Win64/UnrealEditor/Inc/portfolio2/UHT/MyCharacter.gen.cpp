@@ -19,6 +19,35 @@ PORTFOLIO2_API UClass* Z_Construct_UClass_UMyStatComponent_NoRegister();
 UPackage* Z_Construct_UPackage__Script_portfolio2();
 // End Cross Module References
 
+// Begin Class AMyCharacter Function Attack_Hit
+struct Z_Construct_UFunction_AMyCharacter_Attack_Hit_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_Attack_Hit_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "Attack_Hit", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_Attack_Hit_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_Attack_Hit_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AMyCharacter_Attack_Hit()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_Attack_Hit_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AMyCharacter::execAttack_Hit)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Attack_Hit();
+	P_NATIVE_END;
+}
+// End Class AMyCharacter Function Attack_Hit
+
 // Begin Class AMyCharacter Function AttackEnd
 struct Z_Construct_UFunction_AMyCharacter_AttackEnd_Statics
 {
@@ -76,6 +105,7 @@ void AMyCharacter::StaticRegisterNativesAMyCharacter()
 {
 	UClass* Class = AMyCharacter::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "Attack_Hit", &AMyCharacter::execAttack_Hit },
 		{ "AttackEnd", &AMyCharacter::execAttackEnd },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -97,6 +127,20 @@ struct Z_Construct_UClass_AMyCharacter_Statics
 		{ "Category", "MyCharacter" },
 		{ "ModuleRelativePath", "MyCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_attackRadius_MetaData[] = {
+		{ "Category", "MyCharacter" },
+		{ "ModuleRelativePath", "MyCharacter.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_heightOffset_MetaData[] = {
+		{ "Category", "MyCharacter" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xc4\xb8\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\n" },
+#endif
+		{ "ModuleRelativePath", "MyCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xc4\xb8\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
+#endif
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp__statComponent_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Stat" },
@@ -115,6 +159,8 @@ struct Z_Construct_UClass_AMyCharacter_Statics
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp__attackRange;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_attackRadius;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_heightOffset;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp__statComponent;
 	static void NewProp__isAttack_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp__isAttack;
@@ -122,6 +168,7 @@ struct Z_Construct_UClass_AMyCharacter_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMyCharacter_Attack_Hit, "Attack_Hit" }, // 198073482
 		{ &Z_Construct_UFunction_AMyCharacter_AttackEnd, "AttackEnd" }, // 3249387814
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -131,6 +178,8 @@ struct Z_Construct_UClass_AMyCharacter_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp__attackRange = { "_attackRange", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, _attackRange), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__attackRange_MetaData), NewProp__attackRange_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_attackRadius = { "attackRadius", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, attackRadius), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_attackRadius_MetaData), NewProp_attackRadius_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_heightOffset = { "heightOffset", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, heightOffset), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_heightOffset_MetaData), NewProp_heightOffset_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp__statComponent = { "_statComponent", nullptr, (EPropertyFlags)0x002008000008001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, _statComponent), Z_Construct_UClass_UMyStatComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__statComponent_MetaData), NewProp__statComponent_MetaData) };
 void Z_Construct_UClass_AMyCharacter_Statics::NewProp__isAttack_SetBit(void* Obj)
 {
@@ -140,6 +189,8 @@ const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMyCharacter_Sta
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp__animInstance = { "_animInstance", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, _animInstance), Z_Construct_UClass_UMyAnimInstance_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__animInstance_MetaData), NewProp__animInstance_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp__attackRange,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_attackRadius,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_heightOffset,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp__statComponent,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp__isAttack,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp__animInstance,
@@ -185,10 +236,10 @@ AMyCharacter::~AMyCharacter() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyCharacter, AMyCharacter::StaticClass, TEXT("AMyCharacter"), &Z_Registration_Info_UClass_AMyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCharacter), 1139549699U) },
+		{ Z_Construct_UClass_AMyCharacter, AMyCharacter::StaticClass, TEXT("AMyCharacter"), &Z_Registration_Info_UClass_AMyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCharacter), 2616930575U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCharacter_h_689303649(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCharacter_h_4207483562(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
