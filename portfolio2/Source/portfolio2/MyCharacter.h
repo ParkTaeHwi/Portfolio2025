@@ -39,6 +39,11 @@ public:
 	bool IsDead();
 	bool IsAttacking() { return _isAttack; }
 
+	UPROPERTY(EditAnywhere)
+	float _attackRange = 1000.0f;
+	//float attackRadius = 100.0f;	// Ä¸½¶ ±½±â
+	//float heightOffset = 50.0f;		// Ä¸½¶ ³ôÀÌ
+
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stat", meta = (AllowPrivateAccess = "true"))
 	class UMyStatComponent* _statComponent;
@@ -51,6 +56,4 @@ protected:
 
 	float _vertical = 0.0f;
 	float _horizontal = 0.0f;
-	UPROPERTY(EditAnywhere)
-	float _attackRange = 1000.0f;
 };

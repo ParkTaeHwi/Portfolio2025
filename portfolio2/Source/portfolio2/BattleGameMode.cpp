@@ -11,19 +11,19 @@
 
 ABattleGameMode::ABattleGameMode()
 {
-	//static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/BP/BP_MyPlayer"));
-	//if (PlayerPawnBPClass.Succeeded())
-	//{
-	//	DefaultPawnClass = PlayerPawnBPClass.Class;
-	//}
-	//if (DefaultPawnClass)
-	//{
-	//	UE_LOG(LogTemp, Warning, TEXT("DefaultPawnClass is set: %s"), *DefaultPawnClass->GetName());
-	//}
-	//else
-	//{
-	//	UE_LOG(LogTemp, Warning, TEXT("DefaultPawnClass is NULL!"));
-	//}
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/BP/BP_MyPlayer"));
+	if (PlayerPawnBPClass.Succeeded())
+	{
+		DefaultPawnClass = PlayerPawnBPClass.Class;
+	}
+	if (DefaultPawnClass)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("DefaultPawnClass is set: %s"), *DefaultPawnClass->GetName());
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("DefaultPawnClass is NULL!"));
+	}
 }
 
 void ABattleGameMode::BeginPlay()
