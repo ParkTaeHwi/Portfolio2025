@@ -150,6 +150,12 @@
     <ClInclude Include="..\..\Source\portfolio2\MyPartyWidget.h">
       <Filter>Source\portfolio2</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\portfolio2\MyPlayableSummon.cpp">
+      <Filter>Source\portfolio2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\portfolio2\MyPlayableSummon.h">
+      <Filter>Source\portfolio2</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\portfolio2\MyPlayer.cpp">
       <Filter>Source\portfolio2</Filter>
     </ClCompile>
