@@ -8,6 +8,7 @@
 #include "Camera/CameraActor.h"
 #include <Kismet/GameplayStatics.h>
 #include "MyGameInstance.h"
+#include "MyPlayableSummon.h"
 
 ABattleGameMode::ABattleGameMode()
 {
@@ -76,5 +77,24 @@ void ABattleGameMode::BeginPlay()
 		{
 			UE_LOG(LogTemp, Warning, TEXT("ABattleGameMode::BeginPlay::Carried Texture: %s"), *Name);
 		}
+	}
+
+	AMyPlayableSummon* Summon1 = GetWorld()->SpawnActor<AMyPlayableSummon>();
+	if (Summon1)
+	{
+		Summon1->PS = 1;
+		Summon1->PalyableSummon1();
+	}
+	AMyPlayableSummon* Summon2 = GetWorld()->SpawnActor<AMyPlayableSummon>();
+	if (Summon2)
+	{
+		Summon2->PS = 2;
+		Summon2->PalyableSummon2();
+	}
+	AMyPlayableSummon* Summon3 = GetWorld()->SpawnActor<AMyPlayableSummon>();
+	if (Summon3)
+	{
+		Summon3->PS = 3;
+		Summon3->PalyableSummon3();
 	}
 }
