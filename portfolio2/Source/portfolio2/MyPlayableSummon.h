@@ -40,4 +40,8 @@ public:
 
 	// 소환수를 초기화하는 함수
 	void InitializeSummon(const FString& InName, int32 InPS);
+
+	void SummonBlue(FVector SpawnLocation);
+	void SummonYellow(FVector SpawnLocation);
+	void SummonWhite(FVector SpawnLocation);
 };
