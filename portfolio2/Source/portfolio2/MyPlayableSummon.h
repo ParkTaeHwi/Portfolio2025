@@ -33,4 +33,11 @@ public:
 	void PalyableSummon3();
 
 	int PS = 1;
+
+	// 소환수의 이름 (원본에 없었으므로 추가)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Summon Properties")
+	FString SummonName; // 'Name'은 엔진 내부에서 자주 사용되므로 충돌 방지를 위해 'SummonName'으로 변경했습니다.
+
+	// 소환수를 초기화하는 함수
+	void InitializeSummon(const FString& InName, int32 InPS);
 };

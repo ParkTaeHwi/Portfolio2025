@@ -70,31 +70,53 @@ void ABattleGameMode::BeginPlay()
 		UE_LOG(LogTemp, Warning, TEXT("ABattleGameMode::BeginPlay::Card %s: %d"), *Type, Count);
 	}
 
-	UMyGameInstance* GI = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
-	if (GI)
-	{
-		for (const FString& Name : GI->SelectedPartyTextureNames)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("ABattleGameMode::BeginPlay::Carried Texture: %s"), *Name);
-		}
-	}
+	//UMyGameInstance* GI = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
+	//if (GI)
+	//{
+	//	for (const FString& Name : GI->SelectedPartyTextureNames)
+	//	{
+	//		UE_LOG(LogTemp, Warning, TEXT("ABattleGameMode::BeginPlay::Carried Texture: %s"), *Name);
+	//	}
+	//}
+	//
+	//AMyPlayableSummon* Summon1 = GetWorld()->SpawnActor<AMyPlayableSummon>();
+	//if (Summon1)
+	//{
+	//	Summon1->PS = 1;
+	//	Summon1->PalyableSummon1();
+	//}
+	//AMyPlayableSummon* Summon2 = GetWorld()->SpawnActor<AMyPlayableSummon>();
+	//if (Summon2)
+	//{
+	//	Summon2->PS = 2;
+	//	Summon2->PalyableSummon2();
+	//}
+	//AMyPlayableSummon* Summon3 = GetWorld()->SpawnActor<AMyPlayableSummon>();
+	//if (Summon3)
+	//{
+	//	Summon3->PS = 3;
+	//	Summon3->PalyableSummon3();
+	//}
 
-	AMyPlayableSummon* Summon1 = GetWorld()->SpawnActor<AMyPlayableSummon>();
-	if (Summon1)
+	UMyGameInstance* GI = Cast<UMyGameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
+	if (!GI) return;
+
+	const TArray<FString>& TextureNames = GI->SelectedPartyTextureNames;
+
+	for (int32 i = 0; i < TextureNames.Num(); ++i)
 	{
-		Summon1->PS = 1;
-		Summon1->PalyableSummon1();
-	}
-	AMyPlayableSummon* Summon2 = GetWorld()->SpawnActor<AMyPlayableSummon>();
-	if (Summon2)
-	{
-		Summon2->PS = 2;
-		Summon2->PalyableSummon2();
-	}
-	AMyPlayableSummon* Summon3 = GetWorld()->SpawnActor<AMyPlayableSummon>();
-	if (Summon3)
-	{
-		Summon3->PS = 3;
-		Summon3->PalyableSummon3();
+		AMyPlayableSummon* Summon = GetWorld()->SpawnActor<AMyPlayableSummon>();
+		if (Summon)
+		{
+			Summon->InitializeSummon(TextureNames[i], i + 1);  
+
+			switch (i)
+			{
+			case 0: Summon->PalyableSummon1(); break;
+			case 1: Summon->PalyableSummon2(); break;
+			case 2: Summon->PalyableSummon3(); break;
+			default: break;
+			}
+		}
 	}
 }
