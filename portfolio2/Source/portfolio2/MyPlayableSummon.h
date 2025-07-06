@@ -44,4 +44,8 @@ public:
 	void SummonBlue(FVector SpawnLocation);
 	void SummonYellow(FVector SpawnLocation);
 	void SummonWhite(FVector SpawnLocation);
+
+	void GetControl1();
+	void GetControl2();
+	void GetControl3();
 };

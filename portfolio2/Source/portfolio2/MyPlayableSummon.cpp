@@ -1,15 +1,25 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "MyPlayableSummon.h"
-#include "MyGameInstance.h" // UMyGameInstance 사용을 위해 포함
-#include <Kismet/GameplayStatics.h> // UGameplayStatics 사용을 위해 포함
-#include "Engine/World.h" // GetWorld()와 SpawnActor를 위해 포함
-#include "UObject/ConstructorHelpers.h" // ConstructorHelpers::FClassFinder를 위해 포함
+#include "MyGameInstance.h"
+#include <Kismet/GameplayStatics.h>
+#include "Engine/World.h"
+#include "UObject/ConstructorHelpers.h"
+#include "GameFramework/PlayerController.h" // APlayerController를 위해 포함
 
 // 블루프린트 클래스 레퍼런스를 저장할 변수들
 TSubclassOf<APawn> BluePlayableBPClass;
 TSubclassOf<APawn> YellowPlayableBPClass;
 TSubclassOf<APawn> WhitePlayableBPClass;
+
+// 소환된 폰의 포인터를 저장할 전역/멤버 변수 (추가)
+// 이 변수들은 AMyPlayableSummon::SummonBlue 등에서 스폰된 폰의 포인터를 저장하여
+// 나중에 GetControl 함수에서 접근할 수 있도록 합니다.
+// AMyPlayableSummon 클래스의 멤버 변수로 선언하는 것이 더 좋습니다.
+// 편의를 위해 여기서는 static으로 선언하겠습니다. (실제 프로젝트에서는 멤버 변수 사용 권장)
+static APawn* SpawnedPawn1 = nullptr; // PS=1 에 의해 소환된 폰
+static APawn* SpawnedPawn2 = nullptr; // PS=2 에 의해 소환된 폰
+static APawn* SpawnedPawn3 = nullptr; // PS=3 에 의해 소환된 폰
 
 
 // Sets default values
@@ -84,24 +94,22 @@ void AMyPlayableSummon::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 void AMyPlayableSummon::PalyableSummon1()
 {
-	// 소환될 위치를 직접 지정합니다. (예시: 이 액터의 위치에서 z축으로 100 유닛 위)
-	// 필요에 따라 마우스 커서 위치, 특정 컴포넌트 위치 등 다양한 방식으로 계산할 수 있습니다.
 	FVector CurrentSpawnLocation = GetActorLocation() + FVector(0.0f, 0.0f, 100.0f);
 
 	if (PS == 1 && SummonName == TEXT("Blue_Pick"))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PS=1//AMyPlayableSummon::PalyableSummon1::Summon,%s"), *SummonName);
-		SummonBlue(CurrentSpawnLocation); // 계산된 위치 전달
+		SummonBlue(CurrentSpawnLocation);
 	}
 	else if (PS == 1 && SummonName == TEXT("Yellow_Pick"))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PS=1//AMyPlayableSummon::PalyableSummon1::Summon,%s"), *SummonName);
-		SummonYellow(CurrentSpawnLocation); // 계산된 위치 전달
+		SummonYellow(CurrentSpawnLocation);
 	}
 	else if (PS == 1 && SummonName == TEXT("White_Pick"))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PS=1//AMyPlayableSummon::PalyableSummon1::Summon,%s"), *SummonName);
-		SummonWhite(CurrentSpawnLocation); // 계산된 위치 전달
+		SummonWhite(CurrentSpawnLocation);
 	}
 	else
 	{
@@ -111,23 +119,22 @@ void AMyPlayableSummon::PalyableSummon1()
 
 void AMyPlayableSummon::PalyableSummon2()
 {
-	// 소환될 위치를 직접 지정합니다. (예시: 이 액터의 위치에서 y축으로 200 유닛 떨어진 곳)
 	FVector CurrentSpawnLocation = GetActorLocation() + FVector(0.0f, 200.0f, 100.0f);
 
 	if (PS == 2 && SummonName == TEXT("Blue_Pick"))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PS=2//AMyPlayableSummon::PalyableSummon2::Summon,%s"), *SummonName);
-		SummonBlue(CurrentSpawnLocation); // 계산된 위치 전달
+		SummonBlue(CurrentSpawnLocation);
 	}
 	else if (PS == 2 && SummonName == TEXT("Yellow_Pick"))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PS=2//AMyPlayableSummon::PalyableSummon2::Summon,%s"), *SummonName);
-		SummonYellow(CurrentSpawnLocation); // 계산된 위치 전달
+		SummonYellow(CurrentSpawnLocation);
 	}
 	else if (PS == 2 && SummonName == TEXT("White_Pick"))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PS=2//AMyPlayableSummon::PalyableSummon2::Summon,%s"), *SummonName);
-		SummonWhite(CurrentSpawnLocation); // 계산된 위치 전달
+		SummonWhite(CurrentSpawnLocation);
 	}
 	else
 	{
@@ -137,23 +144,22 @@ void AMyPlayableSummon::PalyableSummon2()
 
 void AMyPlayableSummon::PalyableSummon3()
 {
-	// 소환될 위치를 직접 지정합니다. (예시: 월드 원점)
 	FVector CurrentSpawnLocation = FVector(0.0f, 300.0f, 100.0f);
 
 	if (PS == 3 && SummonName == TEXT("Blue_Pick"))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PS=3//AMyPlayableSummon::PalyableSummon3::Summon,%s"), *SummonName);
-		SummonBlue(CurrentSpawnLocation); // 계산된 위치 전달
+		SummonBlue(CurrentSpawnLocation);
 	}
 	else if (PS == 3 && SummonName == TEXT("Yellow_Pick"))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PS=3//AMyPlayableSummon::PalyableSummon3::Summon,%s"), *SummonName);
-		SummonYellow(CurrentSpawnLocation); // 계산된 위치 전달
+		SummonYellow(CurrentSpawnLocation);
 	}
 	else if (PS == 3 && SummonName == TEXT("White_Pick"))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PS=3//AMyPlayableSummon::PalyableSummon3::Summon,%s"), *SummonName);
-		SummonWhite(CurrentSpawnLocation); // 계산된 위치 전달
+		SummonWhite(CurrentSpawnLocation);
 	}
 	else
 	{
@@ -168,19 +174,22 @@ void AMyPlayableSummon::InitializeSummon(const FString& InName, int32 InPS)
 	UE_LOG(LogTemp, Warning, TEXT("AMyPlayableSummon::InitializeSummon: Initialized with Name: %s, PS: %d"), *SummonName, PS);
 }
 
-// --- 블루프린트 소환 함수 구현 (SpawnLocation 매개변수 사용) ---
 void AMyPlayableSummon::SummonBlue(FVector SpawnLocation)
 {
 	if (BluePlayableBPClass)
 	{
-		FRotator SpawnRotation = GetActorRotation(); // 현재 액터의 회전 사용
+		FRotator SpawnRotation = GetActorRotation();
 		FActorSpawnParameters SpawnParams;
 		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
 
-		APawn* SpawnedBluePawn = GetWorld()->SpawnActor<APawn>(BluePlayableBPClass, SpawnLocation, SpawnRotation, SpawnParams);
-		if (SpawnedBluePawn)
+		APawn* SpawnedPawn = GetWorld()->SpawnActor<APawn>(BluePlayableBPClass, SpawnLocation, SpawnRotation, SpawnParams);
+		if (SpawnedPawn)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("BP_Playable_Blue spawned at %s"), *SpawnLocation.ToString());
+			// 스폰된 폰을 해당 전역/멤버 변수에 저장 (중요!)
+			if (PS == 1) SpawnedPawn1 = SpawnedPawn;
+			else if (PS == 2) SpawnedPawn2 = SpawnedPawn;
+			else if (PS == 3) SpawnedPawn3 = SpawnedPawn;
 		}
 		else
 		{
@@ -201,10 +210,14 @@ void AMyPlayableSummon::SummonYellow(FVector SpawnLocation)
 		FActorSpawnParameters SpawnParams;
 		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
 
-		APawn* SpawnedYellowPawn = GetWorld()->SpawnActor<APawn>(YellowPlayableBPClass, SpawnLocation, SpawnRotation, SpawnParams);
-		if (SpawnedYellowPawn)
+		APawn* SpawnedPawn = GetWorld()->SpawnActor<APawn>(YellowPlayableBPClass, SpawnLocation, SpawnRotation, SpawnParams);
+		if (SpawnedPawn)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("BP_Playable_Yellow spawned at %s"), *SpawnLocation.ToString());
+			// 스폰된 폰을 해당 전역/멤버 변수에 저장 (중요!)
+			if (PS == 1) SpawnedPawn1 = SpawnedPawn;
+			else if (PS == 2) SpawnedPawn2 = SpawnedPawn;
+			else if (PS == 3) SpawnedPawn3 = SpawnedPawn;
 		}
 		else
 		{
@@ -225,10 +238,14 @@ void AMyPlayableSummon::SummonWhite(FVector SpawnLocation)
 		FActorSpawnParameters SpawnParams;
 		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
 
-		APawn* SpawnedWhitePawn = GetWorld()->SpawnActor<APawn>(WhitePlayableBPClass, SpawnLocation, SpawnRotation, SpawnParams);
-		if (SpawnedWhitePawn)
+		APawn* SpawnedPawn = GetWorld()->SpawnActor<APawn>(WhitePlayableBPClass, SpawnLocation, SpawnRotation, SpawnParams);
+		if (SpawnedPawn)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("BP_Playable_White spawned at %s"), *SpawnLocation.ToString());
+			// 스폰된 폰을 해당 전역/멤버 변수에 저장 (중요!)
+			if (PS == 1) SpawnedPawn1 = SpawnedPawn;
+			else if (PS == 2) SpawnedPawn2 = SpawnedPawn;
+			else if (PS == 3) SpawnedPawn3 = SpawnedPawn;
 		}
 		else
 		{
@@ -238,5 +255,75 @@ void AMyPlayableSummon::SummonWhite(FVector SpawnLocation)
 	else
 	{
 		UE_LOG(LogTemp, Error, TEXT("WhitePlayableBPClass is not loaded! Cannot spawn BP_Playable_White."));
+	}
+}
+
+// --- 플레이어 컨트롤을 폰으로 옮기는 함수 구현 ---
+void AMyPlayableSummon::GetControl1()
+{
+	UE_LOG(LogTemp, Warning, TEXT("AMyPlayableSummon::GetControl1: Attempting to possess Pawn 1."));
+	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0); // 첫 번째 플레이어 컨트롤러 가져오기
+
+	if (PlayerController)
+	{
+		if (SpawnedPawn1)
+		{
+			PlayerController->Possess(SpawnedPawn1); // SpawnedPawn1으로 컨트롤 옮기기
+			UE_LOG(LogTemp, Warning, TEXT("AMyPlayableSummon::GetControl1: Successfully possessed Pawn 1 (%s)."), *SpawnedPawn1->GetName());
+		}
+		else
+		{
+			UE_LOG(LogTemp, Error, TEXT("AMyPlayableSummon::GetControl1: Pawn 1 (SpawnedPawn1) is NULL. Cannot possess."));
+		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("AMyPlayableSummon::GetControl1: PlayerController is NULL."));
+	}
+}
+
+void AMyPlayableSummon::GetControl2()
+{
+	UE_LOG(LogTemp, Warning, TEXT("AMyPlayableSummon::GetControl2: Attempting to possess Pawn 2."));
+	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0); // 첫 번째 플레이어 컨트롤러 가져오기
+
+	if (PlayerController)
+	{
+		if (SpawnedPawn2)
+		{
+			PlayerController->Possess(SpawnedPawn2); // SpawnedPawn2으로 컨트롤 옮기기
+			UE_LOG(LogTemp, Warning, TEXT("AMyPlayableSummon::GetControl2: Successfully possessed Pawn 2 (%s)."), *SpawnedPawn2->GetName());
+		}
+		else
+		{
+			UE_LOG(LogTemp, Error, TEXT("AMyPlayableSummon::GetControl2: Pawn 2 (SpawnedPawn2) is NULL. Cannot possess."));
+		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("AMyPlayableSummon::GetControl2: PlayerController is NULL."));
+	}
+}
+
+void AMyPlayableSummon::GetControl3()
+{
+	UE_LOG(LogTemp, Warning, TEXT("AMyPlayableSummon::GetControl3: Attempting to possess Pawn 3."));
+	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0); // 첫 번째 플레이어 컨트롤러 가져오기
+
+	if (PlayerController)
+	{
+		if (SpawnedPawn3)
+		{
+			PlayerController->Possess(SpawnedPawn3); // SpawnedPawn3으로 컨트롤 옮기기
+			UE_LOG(LogTemp, Warning, TEXT("AMyPlayableSummon::GetControl3: Successfully possessed Pawn 3 (%s)."), *SpawnedPawn3->GetName());
+		}
+		else
+		{
+			UE_LOG(LogTemp, Error, TEXT("AMyPlayableSummon::GetControl3: Pawn 3 (SpawnedPawn3) is NULL. Cannot possess."));
+		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("AMyPlayableSummon::GetControl3: PlayerController is NULL."));
 	}
 }
