@@ -16,9 +16,103 @@ PORTFOLIO2_API UClass* Z_Construct_UClass_AMyPlayableSummon_NoRegister();
 UPackage* Z_Construct_UPackage__Script_portfolio2();
 // End Cross Module References
 
+// Begin Class AMyPlayableSummon Function GetControl1
+struct Z_Construct_UFunction_AMyPlayableSummon_GetControl1_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyPlayableSummon.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyPlayableSummon_GetControl1_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyPlayableSummon, nullptr, "GetControl1", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPlayableSummon_GetControl1_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyPlayableSummon_GetControl1_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AMyPlayableSummon_GetControl1()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyPlayableSummon_GetControl1_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AMyPlayableSummon::execGetControl1)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->GetControl1();
+	P_NATIVE_END;
+}
+// End Class AMyPlayableSummon Function GetControl1
+
+// Begin Class AMyPlayableSummon Function GetControl2
+struct Z_Construct_UFunction_AMyPlayableSummon_GetControl2_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyPlayableSummon.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyPlayableSummon_GetControl2_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyPlayableSummon, nullptr, "GetControl2", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPlayableSummon_GetControl2_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyPlayableSummon_GetControl2_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AMyPlayableSummon_GetControl2()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyPlayableSummon_GetControl2_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AMyPlayableSummon::execGetControl2)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->GetControl2();
+	P_NATIVE_END;
+}
+// End Class AMyPlayableSummon Function GetControl2
+
+// Begin Class AMyPlayableSummon Function GetControl3
+struct Z_Construct_UFunction_AMyPlayableSummon_GetControl3_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyPlayableSummon.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyPlayableSummon_GetControl3_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyPlayableSummon, nullptr, "GetControl3", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPlayableSummon_GetControl3_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyPlayableSummon_GetControl3_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AMyPlayableSummon_GetControl3()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyPlayableSummon_GetControl3_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AMyPlayableSummon::execGetControl3)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->GetControl3();
+	P_NATIVE_END;
+}
+// End Class AMyPlayableSummon Function GetControl3
+
 // Begin Class AMyPlayableSummon
 void AMyPlayableSummon::StaticRegisterNativesAMyPlayableSummon()
 {
+	UClass* Class = AMyPlayableSummon::StaticClass();
+	static const FNameNativePtrPair Funcs[] = {
+		{ "GetControl1", &AMyPlayableSummon::execGetControl1 },
+		{ "GetControl2", &AMyPlayableSummon::execGetControl2 },
+		{ "GetControl3", &AMyPlayableSummon::execGetControl3 },
+	};
+	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
 IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AMyPlayableSummon);
 UClass* Z_Construct_UClass_AMyPlayableSummon_NoRegister()
@@ -47,6 +141,12 @@ struct Z_Construct_UClass_AMyPlayableSummon_Statics
 	static const UECodeGen_Private::FStrPropertyParams NewProp_SummonName;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
+	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMyPlayableSummon_GetControl1, "GetControl1" }, // 1566621982
+		{ &Z_Construct_UFunction_AMyPlayableSummon_GetControl2, "GetControl2" }, // 4238076977
+		{ &Z_Construct_UFunction_AMyPlayableSummon_GetControl3, "GetControl3" }, // 3773924709
+	};
+	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AMyPlayableSummon>::IsAbstract,
 	};
@@ -67,11 +167,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_AMyPlayableSummon_Stati
 	"Game",
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
-	nullptr,
+	FuncInfo,
 	Z_Construct_UClass_AMyPlayableSummon_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
-	0,
+	UE_ARRAY_COUNT(FuncInfo),
 	UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayableSummon_Statics::PropPointers),
 	0,
 	0x009000A4u,
@@ -97,10 +197,10 @@ AMyPlayableSummon::~AMyPlayableSummon() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPlayableSummon_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyPlayableSummon, AMyPlayableSummon::StaticClass, TEXT("AMyPlayableSummon"), &Z_Registration_Info_UClass_AMyPlayableSummon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayableSummon), 1951241784U) },
+		{ Z_Construct_UClass_AMyPlayableSummon, AMyPlayableSummon::StaticClass, TEXT("AMyPlayableSummon"), &Z_Registration_Info_UClass_AMyPlayableSummon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayableSummon), 1426257406U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPlayableSummon_h_149565333(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPlayableSummon_h_131115615(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPlayableSummon_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_MyPlayableSummon_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

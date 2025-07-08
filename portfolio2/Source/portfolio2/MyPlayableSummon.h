@@ -45,7 +45,10 @@ public:
 	void SummonYellow(FVector SpawnLocation);
 	void SummonWhite(FVector SpawnLocation);
 
+	UFUNCTION(BlueprintCallable)
 	void GetControl1();
+	UFUNCTION(BlueprintCallable)
 	void GetControl2();
+	UFUNCTION(BlueprintCallable)
 	void GetControl3();
 };
