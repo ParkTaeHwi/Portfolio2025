@@ -10,6 +10,7 @@
  * 
  */
 class ABoardManager;
+class AMyPlayableSummon;
 
 UCLASS()
 class PORTFOLIO2_API ABattleGameMode : public AMyGameModeBase
@@ -20,6 +21,9 @@ public:
 	ABattleGameMode();
 
 	virtual void BeginPlay() override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Summon")
+	TSubclassOf<AMyPlayableSummon> MyPlayableSummonBPClass;
 
 protected:
 	UPROPERTY(EditAnywhere, Category = "UI")

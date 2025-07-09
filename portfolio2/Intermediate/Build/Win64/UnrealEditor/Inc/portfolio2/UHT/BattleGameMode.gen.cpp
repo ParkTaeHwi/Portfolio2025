@@ -15,6 +15,7 @@ PORTFOLIO2_API UClass* Z_Construct_UClass_ABattleGameMode();
 PORTFOLIO2_API UClass* Z_Construct_UClass_ABattleGameMode_NoRegister();
 PORTFOLIO2_API UClass* Z_Construct_UClass_ABoardManager_NoRegister();
 PORTFOLIO2_API UClass* Z_Construct_UClass_AMyGameModeBase();
+PORTFOLIO2_API UClass* Z_Construct_UClass_AMyPlayableSummon_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 UPackage* Z_Construct_UPackage__Script_portfolio2();
 // End Cross Module References
@@ -37,6 +38,10 @@ struct Z_Construct_UClass_ABattleGameMode_Statics
 		{ "ModuleRelativePath", "BattleGameMode.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MyPlayableSummonBPClass_MetaData[] = {
+		{ "Category", "Summon" },
+		{ "ModuleRelativePath", "BattleGameMode.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BattleUIClass_MetaData[] = {
 		{ "Category", "UI" },
 		{ "ModuleRelativePath", "BattleGameMode.h" },
@@ -56,6 +61,7 @@ struct Z_Construct_UClass_ABattleGameMode_Statics
 		{ "ModuleRelativePath", "BattleGameMode.h" },
 	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FClassPropertyParams NewProp_MyPlayableSummonBPClass;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_BattleUIClass;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_BoardManagerClass;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_BattleUI;
@@ -66,10 +72,12 @@ struct Z_Construct_UClass_ABattleGameMode_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ABattleGameMode_Statics::NewProp_MyPlayableSummonBPClass = { "MyPlayableSummonBPClass", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABattleGameMode, MyPlayableSummonBPClass), Z_Construct_UClass_UClass, Z_Construct_UClass_AMyPlayableSummon_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MyPlayableSummonBPClass_MetaData), NewProp_MyPlayableSummonBPClass_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ABattleGameMode_Statics::NewProp_BattleUIClass = { "BattleUIClass", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABattleGameMode, BattleUIClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BattleUIClass_MetaData), NewProp_BattleUIClass_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ABattleGameMode_Statics::NewProp_BoardManagerClass = { "BoardManagerClass", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABattleGameMode, BoardManagerClass), Z_Construct_UClass_UClass, Z_Construct_UClass_ABoardManager_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BoardManagerClass_MetaData), NewProp_BoardManagerClass_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABattleGameMode_Statics::NewProp_BattleUI = { "BattleUI", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABattleGameMode, BattleUI), Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BattleUI_MetaData), NewProp_BattleUI_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABattleGameMode_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABattleGameMode_Statics::NewProp_MyPlayableSummonBPClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABattleGameMode_Statics::NewProp_BattleUIClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABattleGameMode_Statics::NewProp_BoardManagerClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABattleGameMode_Statics::NewProp_BattleUI,
@@ -115,10 +123,10 @@ ABattleGameMode::~ABattleGameMode() {}
 struct Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_BattleGameMode_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABattleGameMode, ABattleGameMode::StaticClass, TEXT("ABattleGameMode"), &Z_Registration_Info_UClass_ABattleGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABattleGameMode), 751369140U) },
+		{ Z_Construct_UClass_ABattleGameMode, ABattleGameMode::StaticClass, TEXT("ABattleGameMode"), &Z_Registration_Info_UClass_ABattleGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABattleGameMode), 1309222763U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_BattleGameMode_h_4212154930(TEXT("/Script/portfolio2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_BattleGameMode_h_475073520(TEXT("/Script/portfolio2"),
 	Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_BattleGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AUnreal5_Portfolio2025_portfolio2_Source_portfolio2_BattleGameMode_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
